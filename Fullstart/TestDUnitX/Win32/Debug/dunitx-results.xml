@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<test-results name="C:\Projects\Fullstart\TestDUnitX\Win32\Debug\GMSSTARTTestDUnitX.exe" total="2" errors="2" failures="0" ignored="0" inconclusive="0" not-run="0" skipped="0" invalid="0" date="2017-05-05" time="5.083">
+  <culture-info current-culture="en" current-uiculture="en" />
+  <test-suite type="Assembly" name="GMSSTARTTestDUnitX.exe" executed="true" result="Failure" success="False" time="5.083" asserts="0">
+    <results>
+        <test-suite type="Namespace" name="UnitTestDUnitX" executed="true" result="Success" success="True" time="5.082" asserts="0" >
+          <results>
+              <test-suite type="Fixture" name="TMyTestObject" executed="True" result="Success" success="True" time="5.082" >
+                <results>
+                  <test-case name="TestLoginAndGetMessagesCount.TestGoodLogin" executed="True" result="Error" success="False" time="0.000" asserts="0" >
+                    <failure>
+                      <message>
+                        <![CDATA[ Access violation at address 01376D8D in module 'GMSSTARTTestDUnitX.exe'. Read of address 00000E1A ]]>
+                      </message>
+                      <stack-trace>
+                        <![CDATA[  ]]>
+                      </stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="TestLoginAndGetMessagesCount.TestWrongLogin" executed="True" result="Error" success="False" time="0.000" asserts="0" >
+                    <failure>
+                      <message>
+                        <![CDATA[ Access violation at address 01376D8D in module 'GMSSTARTTestDUnitX.exe'. Read of address 00000E1A ]]>
+                      </message>
+                      <stack-trace>
+                        <![CDATA[  ]]>
+                      </stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+          </results>
+        </test-suite>
+    </results>
+  </test-suite>
+</test-results>

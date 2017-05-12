@@ -1,0 +1,18 @@
+program UnitTestGUI;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  DUNitX.Loggers.GUIX in 'C:\Program Files (x86)\Embarcadero\Studio\18.0\source\DunitX\DUNitX.Loggers.GUIX.pas' {GUIXTestRunner},
+  Unit1 in 'Unit1.pas',
+  hsapi in '..\hsapi.pas' {HotelServerApi: TDataModule},
+  superobject in '..\superobject.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TGUIXTestRunner, GUIXTestRunner);
+  Application.CreateForm(THotelServerApi, HotelServerApi);
+  Application.Run;
+end.

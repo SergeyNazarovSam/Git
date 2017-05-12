@@ -1,0 +1,55 @@
+unit Unit1;
+
+interface
+uses
+  DUnitX.TestFramework, FMX.FOrms;
+
+type
+
+  [TestFixture('THotelServerApi', 'Testing')]
+  TMyTestObject = class(TObject)
+  public
+    [Setup]
+    procedure Setup;
+    [TearDown]
+    procedure TearDown;
+    // Sample Methods
+    // Simple single Test
+    [Test]
+    procedure Test1;
+    // Test with TestCase Attribute to supply parameters.
+    [Test]
+//    [TestCase('TestA','1,2')]
+//    [TestCase('TestB','3,4')]
+    [TestCase('CorrectLogin', 'q,q,True')]
+    procedure Test2(const aLoginName : string; const aPassword : string; const aResult : boolean);
+  end;
+
+implementation
+
+uses hsapi;
+
+procedure TMyTestObject.Setup;
+begin
+  HotelServerApi:=THotelServerApi.Create(Application.MainForm);
+  hotelserverapi.URL := 'http://cloud2.gms.info:3000';
+end;
+
+procedure TMyTestObject.TearDown;
+begin
+end;
+
+procedure TMyTestObject.Test1;
+begin
+end;
+
+procedure TMyTestObject.Test2(const aLoginName : string; const aPassword : string; const aResult : boolean);
+begin
+  hotelserverapi.Username := aLoginName;
+  hotelserverapi.Password := aPassword;
+  Assert.IsTrue(hotelserverapi.Login=aResult);
+end;
+
+initialization
+  TDUnitX.RegisterTestFixture(TMyTestObject);
+end.

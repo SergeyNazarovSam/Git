@@ -1,0 +1,73 @@
+unit Testhsapi;
+{
+
+  Delphi DUnit Test Case
+  ----------------------
+  This test case test login and getmessagecount functions for
+  Username = admin@felix.info password = adminfelix
+  remember that you need first login to test getmessage count
+
+}
+
+interface
+
+uses
+  TestFramework, IdSSLOpenSSL, REST.Client, SysUtils, hsapi, IdHTTP,
+  Data.Bind.ObjectScope, superobject, IdIOHandlerStack, IdTCPConnection, IdTCPClient,
+  REST.Authenticator.OAuth, Data.Bind.Components, Classes, IdIOHandlerSocket,
+  IdComponent, IdBaseComponent, IdSSL, IdIOHandler, IPPeerClient;
+
+type
+  // Test methods for class Thotelserverapi
+
+  TestThotelserverapi = class(TTestCase)
+  strict private
+    Fhotelserverapi: Thotelserverapi;
+  public
+    procedure SetUp; override;
+    procedure TearDown; override;
+  published
+    procedure TestLogin;
+    procedure Testgetmessagecount;
+  end;
+
+implementation
+
+procedure TestThotelserverapi.SetUp;
+begin
+  Fhotelserverapi := Thotelserverapi.Create(nil);
+end;
+
+procedure TestThotelserverapi.TearDown;
+begin
+  Fhotelserverapi.Free;
+  Fhotelserverapi := nil;
+end;
+
+procedure TestThotelserverapi.TestLogin;
+var
+  ReturnValue: Boolean;
+begin
+  //Fhotelserverapi
+
+
+  ReturnValue := Fhotelserverapi.Login;
+  // TODO: Validate method results
+end;
+
+procedure TestThotelserverapi.Testgetmessagecount;
+var
+  ReturnValue: string;
+  pToken: string;
+  pCreatedUser: string;
+begin
+  // TODO: Setup method call parameters
+  ReturnValue := Fhotelserverapi.getmessagecount(pCreatedUser, pToken);
+  // TODO: Validate method results
+end;
+
+initialization
+  // Register any test cases with the test runner
+  RegisterTest(TestThotelserverapi.Suite);
+end.
+

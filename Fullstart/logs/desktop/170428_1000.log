@@ -1,0 +1,10 @@
+(10:19:52 Firma:1 Benutzer:) Start of GMSStart
+(10:19:52 Firma:1 Benutzer:) Showing Login diaolog
+(10:20:02 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(10:20:02 Firma:1 Benutzer:) Start build Application list 
+(10:21:18 Firma:1 Benutzer:) Run application C:\Program Files\Internet Explorer\iexplore.exe http://cloud2.gms.info:3000/dashboard?user_token=XjoGN2dzP8wWXcsNdRvP&lookup_company_id=1
+(10:21:22 Firma:1 Benutzer:) Run application C:\Projects\ChromiumVCL\Win32\Debug\CromiumVCL.exe 
+(10:22:43 Firma:1 Benutzer:) Run application C:\Program Files\Internet Explorer\iexplore.exe http://cloud2.gms.info:3000/dashboard?user_token=XjoGN2dzP8wWXcsNdRvP&lookup_company_id=1
+(10:22:45 Firma:1 Benutzer:) Run application C:\Projects\ChromiumVCL\Win32\Debug\CromiumVCL.exe 
+(10:22:52 Firma:1 Benutzer:) Run application C:\Projects\ChromiumVCL\Win32\Debug\CromiumVCL.exe 
+(10:23:22 Firma:1 Benutzer:) Close GMSStart

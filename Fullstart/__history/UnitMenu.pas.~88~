@@ -1,0 +1,151 @@
+unit UnitMenu;
+
+ // Embarcadero Delphi 10.1 Berlin
+ // This is unit which contain visual elements of Left menu with
+ // applications list, configuration access and Logoff and exit
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
+  FMX.StdCtrls,Generics.Collections, FMX.Controls.Presentation, FMX.Objects;
+
+type
+  TmenuRight = class(TForm)
+    StyleBook: TStyleBook;
+    LayoutButton: TScaledLayout;
+    ButtonMin: TSpeedButton;
+    LayoutOben: TLayout;
+    PanelLogout: TPanel;
+    LabelUserName: TLabel;
+    ButtonLogoff: TButton;
+    ButtonExit: TButton;
+    LabelTextLogin: TLabel;
+    TimerHideMenu: TTimer;
+    procedure FormShow(Sender: TObject);
+    procedure ButtonMinClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure ButtonLogoffClick(Sender: TObject);
+    procedure ButtonExitClick(Sender: TObject);
+    procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure TimerHideMenuTimer(Sender: TObject);
+  private
+    { Private-Deklarationen }
+  public
+    procedure addprogramm(button : Tbutton);
+    procedure clearProgramm;
+    procedure addLine;
+    procedure addListName(Title:string);
+    { Public-Deklarationen }
+  end;
+
+var
+  MenuRight: TmenuRight;
+
+implementation
+
+uses UnitMain, Hsapi, UnitLogin;
+
+{$R *.fmx}
+
+procedure TmenuRight.addprogramm(button : Tbutton);
+begin
+// Hier nur die Styles für den button anpassen
+  button.Parent := layoutbutton;
+  button.Position.Y := 2000;
+  button.Align := TAlignLayout.Top;
+  button.Margins.Top := 1;
+  button.Height := 40;
+end;
+
+Procedure TmenuRight.addLine;
+var aLine : Tline;
+begin
+  aLine := TLine.Create(self);
+  aLine.Parent := layoutbutton;
+  aLine.Position.Y := 2000;
+  aLine.Align := TAlignLayout.Top;
+  aLine.Margins.Top := 0;
+  aLine.Height := 1;
+end;
+
+Procedure TmenuRight.addListName(Title:string);
+var aLabel : TLabel;
+begin
+  aLabel := TLabel.Create(self);
+  aLabel.Parent := layoutbutton;
+  aLabel.Position.Y := 2000;
+  aLabel.Align := TAlignLayout.Top;
+  aLabel.Margins.Top := 1;
+  aLabel.Height := 40;
+  aLabel.Text := Title;
+  aLabel.StyleLookup := 'Label_UserNameStyle1';
+  //aLabel.FontColor := TAlphaColorRec.Black;
+  aLabel.StyledSettings := aLabel.StyledSettings - [TStyledSetting.FontColor];
+end;
+
+
+procedure TmenuRight.clearProgramm;
+begin
+  While layoutbutton.ChildrenCount > 0 do
+    layoutbutton.Children[0].Destroy;
+end;
+
+procedure TmenuRight.ButtonMinClick(Sender: TObject);
+begin
+  if self.Height < 40 then
+  begin
+    self.Height := Screen.Height - 40;
+    Layoutbutton.Visible := true;
+    PanelLogout.Visible := true;
+    self.Width := 300;
+    self.BringToFront;
+  end else
+  begin
+    Layoutbutton.Visible := false;
+    PanelLogout.Visible := false;
+    self.Width := 0;
+    self.Height := 35;
+  end;
+end;
+
+procedure TmenuRight.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  mainform.Close;
+end;
+
+procedure TmenuRight.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  if (self.Width > 100) and (X < 0) then
+    TimerHideMenu.Enabled := true;
+end;
+
+procedure TmenuRight.FormShow(Sender: TObject);
+begin
+  self.Left := 0;
+  self.Top := 0;
+  self.Height := Screen.Height;
+  self.Width := 300;
+  ButtonMinClick(nil);
+end;
+
+procedure TmenuRight.TimerHideMenuTimer(Sender: TObject);
+begin
+  ButtonMinClick(nil);
+  TimerHideMenu.Enabled := false;
+end;
+
+procedure TmenuRight.ButtonExitClick(Sender: TObject);
+begin
+  hotelserverapi.logout;
+  self.Close;
+end;
+
+procedure TmenuRight.ButtonLogoffClick(Sender: TObject);
+begin
+  MainForm.SendLogOut(Sender);
+end;
+
+end.

@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{BB78E5EA-AD01-46F0-80B5-50A6FF312E78}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="GMSSTART.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Test\GMSSTARTTests.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TestDUnitX\GMSSTARTTestDUnitX.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Dunitx\UnitTestGUI\UnitTestGUI.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="GMSSTART">
+        <MSBuild Projects="GMSSTART.dproj"/>
+    </Target>
+    <Target Name="GMSSTART:Clean">
+        <MSBuild Projects="GMSSTART.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GMSSTART:Make">
+        <MSBuild Projects="GMSSTART.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GMSSTARTTests">
+        <MSBuild Projects="Test\GMSSTARTTests.dproj"/>
+    </Target>
+    <Target Name="GMSSTARTTests:Clean">
+        <MSBuild Projects="Test\GMSSTARTTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GMSSTARTTests:Make">
+        <MSBuild Projects="Test\GMSSTARTTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GMSSTARTTestDUnitX">
+        <MSBuild Projects="TestDUnitX\GMSSTARTTestDUnitX.dproj"/>
+    </Target>
+    <Target Name="GMSSTARTTestDUnitX:Clean">
+        <MSBuild Projects="TestDUnitX\GMSSTARTTestDUnitX.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GMSSTARTTestDUnitX:Make">
+        <MSBuild Projects="TestDUnitX\GMSSTARTTestDUnitX.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="UnitTestGUI">
+        <MSBuild Projects="Dunitx\UnitTestGUI\UnitTestGUI.dproj"/>
+    </Target>
+    <Target Name="UnitTestGUI:Clean">
+        <MSBuild Projects="Dunitx\UnitTestGUI\UnitTestGUI.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UnitTestGUI:Make">
+        <MSBuild Projects="Dunitx\UnitTestGUI\UnitTestGUI.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="GMSSTART;GMSSTARTTests;GMSSTARTTestDUnitX;UnitTestGUI"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="GMSSTART:Clean;GMSSTARTTests:Clean;GMSSTARTTestDUnitX:Clean;UnitTestGUI:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="GMSSTART:Make;GMSSTARTTests:Make;GMSSTARTTestDUnitX:Make;UnitTestGUI:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

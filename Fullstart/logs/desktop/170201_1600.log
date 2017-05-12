@@ -1,0 +1,260 @@
+(16:00:28 Firma:1 Benutzer:) Start of GMSStart
+(16:00:28 Firma:1 Benutzer:) Showing Login diaolog
+(16:00:33 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(16:00:33 Firma:1 Benutzer:) Start build Application list 
+(16:00:34 Firma:1 Benutzer:) c:\Projects\GMS_Maintenance\Win32\Debug_server c:\Projects\GMS_Maintenance\Win32\Debug\
+(16:00:34 Firma:1 Benutzer:) aSubFolderName = 1
+(16:00:34 Firma:1 Benutzer:) aTsr.name = 1\12
+(16:00:34 Firma:1 Benutzer:) aTsr.name = 1\13
+(16:00:34 Firma:1 Benutzer:) aTsr.name = 1\14
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\
+(16:00:34 Firma:1 Benutzer:) aTsr.name2 = 1\12
+(16:00:34 Firma:1 Benutzer:) aTsr.name2 = 1\13
+(16:00:34 Firma:1 Benutzer:) aTsr.name2 = 1\14
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\12\
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\13\
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\14\
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\14\
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\12\
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\13\
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\14\
+(16:00:34 Firma:1 Benutzer:) aSubFolderName = 2
+(16:00:34 Firma:1 Benutzer:) aTsr.name = 2\21
+(16:00:34 Firma:1 Benutzer:) aTsr.name = 2\22
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\
+(16:00:34 Firma:1 Benutzer:) aTsr.name2 = 2\21
+(16:00:34 Firma:1 Benutzer:) aTsr.name2 = 2\22
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\21\
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\
+(16:00:34 Firma:1 Benutzer:) aTsr.name2 = 2\22\221
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\
+(16:00:34 Firma:1 Benutzer:) aTsr.name2 = 2\22\221
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\21\
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\
+(16:00:34 Firma:1 Benutzer:) aTsr.name2 = 2\22\221
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\
+(16:00:34 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\
+(16:00:35 Firma:1 Benutzer:) 1
+1\12
+1\13
+1\14
+1\12
+1\13
+1\14
+2
+2\21
+2\22
+2\21
+2\22
+2\22\221
+2\22\221
+2\22\221
+
+(16:01:14 Firma:1 Benutzer:) c:\Projects\GMS_Maintenance\Win32\Debug_server c:\Projects\GMS_Maintenance\Win32\Debug\
+(16:01:14 Firma:1 Benutzer:) aSubFolderName = 1
+(16:01:14 Firma:1 Benutzer:) aTsr.name = 1\12
+(16:01:14 Firma:1 Benutzer:) aTsr.name = 1\13
+(16:01:14 Firma:1 Benutzer:) aTsr.name = 1\14
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 1\12
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 1\13
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 1\14
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\12\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\13\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\14\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\14\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\12\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\13\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\1\14\
+(16:01:14 Firma:1 Benutzer:) aSubFolderName = 2
+(16:01:14 Firma:1 Benutzer:) aTsr.name = 2\21
+(16:01:14 Firma:1 Benutzer:) aTsr.name = 2\22
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 2\21
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 2\22
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\21\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 2\22\221
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 2\22\221
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\21\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 2\22\221
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2211
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2212
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2211
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2212
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2211
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2212
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2211
+(16:01:14 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2212
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\2211\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\2212\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\2212\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\2211\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\2212\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\2211\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\2212\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\2211\
+(16:01:14 Firma:1 Benutzer:) FindFirst = c:\Projects\GMS_Maintenance\Win32\Debug_server\2\22\221\2212\
+(16:01:14 Firma:1 Benutzer:) 1
+1\12
+1\13
+1\14
+1\12
+1\13
+1\14
+2
+2\21
+2\22
+2\21
+2\22
+2\22\221
+2\22\221
+2\22\221
+2\22\221\2211
+2\22\221\2212
+2\22\221\2211
+2\22\221\2212
+2\22\221\2211
+2\22\221\2212
+2\22\221\2211
+2\22\221\2212
+
+(16:04:32 Firma:1 Benutzer:) Close GMSStart
+(16:10:59 Firma:1 Benutzer:) Start of GMSStart
+(16:10:59 Firma:1 Benutzer:) Showing Login diaolog
+(16:11:05 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(16:11:05 Firma:1 Benutzer:) Start build Application list 
+(16:11:06 Firma:1 Benutzer:) c:\Projects\GMS_Maintenance\Win32\Debug_server c:\Projects\GMS_Maintenance\Win32\Debug\
+(16:11:06 Firma:1 Benutzer:) aSubFolderName = 1
+(16:11:06 Firma:1 Benutzer:) aTsr.name = 1\12
+(16:11:06 Firma:1 Benutzer:) aTsr.name = 1\13
+(16:11:06 Firma:1 Benutzer:) aTsr.name = 1\14
+(16:11:24 Firma:1 Benutzer:) aTsr.name2 = 1\12
+(16:11:27 Firma:1 Benutzer:) aTsr.name2 = 1\13
+(16:11:36 Firma:1 Benutzer:) aTsr.name2 = 1\14
+(16:11:36 Firma:1 Benutzer:) aSubFolderName = 2
+(16:11:36 Firma:1 Benutzer:) aTsr.name = 2\21
+(16:11:36 Firma:1 Benutzer:) aTsr.name = 2\22
+(16:11:42 Firma:1 Benutzer:) aTsr.name2 = 2\21
+(16:11:51 Firma:1 Benutzer:) aTsr.name2 = 2\22
+(16:11:51 Firma:1 Benutzer:) aTsr.name2 = 2\22\221
+(16:12:12 Firma:1 Benutzer:) aTsr.name2 = 2\22\221
+(16:12:15 Firma:1 Benutzer:) aTsr.name2 = 2\22\221
+(16:12:17 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2211
+(16:12:17 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2212
+(16:12:18 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2211
+(16:12:18 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2212
+(16:12:19 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2211
+(16:12:19 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2212
+(16:12:19 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2211
+(16:12:20 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2212
+(16:12:20 Firma:1 Benutzer:) 1
+1\12
+1\13
+1\14
+1\12
+1\13
+1\14
+2
+2\21
+2\22
+2\21
+2\22
+2\22\221
+2\22\221
+2\22\221
+2\22\221\2211
+2\22\221\2212
+2\22\221\2211
+2\22\221\2212
+2\22\221\2211
+2\22\221\2212
+2\22\221\2211
+2\22\221\2212
+
+(16:12:22 Firma:1 Benutzer:) Close GMSStart
+(16:25:47 Firma:1 Benutzer:) Start of GMSStart
+(16:25:47 Firma:1 Benutzer:) Showing Login diaolog
+(16:25:52 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(16:25:52 Firma:1 Benutzer:) Start build Application list 
+(16:25:56 Firma:1 Benutzer:) aSubFolderName = 1
+(16:25:56 Firma:1 Benutzer:) aTsr.name = 1\12
+(16:25:56 Firma:1 Benutzer:) aTsr.name = 1\13
+(16:25:56 Firma:1 Benutzer:) aTsr.name = 1\14
+(16:26:02 Firma:1 Benutzer:) Close GMSStart
+(16:26:42 Firma:1 Benutzer:) Start of GMSStart
+(16:26:42 Firma:1 Benutzer:) Showing Login diaolog
+(16:26:47 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(16:26:47 Firma:1 Benutzer:) Start build Application list 
+(16:26:49 Firma:1 Benutzer:) aSubFolderName = 1
+(16:26:49 Firma:1 Benutzer:) aTsr.name = 1\12
+(16:26:49 Firma:1 Benutzer:) aTsr.name = 1\13
+(16:26:49 Firma:1 Benutzer:) aTsr.name = 1\14
+(16:26:50 Firma:1 Benutzer:) aSubFolderName = 2
+(16:26:50 Firma:1 Benutzer:) aTsr.name = 2\21
+(16:26:50 Firma:1 Benutzer:) aTsr.name = 2\22
+(16:26:50 Firma:1 Benutzer:) aTsr.name2 = 1\12
+(16:26:50 Firma:1 Benutzer:) aTsr.name2 = 1\13
+(16:26:50 Firma:1 Benutzer:) aTsr.name2 = 1\14
+(16:26:50 Firma:1 Benutzer:) aTsr.name2 = 2\22\221
+(16:26:50 Firma:1 Benutzer:) aTsr.name2 = 2\22\221
+(16:26:50 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2211
+(16:26:50 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2212
+(16:26:50 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2211
+(16:26:50 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2212
+(16:26:50 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2211
+(16:26:50 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2212
+(16:26:50 Firma:1 Benutzer:) 1\12
+1\13
+1\14
+1
+2\21
+2\22
+1\12
+1\13
+1\14
+2\22\221
+2\22\221
+2\22\221\2211
+2\22\221\2212
+2\22\221\2211
+2\22\221\2212
+2\22\221\2211
+2\22\221\2212
+2
+
+(16:28:55 Firma:1 Benutzer:) Close GMSStart
+(16:31:09 Firma:1 Benutzer:) Start of GMSStart
+(16:31:09 Firma:1 Benutzer:) Showing Login diaolog
+(16:31:14 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(16:31:14 Firma:1 Benutzer:) Start build Application list 
+(16:31:15 Firma:1 Benutzer:) aSubFolderName = 1
+(16:31:15 Firma:1 Benutzer:) aTsr.name = 1\12
+(16:31:15 Firma:1 Benutzer:) aTsr.name = 1\13
+(16:31:15 Firma:1 Benutzer:) aTsr.name = 1\14
+(16:31:15 Firma:1 Benutzer:) aSubFolderName = 2
+(16:31:15 Firma:1 Benutzer:) aTsr.name = 2\21
+(16:31:15 Firma:1 Benutzer:) aTsr.name = 2\22
+(16:31:15 Firma:1 Benutzer:) aTsr.name2 = 2\22\221
+(16:31:15 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2211
+(16:31:15 Firma:1 Benutzer:) aTsr.name2 = 2\22\221\2212
+(16:31:15 Firma:1 Benutzer:) 1
+1\12
+1\13
+1\14
+2
+2\21
+2\22
+2\22\221
+2\22\221\2211
+2\22\221\2212
+
+(16:31:45 Firma:1 Benutzer:) Close GMSStart

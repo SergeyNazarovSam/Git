@@ -1,0 +1,82 @@
+unit ChromiumVCLUnit;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cefvcl, ceflib;
+
+type
+  TTBButton = record
+    iBitmap : Integer;
+    idCommand : Integer;
+    fsState : Byte;
+    fsStyle : Byte;
+    {$IFDEF WIN64}
+    hReserved : array[0..5] of Byte;
+    {$ELSE}
+    {$IFDEF WIN32}
+    hReserved : array[0..1] of Byte;
+    {$ENDIF}
+    {$ENDIF}
+    dwData : Pointer;
+    iString : PChar;
+end;
+
+type
+  TFormChromium = class(TForm)
+    webBrowser: TChromium;
+    procedure webBrowserLoadEnd(Sender: TObject; const browser: ICefBrowser;
+      const frame: ICefFrame; httpStatusCode: Integer);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormHide(Sender: TObject);
+  private
+
+  public
+
+  end;
+
+var
+  FormChromium: TFormChromium;
+
+implementation
+
+uses UnitMain;
+
+{$R *.dfm}
+
+procedure TFormChromium.FormCreate(Sender: TObject);
+var
+  aHandle: HWND;
+begin
+  // here we hide the chromium window from taskbar
+  aHandle := FindWindow(nil, PChar('Gmsstart'));
+  ShowWindow(aHandle, SW_HIDE);
+  SetWindowLong(aHandle, GWL_EXSTYLE, GetWindowLong(aHandle, GWL_EXSTYLE) or WS_EX_TOOLWINDOW);
+  ShowWindow(aHandle, SW_SHOW);
+end;
+
+procedure TFormChromium.FormHide(Sender: TObject);
+begin
+  // set up non-transparent style
+  MainForm.pnBrowser.StyleLookup := 'pnBrowserStyle2';
+end;
+
+procedure TFormChromium.FormShow(Sender: TObject);
+begin
+  // set up transparent style
+  MainForm.pnBrowser.StyleLookup := 'pnBrowserStyle1';
+end;
+
+procedure TFormChromium.webBrowserLoadEnd(Sender: TObject;
+  const browser: ICefBrowser; const frame: ICefFrame; httpStatusCode: Integer);
+  var ajscript : string;
+begin
+  // hide the horizontal scrollbar
+  ajscript := 'document.documentElement.style.overflowX = ''hidden'';';
+  Browser.MainFrame.ExecuteJavaScript(ajscript, 'about:blank', 0);
+  MainForm.aniIndicator_Loading.Enabled := False;
+end;
+
+end.

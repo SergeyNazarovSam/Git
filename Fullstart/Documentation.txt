@@ -1,0 +1,6 @@
+Description of the project fullStart:
+
+Fullstart is the launcher of any program wich you have on your PC, it also contain the interface of working messaging system. On rigth panel you can see a several buttons, the first is "configure"(if you use admin@felix.info username), second is "Show Desktop" it uses when You launch some program and need to see desktop again.
+Other buttons are for launching programs.
+
+In a bottom of the main desktop you can see the messaging system, when you push the button then you will see the animation of wating and you need to wait while the webpage will download. 

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.983,=C:\Users\busli\OneDrive\Документы\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.279,=C:\Users\busli\OneDrive\Документы\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017.05.05 00:53:10.492,=C:\Users\busli\OneDrive\Документы\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2017.05.05 00:54:27.680,D:\dev\Delphi\SAM\FullStartFinal\UnitTestCon\unit2.pas=C:\Users\busli\OneDrive\Документы\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2017.05.05 00:54:35.253,D:\dev\Delphi\SAM\FullStartFinal\UnitTestCon\UnitTestCon.dproj=C:\Users\busli\OneDrive\Документы\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2017.05.05 00:55:01.545,=D:\dev\Delphi\SAM\FullStartFinal\hsapi.pas</Transaction>
+    <Transaction>2017.05.05 00:55:10.978,=D:\dev\Delphi\SAM\FullStartFinal\superobject.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,171 @@
+unit hsapi;
+
+interface
+
+uses
+  SysUtils, Classes, IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient,
+  IdHTTP,superobject, IdIOHandler, IdIOHandlerSocket, IdIOHandlerStack, IdSSL,
+  IdSSLOpenSSL, IPPeerClient, REST.Client, Data.Bind.Components,
+  Data.Bind.ObjectScope, REST.Authenticator.OAuth;
+
+type
+  TUserlogin = record
+    Status: string;
+    ErrorMessage: string;
+    Token: string;
+  end;
+
+  THotelServerApi = class(TDataModule)
+    HTTP: TIdHTTP;
+    RESTClient: TRESTClient;
+    RESTRequest: TRESTRequest;
+    RESTResponse: TRESTResponse;
+  protected
+    FToken: string;
+    FUserID: Int64;
+    FIsLogin: Boolean;
+    FUsername: string;
+    FPassword: string;
+    FLastError: string;
+    FStatus: string;
+    FURL: string;
+  private
+  public
+    function GetMessageCount(pCreatedUser, pToken: string): string;
+    function GetMessages (pToken : string) : string;
+    function Login: Boolean;
+    procedure Logout;
+    function SendMessage(pMessage, pToUserId, pToRuleID: string): string;
+    property IsLogin: Boolean read FIsLogin default false;
+    property LastError: string read FLastError write FLastError;
+    property Password: string read FPassword write FPassword;
+    property Status: string read FStatus write FStatus;
+    property Token: string read FToken write FToken;
+    property URL: string read FURL write FURL;
+    property UserID: Int64 read FUserid write FUserid default 0;
+    property Username: string read FUsername write FUsername;
+  end;
+
+var
+  HotelServerApi: THotelServerApi;
+
+implementation
+
+{$R *.dfm}
+
+function THotelServerApi.GetMessageCount(pCreatedUser, pToken: string): string;
+var
+  aResult: ISuperObject;
+  aResponse: string;
+begin
+  Result := '';
+  HTTP.Request.CustomHeaders.Clear;
+  HTTP.Request.CustomHeaders.Add('Authorization: Token token="' + FToken + '"');
+  aResponse := HTTP.Get(FURL + '/api/v1/setting/announcements/get_recent_count/' + pCreatedUser + '/');
+  aResult := SO(aResponse);
+  if aResult <> nil then
+     Result := aResult.O['content'].AsString;
+end;
+
+function THotelServerApi.GetMessages(pToken: string): string;
+var
+  aParam: TStringList;
+  aResponse: string;
+  aResponseStream: TFileStream;
+begin
+  Result := '';
+  HTTP.Request.CustomHeaders.Clear;
+  HTTP.Request.CustomHeaders.Add('Authorization: Token token="' + FToken + '"');
+  aResponseStream := TFileStream.Create('c:\1\response.txt', fmCreate);
+  aparam := Tstringlist.Create;
+  HTTP.Get(FURL+'/setting/announcements', aResponseStream);
+  aResponseStream.Free;
+end;
+
+function THotelServerApi.Login: boolean;
+var
+  aResult: ISuperObject;
+  aContent: ISuperObject;
+  aParam: TStringList;
+  aResponse: string;
+  aResponseStream: TFileStream;
+begin
+  Result := False;
+  if (FIsLogin = False) and (FToken = '') then
+  begin
+    HTTP.Request.CustomHeaders.Clear;
+    aParam := TStringList.Create;
+    aParam.Add('user_email=' + FUsername + '');
+    aParam.Add('user_password=' + FPassword + '');
+    aResponse := HTTP.post(FURL + '/api/v1/user/users/sign_in', aParam);
+    aResult := SO(aResponse);
+    if aResult <> nil then
+    begin
+      FStatus := aResult.O['status'].AsString;
+      if FStatus = '0' then
+      begin
+        aContent := aResult.O['content'];
+        if aContent <> nil then
+        begin
+          FToken := aContent.S['authentication_token'];
+          FIsLogin := True;
+          FUserID := StrToInt (aContent.S['id']);
+          Result := True;
+        end;
+      end
+      else
+      begin
+        aContent := aResult.O['content'];
+        if aContent <> nil then
+        begin
+          FLastError := aContent.S['error_msg'];
+        end;
+      end;
+    end;
+  end
+  else
+  begin
+    Result := True;
+    if FToken <> '' then
+      FIsLogin := True;
+  end;
+end;
+
+procedure THotelServerApi.Logout;
+begin
+  FToken := '';
+  FUserID := 0;
+  FIsLogin := False;
+end;
+
+function THotelServerApi.SendMessage(pMessage, pToUserId, pToRuleID: string): string;
+var
+  aParam: TStringList;
+  aResponse: string;
+begin
+  if FIsLogin = True then
+  begin
+    Result := '';
+    HTTP.Request.CustomHeaders.Clear;
+    HTTP.Request.CustomHeaders.Add('Authorization: Token token="'+FToken+'"');
+    aParam := TStringList.Create;
+    aParam.Add('setting_announcement[message]=' + pMessage + '');
+    aParam.Add('setting_announcement[created_user_id]=' + IntToStr(FUserID) + '');
+    if pToUserId <> '' then
+    begin
+      aParam.Add('setting_announcement[user_user_id]=' + pToUserId + '');
+    end;
+    if pToRuleID <> '' then
+    begin
+      aParam.Add('setting_announcement[user_role_id]=' + pToRuleID + '');
+    end;
+    aResponse := HTTP.post(FURL+'/setting/announcements', aParam);
+    Result := aResponse;
+  end
+  else
+  begin
+    Result := 'no login';
+  end;
+end;
+
+end.

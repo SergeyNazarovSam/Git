@@ -1,0 +1,13 @@
+program UnitTestGUI;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  DUnitX.
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.Run;
+end.

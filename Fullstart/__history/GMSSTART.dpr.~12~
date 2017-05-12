@@ -1,0 +1,24 @@
+program GMSSTART;
+
+uses
+  FMX.Forms,
+  UnitMain in 'UnitMain.pas' {Mainform},
+  UnitVorlagen in 'UnitVorlagen.pas' {fmVorlagen},
+  unitLogin in 'unitLogin.pas' {fmLogin},
+  UnitMenu in 'UnitMenu.pas' {menuRight},
+  DMBase in 'DMBase.pas' {DBase: TDataModule},
+  hsapi in 'hsapi.pas' {hotelserverapi: TDataModule},
+  ConfigUnit in 'ConfigUnit.pas' {ConfigForm},
+  UnitVCL in 'UnitVCL.pas' {Form1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TMainform, Mainform);
+  Application.CreateForm(TmenuRight, menuRight);
+  Application.CreateForm(TfmVorlagen, fmVorlagen);
+  Application.CreateForm(TDBase, DBase);
+  Application.CreateForm(TConfigForm, ConfigForm);
+  Application.Run;
+end.

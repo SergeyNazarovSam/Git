@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.598,C:\Users\CBS_Notebook\Documents\Embarcadero\Studio\Projekte\Project7.dproj=E:\SVN\Fullstart\TESTMENURIGHT\menu.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.345,C:\Users\CBS_Notebook\Documents\Embarcadero\Studio\Projekte\Unit7.fmx=E:\SVN\Fullstart\TESTMENURIGHT\UnitMenu.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.997,=C:\Users\CBS_Notebook\Documents\Embarcadero\Studio\Projekte\Unit7.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.345,C:\Users\CBS_Notebook\Documents\Embarcadero\Studio\Projekte\Unit7.pas=E:\SVN\Fullstart\TESTMENURIGHT\UnitMenu.pas</Transaction>
+  </Transactions>
+</BorlandProject>

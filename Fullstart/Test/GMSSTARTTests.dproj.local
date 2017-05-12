@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.240,=C:\Users\nsergey\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.378,=C:\Projects\Fullstart\hsapi.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.556,=C:\Projects\Fullstart\Test\Testhsapi.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.053,=C:\Projects\Fullstart\Test\TestUnit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.460,=C:\Projects\Fullstart\superobject.pas</Transaction>
+  </Transactions>
+</BorlandProject>

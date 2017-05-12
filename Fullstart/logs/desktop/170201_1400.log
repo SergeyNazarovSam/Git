@@ -1,0 +1,348 @@
+(14:47:10 Firma:1 Benutzer:) Start of GMSStart
+(14:47:10 Firma:1 Benutzer:) Showing Login diaolog
+(14:47:15 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(14:47:15 Firma:1 Benutzer:) Start build Application list 
+(14:47:19 Firma:1 Benutzer:) c:\Projects\GMS_Maintenance\Win32\Debug_server\ c:\Projects\GMS_Maintenance\Win32\Debug\
+(14:47:19 Firma:1 Benutzer:) aTsr.name = 170201_1400.log
+(14:47:19 Firma:1 Benutzer:) aTsr.name = ChooseSectionUnit.dcu
+(14:47:19 Firma:1 Benutzer:) aTsr.name = felixmain.ini
+(14:47:19 Firma:1 Benutzer:) aTsr.name = GMS_Maintenance.exe
+(14:47:19 Firma:1 Benutzer:) aTsr.name = kasse.ini
+(14:47:19 Firma:1 Benutzer:) aTsr.name = Login.dcu
+(14:47:19 Firma:1 Benutzer:) aTsr.name = MainForm.dcu
+(14:47:19 Firma:1 Benutzer:) aTsr.name = pas.ini
+(14:47:19 Firma:1 Benutzer:) aTsr.name = 170201_1400.log
+(14:47:19 Firma:1 Benutzer:) aTsr.name = ChooseSectionUnit.dcu
+(14:47:19 Firma:1 Benutzer:) aTsr.name = felixmain.ini
+(14:47:19 Firma:1 Benutzer:) aTsr.name = GMS_Maintenance.exe
+(14:47:19 Firma:1 Benutzer:) aTsr.name = kasse.ini
+(14:47:19 Firma:1 Benutzer:) aTsr.name = Login.dcu
+(14:47:19 Firma:1 Benutzer:) aTsr.name = MainForm.dcu
+(14:47:19 Firma:1 Benutzer:) aTsr.name = pas.ini
+(14:47:19 Firma:1 Benutzer:) aFileListLocal --> 170201_1400.log
+ChooseSectionUnit.dcu
+felixmain.ini
+GMS_Maintenance.exe
+kasse.ini
+Login.dcu
+MainForm.dcu
+pas.ini
+
+(14:47:19 Firma:1 Benutzer:) aFileListServer --> 170201_1400.log
+ChooseSectionUnit.dcu
+felixmain.ini
+GMS_Maintenance.exe
+kasse.ini
+Login.dcu
+MainForm.dcu
+pas.ini
+
+(14:47:19 Firma:1 Benutzer:) aFileListServer.Strings[i] = 170201_1400.log
+(14:47:19 Firma:1 Benutzer:) aFileListServer.Strings[i] = ChooseSectionUnit.dcu
+(14:47:19 Firma:1 Benutzer:) aFileListServer.Strings[i] = felixmain.ini
+(14:47:19 Firma:1 Benutzer:) aFileListServer.Strings[i] = GMS_Maintenance.exe
+(14:47:19 Firma:1 Benutzer:) aFileListServer.Strings[i] = kasse.ini
+(14:47:19 Firma:1 Benutzer:) aFileListServer.Strings[i] = Login.dcu
+(14:47:19 Firma:1 Benutzer:) aFileListServer.Strings[i] = MainForm.dcu
+(14:47:19 Firma:1 Benutzer:) aFileListServer.Strings[i] = pas.ini
+(14:47:19 Firma:1 Benutzer:) aSubFolderName = 1;
+(14:47:19 Firma:1 Benutzer:) 
+(14:48:05 Firma:1 Benutzer:) Close GMSStart
+(14:49:07 Firma:1 Benutzer:) Start of GMSStart
+(14:49:07 Firma:1 Benutzer:) Showing Login diaolog
+(14:49:11 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(14:49:11 Firma:1 Benutzer:) Start build Application list 
+(14:49:16 Firma:1 Benutzer:) c:\Projects\GMS_Maintenance\Win32\Debug_server\ c:\Projects\GMS_Maintenance\Win32\Debug\
+(14:49:16 Firma:1 Benutzer:) aTsr.name = 170201_1400.log
+(14:49:16 Firma:1 Benutzer:) aTsr.name = ChooseSectionUnit.dcu
+(14:49:16 Firma:1 Benutzer:) aTsr.name = felixmain.ini
+(14:49:16 Firma:1 Benutzer:) aTsr.name = GMS_Maintenance.exe
+(14:49:16 Firma:1 Benutzer:) aTsr.name = kasse.ini
+(14:49:16 Firma:1 Benutzer:) aTsr.name = Login.dcu
+(14:49:16 Firma:1 Benutzer:) aTsr.name = MainForm.dcu
+(14:49:16 Firma:1 Benutzer:) aTsr.name = pas.ini
+(14:49:16 Firma:1 Benutzer:) aTsr.name = 170201_1400.log
+(14:49:16 Firma:1 Benutzer:) aTsr.name = ChooseSectionUnit.dcu
+(14:49:16 Firma:1 Benutzer:) aTsr.name = felixmain.ini
+(14:49:16 Firma:1 Benutzer:) aTsr.name = GMS_Maintenance.exe
+(14:49:16 Firma:1 Benutzer:) aTsr.name = kasse.ini
+(14:49:16 Firma:1 Benutzer:) aTsr.name = Login.dcu
+(14:49:16 Firma:1 Benutzer:) aTsr.name = MainForm.dcu
+(14:49:16 Firma:1 Benutzer:) aTsr.name = pas.ini
+(14:49:16 Firma:1 Benutzer:) aFileListLocal --> 170201_1400.log
+ChooseSectionUnit.dcu
+felixmain.ini
+GMS_Maintenance.exe
+kasse.ini
+Login.dcu
+MainForm.dcu
+pas.ini
+
+(14:49:16 Firma:1 Benutzer:) aFileListServer --> 170201_1400.log
+ChooseSectionUnit.dcu
+felixmain.ini
+GMS_Maintenance.exe
+kasse.ini
+Login.dcu
+MainForm.dcu
+pas.ini
+
+(14:49:16 Firma:1 Benutzer:) aFileListServer.Strings[i] = 170201_1400.log
+(14:49:16 Firma:1 Benutzer:) aFileListServer.Strings[i] = ChooseSectionUnit.dcu
+(14:49:16 Firma:1 Benutzer:) aFileListServer.Strings[i] = felixmain.ini
+(14:49:16 Firma:1 Benutzer:) aFileListServer.Strings[i] = GMS_Maintenance.exe
+(14:49:16 Firma:1 Benutzer:) aFileListServer.Strings[i] = kasse.ini
+(14:49:16 Firma:1 Benutzer:) aFileListServer.Strings[i] = Login.dcu
+(14:49:16 Firma:1 Benutzer:) aFileListServer.Strings[i] = MainForm.dcu
+(14:49:16 Firma:1 Benutzer:) aFileListServer.Strings[i] = pas.ini
+(14:49:16 Firma:1 Benutzer:) aSubFolderName = 1;
+(14:49:16 Firma:1 Benutzer:) 
+(14:49:18 Firma:1 Benutzer:) Close GMSStart
+(14:50:10 Firma:1 Benutzer:) Start of GMSStart
+(14:50:10 Firma:1 Benutzer:) Showing Login diaolog
+(14:50:15 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(14:50:15 Firma:1 Benutzer:) Start build Application list 
+(14:50:18 Firma:1 Benutzer:) c:\Projects\GMS_Maintenance\Win32\Debug_server\ c:\Projects\GMS_Maintenance\Win32\Debug\
+(14:50:18 Firma:1 Benutzer:) aTsr.name = 170201_1400.log
+(14:50:18 Firma:1 Benutzer:) aTsr.name = ChooseSectionUnit.dcu
+(14:50:18 Firma:1 Benutzer:) aTsr.name = felixmain.ini
+(14:50:18 Firma:1 Benutzer:) aTsr.name = GMS_Maintenance.exe
+(14:50:18 Firma:1 Benutzer:) aTsr.name = kasse.ini
+(14:50:18 Firma:1 Benutzer:) aTsr.name = Login.dcu
+(14:50:18 Firma:1 Benutzer:) aTsr.name = MainForm.dcu
+(14:50:18 Firma:1 Benutzer:) aTsr.name = pas.ini
+(14:50:18 Firma:1 Benutzer:) aTsr.name = 170201_1400.log
+(14:50:18 Firma:1 Benutzer:) aTsr.name = ChooseSectionUnit.dcu
+(14:50:18 Firma:1 Benutzer:) aTsr.name = felixmain.ini
+(14:50:18 Firma:1 Benutzer:) aTsr.name = GMS_Maintenance.exe
+(14:50:18 Firma:1 Benutzer:) aTsr.name = kasse.ini
+(14:50:18 Firma:1 Benutzer:) aTsr.name = Login.dcu
+(14:50:18 Firma:1 Benutzer:) aTsr.name = MainForm.dcu
+(14:50:18 Firma:1 Benutzer:) aTsr.name = pas.ini
+(14:50:18 Firma:1 Benutzer:) aFileListLocal --> 170201_1400.log
+ChooseSectionUnit.dcu
+felixmain.ini
+GMS_Maintenance.exe
+kasse.ini
+Login.dcu
+MainForm.dcu
+pas.ini
+
+(14:50:18 Firma:1 Benutzer:) aFileListServer --> 170201_1400.log
+ChooseSectionUnit.dcu
+felixmain.ini
+GMS_Maintenance.exe
+kasse.ini
+Login.dcu
+MainForm.dcu
+pas.ini
+
+(14:50:18 Firma:1 Benutzer:) aFileListServer.Strings[i] = 170201_1400.log
+(14:50:18 Firma:1 Benutzer:) aFileListServer.Strings[i] = ChooseSectionUnit.dcu
+(14:50:18 Firma:1 Benutzer:) aFileListServer.Strings[i] = felixmain.ini
+(14:50:18 Firma:1 Benutzer:) aFileListServer.Strings[i] = GMS_Maintenance.exe
+(14:50:18 Firma:1 Benutzer:) aFileListServer.Strings[i] = kasse.ini
+(14:50:18 Firma:1 Benutzer:) aFileListServer.Strings[i] = Login.dcu
+(14:50:18 Firma:1 Benutzer:) aFileListServer.Strings[i] = MainForm.dcu
+(14:50:18 Firma:1 Benutzer:) aFileListServer.Strings[i] = pas.ini
+(14:50:18 Firma:1 Benutzer:) aSubFolderName = 1
+(14:50:18 Firma:1 Benutzer:) 
+(14:50:20 Firma:1 Benutzer:) Close GMSStart
+(14:51:14 Firma:1 Benutzer:) Start of GMSStart
+(14:51:14 Firma:1 Benutzer:) Showing Login diaolog
+(14:51:19 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(14:51:19 Firma:1 Benutzer:) Start build Application list 
+(14:51:21 Firma:1 Benutzer:) c:\Projects\GMS_Maintenance\Win32\Debug_server\ c:\Projects\GMS_Maintenance\Win32\Debug\
+(14:51:21 Firma:1 Benutzer:) aTsr.name = 170201_1400.log
+(14:51:21 Firma:1 Benutzer:) aTsr.name = ChooseSectionUnit.dcu
+(14:51:21 Firma:1 Benutzer:) aTsr.name = felixmain.ini
+(14:51:21 Firma:1 Benutzer:) aTsr.name = GMS_Maintenance.exe
+(14:51:21 Firma:1 Benutzer:) aTsr.name = kasse.ini
+(14:51:21 Firma:1 Benutzer:) aTsr.name = Login.dcu
+(14:51:21 Firma:1 Benutzer:) aTsr.name = MainForm.dcu
+(14:51:21 Firma:1 Benutzer:) aTsr.name = pas.ini
+(14:51:21 Firma:1 Benutzer:) aTsr.name = 170201_1400.log
+(14:51:21 Firma:1 Benutzer:) aTsr.name = ChooseSectionUnit.dcu
+(14:51:21 Firma:1 Benutzer:) aTsr.name = felixmain.ini
+(14:51:21 Firma:1 Benutzer:) aTsr.name = GMS_Maintenance.exe
+(14:51:21 Firma:1 Benutzer:) aTsr.name = kasse.ini
+(14:51:21 Firma:1 Benutzer:) aTsr.name = Login.dcu
+(14:51:21 Firma:1 Benutzer:) aTsr.name = MainForm.dcu
+(14:51:21 Firma:1 Benutzer:) aTsr.name = pas.ini
+(14:51:21 Firma:1 Benutzer:) aFileListLocal --> 170201_1400.log
+ChooseSectionUnit.dcu
+felixmain.ini
+GMS_Maintenance.exe
+kasse.ini
+Login.dcu
+MainForm.dcu
+pas.ini
+
+(14:51:21 Firma:1 Benutzer:) aFileListServer --> 170201_1400.log
+ChooseSectionUnit.dcu
+felixmain.ini
+GMS_Maintenance.exe
+kasse.ini
+Login.dcu
+MainForm.dcu
+pas.ini
+
+(14:51:21 Firma:1 Benutzer:) aFileListServer.Strings[i] = 170201_1400.log
+(14:51:21 Firma:1 Benutzer:) aFileListServer.Strings[i] = ChooseSectionUnit.dcu
+(14:51:21 Firma:1 Benutzer:) aFileListServer.Strings[i] = felixmain.ini
+(14:51:21 Firma:1 Benutzer:) aFileListServer.Strings[i] = GMS_Maintenance.exe
+(14:51:21 Firma:1 Benutzer:) aFileListServer.Strings[i] = kasse.ini
+(14:51:21 Firma:1 Benutzer:) aFileListServer.Strings[i] = Login.dcu
+(14:51:21 Firma:1 Benutzer:) aFileListServer.Strings[i] = MainForm.dcu
+(14:51:21 Firma:1 Benutzer:) aFileListServer.Strings[i] = pas.ini
+(14:51:28 Firma:1 Benutzer:) aSubFolderName = 1
+(14:51:35 Firma:1 Benutzer:) Close GMSStart
+(14:52:17 Firma:1 Benutzer:) Start of GMSStart
+(14:52:17 Firma:1 Benutzer:) Showing Login diaolog
+(14:52:22 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(14:52:22 Firma:1 Benutzer:) Start build Application list 
+(14:52:24 Firma:1 Benutzer:) c:\Projects\GMS_Maintenance\Win32\Debug_server\ c:\Projects\GMS_Maintenance\Win32\Debug\
+(14:52:24 Firma:1 Benutzer:) aTsr.name = 170201_1400.log
+(14:52:24 Firma:1 Benutzer:) aTsr.name = ChooseSectionUnit.dcu
+(14:52:24 Firma:1 Benutzer:) aTsr.name = felixmain.ini
+(14:52:24 Firma:1 Benutzer:) aTsr.name = GMS_Maintenance.exe
+(14:52:24 Firma:1 Benutzer:) aTsr.name = kasse.ini
+(14:52:24 Firma:1 Benutzer:) aTsr.name = Login.dcu
+(14:52:24 Firma:1 Benutzer:) aTsr.name = MainForm.dcu
+(14:52:24 Firma:1 Benutzer:) aTsr.name = pas.ini
+(14:52:24 Firma:1 Benutzer:) aTsr.name = 170201_1400.log
+(14:52:24 Firma:1 Benutzer:) aTsr.name = ChooseSectionUnit.dcu
+(14:52:24 Firma:1 Benutzer:) aTsr.name = felixmain.ini
+(14:52:24 Firma:1 Benutzer:) aTsr.name = GMS_Maintenance.exe
+(14:52:24 Firma:1 Benutzer:) aTsr.name = kasse.ini
+(14:52:24 Firma:1 Benutzer:) aTsr.name = Login.dcu
+(14:52:24 Firma:1 Benutzer:) aTsr.name = MainForm.dcu
+(14:52:24 Firma:1 Benutzer:) aTsr.name = pas.ini
+(14:52:24 Firma:1 Benutzer:) aFileListLocal --> 170201_1400.log
+ChooseSectionUnit.dcu
+felixmain.ini
+GMS_Maintenance.exe
+kasse.ini
+Login.dcu
+MainForm.dcu
+pas.ini
+
+(14:52:24 Firma:1 Benutzer:) aFileListServer --> 170201_1400.log
+ChooseSectionUnit.dcu
+felixmain.ini
+GMS_Maintenance.exe
+kasse.ini
+Login.dcu
+MainForm.dcu
+pas.ini
+
+(14:52:24 Firma:1 Benutzer:) aFileListServer.Strings[i] = 170201_1400.log
+(14:52:24 Firma:1 Benutzer:) aFileListServer.Strings[i] = ChooseSectionUnit.dcu
+(14:52:24 Firma:1 Benutzer:) aFileListServer.Strings[i] = felixmain.ini
+(14:52:24 Firma:1 Benutzer:) aFileListServer.Strings[i] = GMS_Maintenance.exe
+(14:52:24 Firma:1 Benutzer:) aFileListServer.Strings[i] = kasse.ini
+(14:52:24 Firma:1 Benutzer:) aFileListServer.Strings[i] = Login.dcu
+(14:52:24 Firma:1 Benutzer:) aFileListServer.Strings[i] = MainForm.dcu
+(14:52:24 Firma:1 Benutzer:) aFileListServer.Strings[i] = pas.ini
+(14:52:43 Firma:1 Benutzer:) aSubFolderName = 1
+(14:52:43 Firma:1 Benutzer:) 
+(14:56:49 Firma:1 Benutzer:) Start of GMSStart
+(14:56:49 Firma:1 Benutzer:) Showing Login diaolog
+(14:56:54 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(14:56:54 Firma:1 Benutzer:) Start build Application list 
+(14:57:02 Firma:1 Benutzer:) c:\Projects\GMS_Maintenance\Win32\Debug_server\ c:\Projects\GMS_Maintenance\Win32\Debug\
+(14:57:02 Firma:1 Benutzer:) aTsr.name = 170201_1400.log
+(14:57:02 Firma:1 Benutzer:) aTsr.name = ChooseSectionUnit.dcu
+(14:57:02 Firma:1 Benutzer:) aTsr.name = felixmain.ini
+(14:57:02 Firma:1 Benutzer:) aTsr.name = GMS_Maintenance.exe
+(14:57:02 Firma:1 Benutzer:) aTsr.name = kasse.ini
+(14:57:02 Firma:1 Benutzer:) aTsr.name = Login.dcu
+(14:57:02 Firma:1 Benutzer:) aTsr.name = MainForm.dcu
+(14:57:02 Firma:1 Benutzer:) aTsr.name = pas.ini
+(14:57:02 Firma:1 Benutzer:) aTsr.name = 170201_1400.log
+(14:57:02 Firma:1 Benutzer:) aTsr.name = ChooseSectionUnit.dcu
+(14:57:02 Firma:1 Benutzer:) aTsr.name = felixmain.ini
+(14:57:02 Firma:1 Benutzer:) aTsr.name = GMS_Maintenance.exe
+(14:57:02 Firma:1 Benutzer:) aTsr.name = kasse.ini
+(14:57:02 Firma:1 Benutzer:) aTsr.name = Login.dcu
+(14:57:02 Firma:1 Benutzer:) aTsr.name = MainForm.dcu
+(14:57:02 Firma:1 Benutzer:) aTsr.name = pas.ini
+(14:57:02 Firma:1 Benutzer:) aFileListLocal --> 170201_1400.log
+ChooseSectionUnit.dcu
+felixmain.ini
+GMS_Maintenance.exe
+kasse.ini
+Login.dcu
+MainForm.dcu
+pas.ini
+
+(14:57:02 Firma:1 Benutzer:) aFileListServer --> 170201_1400.log
+ChooseSectionUnit.dcu
+felixmain.ini
+GMS_Maintenance.exe
+kasse.ini
+Login.dcu
+MainForm.dcu
+pas.ini
+
+(14:57:02 Firma:1 Benutzer:) aFileListServer.Strings[i] = 170201_1400.log
+(14:57:02 Firma:1 Benutzer:) aFileListServer.Strings[i] = ChooseSectionUnit.dcu
+(14:57:02 Firma:1 Benutzer:) aFileListServer.Strings[i] = felixmain.ini
+(14:57:02 Firma:1 Benutzer:) aFileListServer.Strings[i] = GMS_Maintenance.exe
+(14:57:02 Firma:1 Benutzer:) aFileListServer.Strings[i] = kasse.ini
+(14:57:02 Firma:1 Benutzer:) aFileListServer.Strings[i] = Login.dcu
+(14:57:02 Firma:1 Benutzer:) aFileListServer.Strings[i] = MainForm.dcu
+(14:57:02 Firma:1 Benutzer:) aFileListServer.Strings[i] = pas.ini
+(14:57:02 Firma:1 Benutzer:) aSubFolderName = 1
+(14:57:02 Firma:1 Benutzer:) aSubFolderName = 2
+(14:57:02 Firma:1 Benutzer:) 
+(14:57:05 Firma:1 Benutzer:) Close GMSStart
+(14:57:28 Firma:1 Benutzer:) Start of GMSStart
+(14:57:28 Firma:1 Benutzer:) Showing Login diaolog
+(14:57:32 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(14:57:32 Firma:1 Benutzer:) Start build Application list 
+(14:57:36 Firma:1 Benutzer:) c:\Projects\GMS_Maintenance\Win32\Debug_server\ c:\Projects\GMS_Maintenance\Win32\Debug\
+(14:57:36 Firma:1 Benutzer:) aTsr.name = 170201_1400.log
+(14:57:36 Firma:1 Benutzer:) aTsr.name = ChooseSectionUnit.dcu
+(14:57:36 Firma:1 Benutzer:) aTsr.name = felixmain.ini
+(14:57:36 Firma:1 Benutzer:) aTsr.name = GMS_Maintenance.exe
+(14:57:36 Firma:1 Benutzer:) aTsr.name = kasse.ini
+(14:57:36 Firma:1 Benutzer:) aTsr.name = Login.dcu
+(14:57:36 Firma:1 Benutzer:) aTsr.name = MainForm.dcu
+(14:57:36 Firma:1 Benutzer:) aTsr.name = pas.ini
+(14:57:36 Firma:1 Benutzer:) aTsr.name = 170201_1400.log
+(14:57:36 Firma:1 Benutzer:) aTsr.name = ChooseSectionUnit.dcu
+(14:57:36 Firma:1 Benutzer:) aTsr.name = felixmain.ini
+(14:57:36 Firma:1 Benutzer:) aTsr.name = GMS_Maintenance.exe
+(14:57:36 Firma:1 Benutzer:) aTsr.name = kasse.ini
+(14:57:36 Firma:1 Benutzer:) aTsr.name = Login.dcu
+(14:57:36 Firma:1 Benutzer:) aTsr.name = MainForm.dcu
+(14:57:36 Firma:1 Benutzer:) aTsr.name = pas.ini
+(14:57:36 Firma:1 Benutzer:) aFileListLocal --> 170201_1400.log
+ChooseSectionUnit.dcu
+felixmain.ini
+GMS_Maintenance.exe
+kasse.ini
+Login.dcu
+MainForm.dcu
+pas.ini
+
+(14:57:36 Firma:1 Benutzer:) aFileListServer --> 170201_1400.log
+ChooseSectionUnit.dcu
+felixmain.ini
+GMS_Maintenance.exe
+kasse.ini
+Login.dcu
+MainForm.dcu
+pas.ini
+
+(14:57:36 Firma:1 Benutzer:) aFileListServer.Strings[i] = 170201_1400.log
+(14:57:36 Firma:1 Benutzer:) aFileListServer.Strings[i] = ChooseSectionUnit.dcu
+(14:57:36 Firma:1 Benutzer:) aFileListServer.Strings[i] = felixmain.ini
+(14:57:36 Firma:1 Benutzer:) aFileListServer.Strings[i] = GMS_Maintenance.exe
+(14:57:36 Firma:1 Benutzer:) aFileListServer.Strings[i] = kasse.ini
+(14:57:36 Firma:1 Benutzer:) aFileListServer.Strings[i] = Login.dcu
+(14:57:36 Firma:1 Benutzer:) aFileListServer.Strings[i] = MainForm.dcu
+(14:57:36 Firma:1 Benutzer:) aFileListServer.Strings[i] = pas.ini
+(14:57:36 Firma:1 Benutzer:) aSubFolderName = 1
+(14:57:39 Firma:1 Benutzer:) Close GMSStart

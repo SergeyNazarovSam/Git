@@ -1,0 +1,24 @@
+(14:16:47 Firma:1 Benutzer:) Start of GMSStart
+(14:16:47 Firma:1 Benutzer:) Showing Login diaolog
+(14:16:55 Firma:1 Benutzer:) Login without messages as admin@felix.info
+(14:16:55 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(14:16:56 Firma:1 Benutzer:) Start build Application list 
+(14:20:18 Firma:1 Benutzer:) Run application C:\Program Files (x86)\Mozilla Firefox\firefox.exe http://cloud2.gms.info:3000/dashboard?user_token=&lookup_company_id=1
+(14:20:20 Firma:1 Benutzer:) Run application C:\Projects\ChromiumVCL\Win32\Debug\CromiumVCL.exe 
+(14:20:31 Firma:1 Benutzer:) Run application C:\Program Files\Internet Explorer\iexplore.exe http://cloud2.gms.info:3000/dashboard?user_token=&lookup_company_id=1
+(14:20:34 Firma:1 Benutzer:) Run application C:\Program Files\Internet Explorer\iexplore.exe http://cloud2.gms.info:3000/dashboard?user_token=&lookup_company_id=1
+(14:20:36 Firma:1 Benutzer:) Run application c:\Projects\GMS_Maintenance\Win32\Debug\GMS_Maintenance.exe x 11
+(14:21:10 Firma:1 Benutzer:) Close GMSStart
+(14:22:28 Firma:1 Benutzer:) Start of GMSStart
+(14:22:28 Firma:1 Benutzer:) Showing Login diaolog
+(14:22:34 Firma:1 Benutzer:) Login without messages as admin@felix.info
+(14:22:34 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(14:22:34 Firma:1 Benutzer:) Start build Application list 
+(14:22:48 Firma:1 Benutzer:) Close GMSStart
+(14:23:17 Firma:1 Benutzer:) Start of GMSStart
+(14:23:17 Firma:1 Benutzer:) Showing Login diaolog
+(14:23:23 Firma:1 Benutzer:) Login without messages as admin@felix.info
+(14:23:23 Firma:1 Benutzer:) Succefully login as admin@felix.info
+(14:23:23 Firma:1 Benutzer:) Start build Application list 
+(14:25:02 Firma:1 Benutzer:) Run application C:\Projects\ChromiumVCL\Win32\Debug\CromiumVCL.exe 
+(14:25:47 Firma:1 Benutzer:) Close GMSStart

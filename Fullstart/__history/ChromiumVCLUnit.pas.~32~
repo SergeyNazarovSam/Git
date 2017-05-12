@@ -1,0 +1,128 @@
+unit ChromiumVCLUnit;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cefvcl, ceflib;
+
+type
+  TTBBUTTON = record
+    iBitmap : Integer;
+    idCommand : Integer;
+    fsState : byte;
+    fsStyle : byte;
+    {$IFDEF WIN64}
+    hReserved : array [0..5] of byte;
+    {$ELSE}
+    {$IFDEF WIN32}
+    hReserved : array [0..1] of byte;
+    {$ENDIF}
+    {$ENDIF}
+    dwData : Pointer;
+    iString : PChar;
+end;
+
+type
+  TFormChromium = class(TForm)
+    webBrowser: TChromium;
+    procedure webBrowserLoadEnd(Sender: TObject; const browser: ICefBrowser;
+      const frame: ICefFrame; httpStatusCode: Integer);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure DeleteToolBarButton(const ButtonText : WideString);
+  end;
+
+var
+  FormChromium: TFormChromium;
+
+implementation
+
+ uses UnitMain;
+{$R *.dfm}
+
+
+procedure TFormChromium.DeleteToolBarButton(const ButtonText : WideString);
+const
+  BUFFER_SIZE = $1000;
+  TB_GETBUTTON     = WM_USER + 23;
+  TB_BUTTONCOUNT   = WM_USER + 24;
+  TB_GETBUTTONTEXT = WM_USER + 75;
+  TB_DELETEBUTTON  = WM_USER + 22;
+var
+  OpProc : THandle;
+  ProcID : THandle;
+  ToolBar : THandle;
+  Window : HWND;
+  ButtonsCount : integer;
+  i : Integer;
+  Buffer : Pointer;
+  DButton : TTBButton;
+  //RBytes : Cardinal;
+  RBytes : SIZE_T;
+  BTextLength : Integer;
+  BText : WideString;
+begin
+  ToolBar := FindWindow('Shell_TrayWnd', nil);
+  ToolBar := FindWindowEx(ToolBar, 0, 'ReBarWindow32', nil);
+  ToolBar := FindWindowEx(ToolBar, 0, 'MSTaskSwWClass', nil);
+  ToolBar := FindWindowEx(ToolBar, 0, 'ToolbarWindow32', nil);
+  if ToolBar = 0 then
+    Exit;
+  ButtonsCount := SendMessage(ToolBar, TB_BUTTONCOUNT, 0, 0);
+  GetWindowThreadProcessId(ToolBar, @ProcID);
+  OpProc := OpenProcess(PROCESS_ALL_ACCESS, False, ProcID);
+  try
+    Buffer := VirtualAllocEx(OpProc, nil, BUFFER_SIZE, MEM_COMMIT, PAGE_READWRITE);
+    for i := 0 to ButtonsCount do
+      begin
+        SendMessage(ToolBar, TB_GETBUTTON, i, Integer(Buffer));
+        RBytes := 0;
+        ReadProcessMemory(OpProc, Buffer, @DButton, SizeOf(TTBButton), RBytes);
+        ReadProcessMemory(OpProc, DButton.dwData, @Window, SizeOf(HWND), RBytes);
+        if Window = 0 then
+          Continue;
+        BTextLength := SendMessage(ToolBar, TB_GETBUTTONTEXT, DButton.idCommand, Integer(Buffer));
+        SetLength(BText, BTextLength);
+        ReadProcessMemory(OpProc, Buffer, @(BText[1]), BTextLength * SizeOf(BText[1]), RBytes);
+        if BText = ButtonText then
+          begin
+            SendMessage(ToolBar, TB_DELETEBUTTON, i, 0);
+            Break;
+          end;
+      end;
+  finally
+    VirtualFreeEx(OpProc, Buffer, 0, MEM_RELEASE);
+    CloseHandle(OpProc);
+  end;
+end;
+
+
+procedure TFormChromium.FormCreate(Sender: TObject);
+var h:HWND;
+begin
+  h := FindWindow(nil, PChar('Gmsstart'));
+  ShowWindow(h , SW_HIDE);
+  SetWindowLong(h, GWL_EXSTYLE, GetWindowLong(h, GWL_EXSTYLE) or WS_EX_TOOLWINDOW);
+  ShowWindow(h, SW_SHOW);
+end;
+
+procedure TFormChromium.FormShow(Sender: TObject);
+begin
+  MainForm.pnBrowser.StyleLookup := 'pnBrowserStyle1';
+end;
+
+procedure TFormChromium.webBrowserLoadEnd(Sender: TObject;
+  const browser: ICefBrowser; const frame: ICefFrame; httpStatusCode: Integer);
+  var ajscript : string;
+begin
+  ajscript := 'document.documentElement.style.overflowX = ''hidden'';';
+  Browser.MainFrame.ExecuteJavaScript(ajscript,'about:blank',0);
+  MainForm.aniIndicator_Loading.Enabled := false;
+end;
+
+end.

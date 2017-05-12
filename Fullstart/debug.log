@@ -1,0 +1,9 @@
+[1228/170159:ERROR:proxy_service_factory.cc(136)] Cannot use V8 Proxy resolver in single process mode.
+[1228/170159:ERROR:browser_host_impl.cc(1411)] Invalid URL passed to CefBrowserHostImpl::LoadURL: 
+[1228/170220:WARNING:histograms.cc(40)] Started multiple compositor clients (Browser, Renderer) in one process. Some metrics will be disabled.
+[1228/170323:ERROR:proxy_service_factory.cc(136)] Cannot use V8 Proxy resolver in single process mode.
+[1228/170323:ERROR:browser_host_impl.cc(1411)] Invalid URL passed to CefBrowserHostImpl::LoadURL: 
+[1228/170330:WARNING:histograms.cc(40)] Started multiple compositor clients (Browser, Renderer) in one process. Some metrics will be disabled.
+[0103/134954:ERROR:proxy_service_factory.cc(136)] Cannot use V8 Proxy resolver in single process mode.
+[0103/134954:ERROR:browser_host_impl.cc(1411)] Invalid URL passed to CefBrowserHostImpl::LoadURL: 
+[0103/135004:WARNING:histograms.cc(40)] Started multiple compositor clients (Browser, Renderer) in one process. Some metrics will be disabled.

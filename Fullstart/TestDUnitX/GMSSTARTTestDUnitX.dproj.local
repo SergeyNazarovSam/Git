@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.335,C:\Projects\Fullstart\TestDUnitX\UnitTestDUnitX.pas=C:\Users\nsergey\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.883,=C:\Projects\Fullstart\UnitVCL.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.050,=C:\Projects\Fullstart\DMBase.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.736,=C:\Projects\Fullstart\superobject.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.682,=C:\Projects\Fullstart\ChromiumVCLUnit.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.051,=C:\Projects\Fullstart\ConfigUnit.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.931,=C:\Projects\Fullstart\UnitMain.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.421,=C:\Projects\Fullstart\unitLogin.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.579,=C:\Projects\Fullstart\UnitMenu.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.969,C:\Projects\Fullstart\TestDUnitX\GMSSTARTTestDUnitX.dproj=C:\Users\nsergey\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.130,=C:\Projects\Fullstart\hsapi.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.974,=C:\Users\nsergey\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.427,=C:\Users\nsergey\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.681,=C:\Users\nsergey\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,69 @@
+unit UnitVCL;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TVCLForm = class(TForm)
+    Button: TButton;
+    procedure ButtonClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  protected
+     procedure WndProc(var Message: TMessage); override;
+  public
+    { Public declarations }
+  end;
+
+const
+  cLogout = 'gmslogout';
+  cLogin = 'gmslogin';
+
+var
+  vLogout, vLogIn: Cardinal;
+
+var
+  VCLForm: TVCLForm;
+
+implementation
+
+uses UnitMain;
+
+{$R *.dfm}
+
+procedure TVclForm.WndProc(var Message: TMessage);
+begin
+  if Message.Msg = vLogout then
+  begin
+    MainForm.DoLogOut;
+  end else
+    if Message.Msg = vLogin then
+    begin
+      MainForm.FUsernumber := InttoStr(Message.wParam);
+      MainForm.DoLogIn(MainForm.FUsernumber); //user_number of Table Users
+    end;
+  inherited WndProc(Message);
+end;
+
+procedure TVCLForm.ButtonClick(Sender: TObject);
+var
+  aRecipient: DWORD;
+  aMsgValue: WPARAM;
+begin
+  aMsgValue := 0;
+  aRecipient := BSM_APPLICATIONS;
+  BroadCastSystemMessage(BSF_POSTMESSAGE, @aRecipient, vLogout, aMsgValue, 0);
+end;
+
+procedure TVCLForm.FormCreate(Sender: TObject);
+begin
+  vLogout := RegisterWindowMessage(cLogout);
+  vLogin := RegisterWindowMessage(cLogin);
+  Self.hide;
+end;
+
+end.

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.424,C:\Users\busli\OneDrive\Документы\Embarcadero\Studio\Projects\Unit2.pas=D:\dev\Delphi\SAM\FullStartFinal\UnitTestGUI\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.149,=C:\Users\busli\OneDrive\Документы\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.746,=D:\dev\Delphi\SAM\FullStartFinal\superobject.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.424,C:\Users\busli\OneDrive\Документы\Embarcadero\Studio\Projects\Unit2.fmx=D:\dev\Delphi\SAM\FullStartFinal\UnitTestGUI\Unit2.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.461,C:\Users\busli\OneDrive\Документы\Embarcadero\Studio\Projects\Project1.dproj=D:\dev\Delphi\SAM\FullStartFinal\UnitTestGUI\UnitTestGUI.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.935,=D:\dev\Delphi\SAM\FullStartFinal\UnitTestGUI\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.511,=D:\dev\RadStudio\18.0\source\DunitX\DUNitX.Loggers.GUIX.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.521,D:\dev\Delphi\SAM\FullStartFinal\UnitTestGUI\Unit2.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.279,=C:\Users\busli\OneDrive\Документы\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.735,=D:\dev\Delphi\SAM\FullStartFinal\hsapi.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.983,=C:\Users\busli\OneDrive\Документы\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="android-support-v4.dex.jar"/>
+    <File Path="cloud-messaging.dex.jar"/>
+    <File Path="fmx.dex.jar"/>
+    <File Path="google-analytics-v2.dex.jar"/>
+    <File Path="google-play-billing.dex.jar"/>
+    <File Path="google-play-licensing.dex.jar"/>
+    <File Path="google-play-services.dex.jar"/>
+    <File Path="..\..\..\Fullstart"/>
+    <File Path="..\..\hsapi.pas"/>
+    <File Path="..\..\hsapi.dfm"/>
+    <File Path="..\..\superobject.pas"/>
+    <File Path="C:"/>
+    <File Path="C:\Program Files (x86)"/>
+    <File Path="C:\Program Files (x86)\Embarcadero"/>
+    <File Path="C:\Program Files (x86)\Embarcadero\Studio"/>
+    <File Path="C:\Program Files (x86)\Embarcadero\Studio\18.0"/>
+    <File Path="C:\Program Files (x86)\Embarcadero\Studio\18.0\source"/>
+    <File Path="C:\Program Files (x86)\Embarcadero\Studio\18.0\source\DunitX"/>
+    <File Path="C:\Program Files (x86)\Embarcadero\Studio\18.0\source\DunitX\DUNitX.Loggers.GUIX.pas"/>
+    <File Path="C:\Program Files (x86)\Embarcadero\Studio\18.0\source\DunitX\DUNitX.Loggers.GUIX.fmx"/>
+    <File Path="Unit1.pas"/>
+  </ProjectSortOrder>
+</BorlandProject>
