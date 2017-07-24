@@ -3,21 +3,18 @@ unit ConfigUnit;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
-  System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.Ani, FMX.Layouts,
-  FMX.Gestures,
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.Ani, FMX.Layouts, FMX.Gestures,
   FMX.StdCtrls, FMX.Controls.Presentation, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   System.Rtti, FMX.Grid, FMX.TabControl, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, FMX.ScrollBox, FMX.Memo, FMX.ListBox, FMX.Edit,
-  System.IniFiles, Mmsystem,
-  FMX.Menus, FMX.Grid.Style;
+  FireDAC.Comp.Client, FMX.ScrollBox, FMX.Memo, FMX.ListBox, FMX.Edit, System.IniFiles,  mmsystem,
+  FMX.Menus;
 
 type
   TConfigForm = class(TForm)
-    StyleBookConfig: TStyleBook;
+    StyleBook1: TStyleBook;
     ToolbarHolder: TLayout;
     ToolbarPopup: TPopup;
     ToolbarPopupAnimation: TFloatAnimation;
@@ -25,374 +22,318 @@ type
     ToolbarApplyButton: TButton;
     ToolbarCloseButton: TButton;
     ToolbarAddButton: TButton;
-    FDQueryApplicationList: TFDQuery;
-    FDQueryRoleList: TFDQuery;
-    TabControlConfig: TTabControl;
-    TabItemApplications: TTabItem;
-    TabItemRoles: TTabItem;
-    StringGridApplicationList: TStringGrid;
-    StringColumnApplicationListID: TStringColumn;
-    StringColumnApplicationListName: TStringColumn;
-    StringColumnApplicationListPath: TStringColumn;
-    StringColumnApplicationListParams: TStringColumn;
-    StringColumnApplicationListRunceone: TStringColumn;
-    StringColumnApplicationListIcon: TStringColumn;
-    StringColumnApplicationListNameShort: TStringColumn;
-    ImageControlBlob: TImageControl;
-    ButtonAdd: TButton;
-    ButtonDelete: TButton;
-    ButtonSetupLocation: TButton;
-    OpenDialogLocation: TOpenDialog;
-    StringGridRoleList: TStringGrid;
-    StringColumnRoleListID: TStringColumn;
-    StringColumnRoleListName: TStringColumn;
-    StringColumnRoleListPath: TStringColumn;
-    StringColumnRoleListParams: TStringColumn;
-    StringColumnRoleListRunceone: TStringColumn;
-    StringColumnRoleListIcon: TStringColumn;
-    StringColumnRoleListNameShort: TStringColumn;
-    ComboBoxUserRole: TComboBox;
-    ComboBoxApplications: TComboBox;
-    LabelUserRole: TLabel;
-    LabelApplications: TLabel;
-    ButtonAddForRole: TButton;
-    ButtonDeleteForRole: TButton;
-    TabItemOptions: TTabItem;
-    LabelTileSize: TLabel;
-    EditTileSize: TEdit;
-    LabelMainLogo: TLabel;
-    EditMainLogo: TEdit;
-    LabelClientLogo: TLabel;
-    EditClientLogo: TEdit;
-    LabelSound: TLabel;
-    EditSound: TEdit;
-    ButtonLocationMainLogo: TButton;
-    ButtonLocationClientLogo: TButton;
-    ButtonLocationSound: TButton;
-    ButtonAcceptSettings: TButton;
-    ImageControlMainLogo: TImageControl;
-    ImageControlClientLogo: TImageControl;
-    ButtonTestSound: TButton;
-    PopupMenuYesNo: TPopupMenu;
-    MenuItemYes: TMenuItem;
-    MenuItemNo: TMenuItem;
-    StringColumnApplicationListEasyLogin: TStringColumn;
-    StringColumnApplicationListKeyLogin: TStringColumn;
-    StringColumnRoleListEasyLogin: TStringColumn;
-    StringColumnRoleListKeyLogin: TStringColumn;
-    ButtonAddAllForRole: TButton;
-    ButtonDeleteAllForRole: TButton;
-    CheckBoxAutoComplete: TCheckBox;
-    StringColumnApplicationListAutoUpdate: TStringColumn;
-    StringColumnApplicationListDoAutoUpdate: TStringColumn;
-    StringColumnApplicationListServerPath: TStringColumn;
-    StringColumnApplicationListSubFolders: TStringColumn;
-    StringColumnRoleListAutoUpdate: TStringColumn;
-    StringColumnRoleListDoAutoUpdate: TStringColumn;
-    StringColumnRoleListServerPath: TStringColumn;
-    StringColumnRoleListSubFolders: TStringColumn;
+    Query_ApplicationList: TFDQuery;
+    Query_RoleList: TFDQuery;
+    TabControl1: TTabControl;
+    TabItem1: TTabItem;
+    TabItem2: TTabItem;
+    StringGrid_ApplicationList: TStringGrid;
+    StringColumn1: TStringColumn;
+    StringColumn2: TStringColumn;
+    StringColumn3: TStringColumn;
+    StringColumn4: TStringColumn;
+    StringColumn5: TStringColumn;
+    StringColumn6: TStringColumn;
+    StringColumn7: TStringColumn;
+    ImageControl_Blob: TImageControl;
+    Button_Add: TButton;
+    Button_Delete: TButton;
+    Button_setup_location: TButton;
+    OpenDialog_Location: TOpenDialog;
+    StringGrid_RoleList: TStringGrid;
+    StringColumn8: TStringColumn;
+    StringColumn9: TStringColumn;
+    StringColumn10: TStringColumn;
+    StringColumn11: TStringColumn;
+    StringColumn12: TStringColumn;
+    StringColumn13: TStringColumn;
+    StringColumn14: TStringColumn;
+    ComboBox_UserRole: TComboBox;
+    ComboBox_Applications: TComboBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    Button_AddForRole: TButton;
+    Button_DeleteforRole: TButton;
+    TabItem3: TTabItem;
+    Label3: TLabel;
+    Edit_TileSize: TEdit;
+    Label4: TLabel;
+    Edit_MainLogo: TEdit;
+    Label5: TLabel;
+    Edit_ClientLogo: TEdit;
+    Label6: TLabel;
+    Edit_Sound: TEdit;
+    Button_LocationMainLogo: TButton;
+    Button_LocationClientLogo: TButton;
+    Button_LocationSound: TButton;
+    Button_AcceptSettings: TButton;
+    ImageControl_MainLogo: TImageControl;
+    ImageControl_ClientLogo: TImageControl;
+    Button_TestSound: TButton;
+    PopupMenu_YesNo: TPopupMenu;
+    MenuItem_Yes: TMenuItem;
+    MenuItem_No: TMenuItem;
+    StringColumn15: TStringColumn;
+    StringColumn16: TStringColumn;
+    StringColumn17: TStringColumn;
+    StringColumn18: TStringColumn;
+    Button_AddAllForRole: TButton;
+    Button_DeleteAllForRole: TButton;
+    CheckBox_autocomplite: TCheckBox;
     procedure ToolbarCloseButtonClick(Sender: TObject);
     procedure FormGesture(Sender: TObject;
-      const EventInfo: TGestureEventInfo;var Handled: Boolean);
-    procedure FormKeyDown(Sender: TObject;var Key: Word;var KeyChar: Char;
+      const EventInfo: TGestureEventInfo; var Handled: Boolean);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
-    procedure StringGridApplicationListSelectCell(Sender: TObject;const ACol,
-      ARow: Integer;var CanSelect: Boolean);
-    procedure ButtonAddClick(Sender: TObject);
-    procedure ButtonEditClick(Sender: TObject);
-    procedure ButtonDeleteClick(Sender: TObject);
-    procedure ButtonSetupLocationClick(Sender: TObject);
-    procedure ButtonAddForRoleClick(Sender: TObject);
-    procedure ButtonDeleteForRoleClick(Sender: TObject);
-    procedure StringGridRoleListSelectCell(Sender: TObject;const ACol,
-      ARow: Integer;var CanSelect: Boolean);
+    procedure StringGrid_ApplicationListSelectCell(Sender: TObject; const ACol,
+      ARow: Integer; var CanSelect: Boolean);
+    procedure Button_AddClick(Sender: TObject);
+    procedure Button_EditClick(Sender: TObject);
+    procedure Button_DeleteClick(Sender: TObject);
+    procedure Button_setup_locationClick(Sender: TObject);
+    procedure Button_AddForRoleClick(Sender: TObject);
+    procedure Button_DeleteforRoleClick(Sender: TObject);
+    procedure StringGrid_RoleListSelectCell(Sender: TObject; const ACol,
+      ARow: Integer; var CanSelect: Boolean);
     procedure FormShow(Sender: TObject);
-    procedure ButtonAcceptSettingsClick(Sender: TObject);
-    procedure ButtonLocationMainLogoClick(Sender: TObject);
-    procedure ButtonTestSoundClick(Sender: TObject);
-    procedure TabItemRolesClick(Sender: TObject);
-    procedure MenuItemYesClick(Sender: TObject);
-    procedure PopupMenuYesNoPopup(Sender: TObject);
-    procedure FormClose(Sender: TObject;var Action: TCloseAction);
-    procedure ComboBoxUserRoleChange(Sender: TObject);
-    procedure ButtonAddAllForRoleClick(Sender: TObject);
-    procedure ButtonDeleteAllForRoleClick(Sender: TObject);
+    procedure Button_AcceptSettingsClick(Sender: TObject);
+    procedure Button_LocationMainLogoClick(Sender: TObject);
+    procedure Button_TestSoundClick(Sender: TObject);
+    procedure TabItem2Click(Sender: TObject);
+    procedure MenuItem_YesClick(Sender: TObject);
+    procedure PopupMenu_YesNoPopup(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure ComboBox_UserRoleChange(Sender: TObject);
+    procedure Button_AddAllForRoleClick(Sender: TObject);
+    procedure Button_DeleteAllForRoleClick(Sender: TObject);
   private
-    FGestureInProgress: Boolean;
     FGestureOrigin: TPointF;
+    FGestureInProgress: Boolean;
     { Private declarations }
     procedure ShowToolbar(AShow: Boolean);
   public
-    FCurRowApplicationList: Integer;
-    FCurColApplicationList: Integer;
-    FCurRowRoleList: Integer;
-    procedure ShowApplicationList;
-    procedure ShowRoleList;
-    procedure FillCombos;
-    procedure ShowOptions;
-    procedure AddProgram_to_Role(RoleId, ProgId: Integer);
+    FCurRowApplicationList : integer;
+    FCurColApplicationList : integer;
+    FCurRowRoleList : integer;
+    Procedure ShowApplicationList;
+    Procedure ShowRoleList;
+    Procedure FillCombos;
+    Procedure ShowOptions;
+    Procedure AddProgram_to_Role( RoleId,ProgId : integer);
     { Public declarations }
   end;
 
-const
-  CEasyLogin = 1; // 01   // Constants for bit map
-  CKeyLogin = 2; // 10
+const co_EasyLogin = 1; // 01   // Constants for bit map
+      co_KeyLogin  = 2; // 10
 
 var
   ConfigForm: TConfigForm;
 
 implementation
 
-uses
-  DMBase, UnitMain;
+uses DMBase, UnitMain;
 
 {$R *.fmx}
 
-
-procedure TConfigForm.FormKeyDown(Sender: TObject;var Key: Word;
+procedure TConfigForm.FormKeyDown(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
-  if Key = VkEscape then
+  if Key = vkEscape then
     ShowToolbar(not ToolbarPopup.IsOpen);
 end;
 
 procedure TConfigForm.FormShow(Sender: TObject);
-var
-  ACanSelect: Boolean;
+var aCanSelect : boolean;
 begin
   ShowApplicationList;
   ShowOptions;
-  StringGridApplicationListSelectCell(Sender, 0, 0, ACanSelect);
+  StringGrid_ApplicationListSelectCell(sender,0,0,aCanSelect);
 end;
 
-procedure TConfigForm.MenuItemYesClick(Sender: TObject);
+procedure TConfigForm.MenuItem_YesClick(Sender: TObject);
 begin
-  if FCurColApplicationList in[4, 5, 7, 8, 9, 10] then
-    StringGridApplicationList.Cells[FCurColApplicationList,
-      FCurRowApplicationList]:=(Sender as TMenuItem).Text;
+  if FCurColApplicationList in [4,5,7,8] then
+    StringGrid_ApplicationList.Cells[FCurColApplicationList,FCurRowApplicationList] := (sender as TMenuItem).Text;
   if FCurColApplicationList = 5 then
-    if(Sender as TMenuItem).Text = 'No' then
-      ImageControlBlob.Bitmap.Assign(nil)
+    if (sender as TMenuItem).Text = 'No' then
+      ImageControl_Blob.Bitmap.Assign(nil)
     else
-      ImageControlBlob.ShowOpenDialog;
+      ImageControl_Blob.ShowOpenDialog;
 end;
 
-procedure TConfigForm.PopupMenuYesNoPopup(Sender: TObject);
+procedure TConfigForm.PopupMenu_YesNoPopup(Sender: TObject);
 begin
-  if FCurColApplicationList in[4, 5, 7, 8, 9, 10] then
+  if FCurColApplicationList in [4,5,7,8] then
   begin
-    PopupMenuYesNo.Items[0].Visible := True;
-    PopupMenuYesNo.Items[1].Visible := True;
+    PopupMenu_YesNo.Items[0].Visible := true;
+    PopupMenu_YesNo.Items[1].Visible := true;
   end
   else
   begin
-    PopupMenuYesNo.Items[0].Visible := False;
-    PopupMenuYesNo.Items[1].Visible := False;
+    PopupMenu_YesNo.Items[0].Visible := false;
+    PopupMenu_YesNo.Items[1].Visible := false;
   end;
 end;
 
-procedure TConfigForm.ShowApplicationList;
-var
-  I, J: Integer;
+Procedure TConfigForm.ShowApplicationList;
+var i : integer;
 begin
-  // i - for field count in table j - for stringgrid column count
-  Self.FDQueryApplicationList.Close;
-  Self.FDQueryApplicationList.Open();
-  Self.FDQueryApplicationList.First;
+  self.Query_ApplicationList.Close;
+  self.Query_ApplicationList.Open();
+  self.Query_ApplicationList.First;
 
   // Filling the stringGrid
-  Self.StringGridApplicationList.BeginUpdate;
-  Self.StringGridApplicationList.RowCount :=
-    Self.FDQueryApplicationList.RecordCount + 1;
-  while not Self.FDQueryApplicationList.Eof do
+  self.StringGrid_ApplicationList.BeginUpdate;
+  self.StringGrid_ApplicationList.RowCount := self.Query_ApplicationList.RecordCount+1;
+  while not self.Query_ApplicationList.Eof do
   begin
-    J := 0;
-    for I := 0 to Self.FDQueryApplicationList.FieldCount - 1 do
+    for i := 0 to self.Query_ApplicationList.FieldCount-1 do
     begin
-      if not Self.FDQueryApplicationList.Fields[I].IsBlob then
-        Self.StringGridApplicationList.Cells
-          [J, Self.FDQueryApplicationList.RecNo - 1]:=
-          Self.FDQueryApplicationList.Fields[I].AsString
+      if not self.Query_ApplicationList.Fields[i].IsBlob then
+        self.StringGrid_ApplicationList.Cells[i, self.Query_ApplicationList.RecNo-1]:= self.Query_ApplicationList.Fields[i].AsString
       else
-        if Self.FDQueryApplicationList.Fields[I].IsNull then
-          Self.StringGridApplicationList.Cells
-            [J, Self.FDQueryApplicationList.RecNo - 1]:= 'No'
+        if self.Query_ApplicationList.Fields[i].IsNull then
+          self.StringGrid_ApplicationList.Cells[i, self.Query_ApplicationList.RecNo-1] := 'No'
         else
-          Self.StringGridApplicationList.Cells
-            [J, Self.FDQueryApplicationList.RecNo - 1]:= 'Yes';
+          self.StringGrid_ApplicationList.Cells[i, self.Query_ApplicationList.RecNo-1] := 'Yes';
       // RunceOne
-      if I in[4, 8, 9] then
-        if Self.FDQueryApplicationList.Fields[I].AsString = '0' then
-          Self.StringGridApplicationList.Cells
-            [J, Self.FDQueryApplicationList.RecNo - 1]:= 'No'
+      if i = 4 then
+        if self.Query_ApplicationList.Fields[i].AsString = '0' then
+          self.StringGrid_ApplicationList.Cells[i, self.Query_ApplicationList.RecNo-1] := 'No'
         else
-          Self.StringGridApplicationList.Cells
-            [J, Self.FDQueryApplicationList.RecNo - 1]:= 'Yes';
+          self.StringGrid_ApplicationList.Cells[i, self.Query_ApplicationList.RecNo-1] := 'Yes';
       // EasyLogin and KeyLogin
-      if I = 7 then
+      if i = 7 then
       begin
         // EasyLogin filling
-        if(Self.FDQueryApplicationList.Fields[I].AsInteger and CEasyLogin)= CEasyLogin
-        then
-          Self.StringGridApplicationList.Cells
-            [J, Self.FDQueryApplicationList.RecNo - 1]:= 'Yes'
+        if (self.Query_ApplicationList.Fields[i].AsInteger and co_EasyLogin) = co_EasyLogin  then
+          self.StringGrid_ApplicationList.Cells[i, self.Query_ApplicationList.RecNo-1] := 'Yes'
         else
-          Self.StringGridApplicationList.Cells
-            [J, Self.FDQueryApplicationList.RecNo - 1]:= 'No';
-        J := J + 1;
+          self.StringGrid_ApplicationList.Cells[i, self.Query_ApplicationList.RecNo-1] := 'No';
         // Keylogin Filling
-        if(Self.FDQueryApplicationList.Fields[I].AsInteger and CKeyLogin)= CKeyLogin
-        then
-          Self.StringGridApplicationList.Cells
-            [J, Self.FDQueryApplicationList.RecNo - 1]:= 'Yes'
+        if (self.Query_ApplicationList.Fields[i].AsInteger and co_KeyLogin) = co_KeyLogin  then
+          self.StringGrid_ApplicationList.Cells[i+1, self.Query_ApplicationList.RecNo-1] := 'Yes'
         else
-          Self.StringGridApplicationList.Cells
-            [J, Self.FDQueryApplicationList.RecNo - 1]:= 'No';
+          self.StringGrid_ApplicationList.Cells[i+1, self.Query_ApplicationList.RecNo-1] := 'No';
       end;
-      J := J + 1;
+
     end;
-    Self.FDQueryApplicationList.Next;
+    self.Query_ApplicationList.Next;
   end;
-  for I := 0 to Self.FDQueryApplicationList.FieldCount - 1 do
-    Self.StringGridApplicationList.Cells
-      [I, Self.StringGridApplicationList.RowCount - 1]:= '';
-  StringGridApplicationList.EndUpdate;
-  StringGridApplicationList.Repaint;
+  for i := 0 to self.Query_ApplicationList.FieldCount-1 do
+    self.StringGrid_ApplicationList.Cells[i, self.StringGrid_ApplicationList.RowCount-1] := '';
+  StringGrid_ApplicationList.EndUpdate;
+  StringGrid_ApplicationList.Repaint;
 end;
 
-procedure TConfigForm.ShowRoleList;
-var
-  I, J: Integer;
+Procedure TConfigForm.ShowRoleList;
+var i: integer;
 begin
-  // i - for field count in table j - for stringgrid column count
-  Self.FDQueryRoleList.Close;
-  Self.FDQueryRoleList.Params.ParamByName('ID').Value :=
-    Self.ComboBoxUserRole.ListItems[Self.ComboBoxUserRole.ItemIndex].Tag;
-  Self.FDQueryRoleList.Open();
-  Self.FDQueryRoleList.First;
+  self.Query_RoleList.Close;
+  self.Query_RoleList.Params.ParamByName('ID').Value := self.ComboBox_UserRole.ListItems[self.ComboBox_UserRole.ItemIndex].Tag;
+  self.Query_RoleList.Open();
+  self.Query_RoleList.First;
   // Filling the stringGrid
-  Self.StringGridRoleList.BeginUpdate;
-  Self.StringGridRoleList.RowCount := Self.FDQueryRoleList.RecordCount;
-  while not Self.FDQueryRoleList.Eof do
+  self.StringGrid_RoleList.BeginUpdate;
+  self.StringGrid_RoleList.RowCount := self.Query_RoleList.RecordCount;
+  while not self.Query_RoleList.Eof do
   begin
-    J := 0;
-    for I := 0 to Self.FDQueryRoleList.FieldCount - 1 do
+    for i := 0 to self.Query_RoleList.FieldCount-1 do
     begin
-      if not Self.FDQueryRoleList.Fields[I].IsBlob then
-        Self.StringGridRoleList.Cells[J, Self.FDQueryRoleList.RecNo - 1]:=
-          Self.FDQueryRoleList.Fields[I].AsString
+      if not self.Query_RoleList.Fields[i].IsBlob then
+        self.StringGrid_RoleList.Cells[i, self.Query_RoleList.RecNo-1]:= self.Query_RoleList.Fields[i].AsString
       else
-        if Self.FDQueryRoleList.Fields[I].IsNull then
-          Self.StringGridRoleList.Cells[J, Self.FDQueryRoleList.RecNo -
-            1]:= 'No'
+        if self.Query_RoleList.Fields[i].IsNull then
+          self.StringGrid_RoleList.Cells[i, self.Query_RoleList.RecNo-1] := 'No'
         else
-          Self.StringGridRoleList.Cells[J, Self.FDQueryRoleList.RecNo -
-            1]:= 'Yes';
-      if I in[4, 8, 9] then
-        if Self.FDQueryRoleList.Fields[I].AsString = '0' then
-          Self.StringGridRoleList.Cells[J, Self.FDQueryRoleList.RecNo -
-            1]:= 'No'
+          self.StringGrid_RoleList.Cells[i, self.Query_RoleList.RecNo-1] := 'Yes';
+      if i = 4 then
+        if self.Query_RoleList.Fields[i].AsString = '0' then
+          self.StringGrid_RoleList.Cells[i, self.Query_RoleList.RecNo-1] := 'No'
         else
-          Self.StringGridRoleList.Cells[J, Self.FDQueryRoleList.RecNo -
-            1]:= 'Yes';
-      if I = 7 then
+          self.StringGrid_RoleList.Cells[i, self.Query_RoleList.RecNo-1] := 'Yes';
+      if i = 7 then
       begin
         // EasyLogin filling
-        if(Self.FDQueryRoleList.Fields[I].AsInteger and CEasyLogin)= CEasyLogin
-        then
-          Self.StringGridRoleList.Cells[J, Self.FDQueryRoleList.RecNo -
-            1]:= 'Yes'
+        if (self.Query_RoleList.Fields[i].AsInteger and co_EasyLogin) = co_EasyLogin  then
+          self.StringGrid_RoleList.Cells[i, self.Query_RoleList.RecNo-1] := 'Yes'
         else
-          Self.StringGridRoleList.Cells[J, Self.FDQueryRoleList.RecNo -
-            1]:= 'No';
-        J := J + 1;
+          self.StringGrid_RoleList.Cells[i, self.Query_RoleList.RecNo-1] := 'No';
         // Keylogin Filling
-        if(Self.FDQueryRoleList.Fields[I].AsInteger and CKeyLogin)= CKeyLogin
-        then
-          Self.StringGridRoleList.Cells[J, Self.FDQueryRoleList.RecNo -
-            1]:= 'Yes'
+        if (self.Query_RoleList.Fields[i].AsInteger and co_KeyLogin) = co_KeyLogin  then
+          self.StringGrid_RoleList.Cells[i+1, self.Query_RoleList.RecNo-1] := 'Yes'
         else
-          Self.StringGridRoleList.Cells[J, Self.FDQueryRoleList.RecNo -
-            1]:= 'No';
+          self.StringGrid_RoleList.Cells[i+1, self.Query_RoleList.RecNo-1] := 'No';
       end;
-      J := J + 1;
+
     end;
-    Self.FDQueryRoleList.Next;
+    self.Query_RoleList.Next;
   end;
-  StringGridRoleList.EndUpdate;
+  StringGrid_RoleList.EndUpdate;
 end;
 
-procedure TConfigForm.FillCombos;
-var
-  AQueryCombo: TFDQuery;
-  I: Integer;
+
+Procedure TConfigForm.FillCombos;
+var aqCombo : TFDQuery;
+    i : integer;
 begin
   // Filling combos
-  AQueryCombo := TFDQuery.Create(Self);
-  AQueryCombo.Connection := DataModuleBase.FDConnectionFelix;
-  AQueryCombo.SQL.Add('SELECT ID, NAME FROM USER_ROLES;');
-  AQueryCombo.Open();
-  AQueryCombo.First;
-  I := 0;
-  Self.ComboBoxUserRole.Clear;
-  while not AQueryCombo.Eof do
+  aqCombo := TFDQuery.Create(self);
+  aqCombo.Connection := DBase.IB_ConnectionFelix;
+  aqCombo.SQL.Add('Select * from User_Roles');
+  aqCombo.Open();
+  aqCombo.First;
+  i := 0;
+  self.ComboBox_UserRole.Clear;
+  while not aqCombo.Eof do
   begin
-    Self.ComboBoxUserRole.Items.Add(AQueryCombo.FieldByName('NAME').AsString);
-    Self.ComboBoxUserRole.ListItems[I].Tag := AQueryCombo.FieldByName('ID')
-      .AsInteger;
-    I := I + 1;
-    AQueryCombo.Next;
+    self.ComboBox_UserRole.Items.Add(aqCombo.FieldByName('Name').AsString);
+    self.ComboBox_UserRole.ListItems[i].Tag := aqCombo.FieldByName('ID').AsInteger;
+    i := i + 1;
+    aqCombo.Next;
   end;
-  AQueryCombo.Close;
-  AQueryCombo.SQL.Clear;
-  AQueryCombo.SQL.Add('SELECT ID, NAME FROM USER_PROGRAMS;');
-  AQueryCombo.Open();
-  AQueryCombo.First;
-  I := 0;
-  Self.ComboBoxApplications.Clear;
-  while not AQueryCombo.Eof do
+  aqCombo.Close;
+  aqCombo.SQL.Clear;
+  aqCombo.SQL.Add('Select * from User_Programs');
+  aqCombo.Open();
+  aqCombo.First;
+  i := 0;
+  self.ComboBox_Applications.Clear;
+  while not aqCombo.Eof do
   begin
-    Self.ComboBoxApplications.Items.Add(AQueryCombo.FieldByName('NAME')
-      .AsString);
-    Self.ComboBoxApplications.ListItems[I].Tag := AQueryCombo.FieldByName('ID')
-      .AsInteger;
-    I := I + 1;
-    AQueryCombo.Next;
+    self.ComboBox_Applications.Items.Add(aqCombo.FieldByName('Name').AsString);
+    self.ComboBox_Applications.ListItems[i].Tag := aqCombo.FieldByName('ID').AsInteger;
+    i := i + 1;
+    aqCombo.Next;
   end;
-  AQueryCombo.Close;
-  AQueryCombo.Free;
-  Self.ComboBoxUserRole.ItemIndex := 0;
-  Self.ComboBoxApplications.ItemIndex := 0;
+  aqCombo.Close;
+  aqCombo.Free;
+  self.ComboBox_UserRole.ItemIndex := 0;
+  self.ComboBox_Applications.ItemIndex := 0;
 end;
 
-procedure TConfigForm.ShowOptions;
-var
-  AIni: TIniFile;
+Procedure TConfigForm.ShowOptions;
+var aIni:TIniFile;
 begin
-  AIni := TIniFile.Create(ExtractFileDir(ParamStr(0))+ '\felixmain.ini');
-  MainForm.FTileSideSize :=
-    StrToInt(AIni.ReadString('Common', 'TileSideSize', '300'));
-  MainForm.FLogoImgPath := AIni.ReadString('Common', 'LogoImgPath',
-    ExtractFilePath(ParamStr(0))+ 'img\gms-info.png');
-  MainForm.FClientImgPath := AIni.ReadString('Common', 'ClientImgPath',
-    ExtractFilePath(ParamStr(0))+ 'img\gms-info.png');
-  MainForm.FSoundPath := AIni.ReadString('Common', 'SoundPath',
-    ExtractFilePath(ParamStr(0))+ 'snd\newmessage.wav');
-  MainForm.FUseAutoComplete :=
-    StrToBool(AIni.ReadString('Common', 'UseAutoComplete', 'false'));
-  Self.EditTileSize.Text := IntToStr(MainForm.FTileSideSize);
-  Self.EditMainLogo.Text := MainForm.FLogoImgPath;
-  Self.EditClientLogo.Text := MainForm.FClientImgPath;
-  Self.EditSound.Text := MainForm.FSoundPath;
-  Self.CheckBoxAutoComplete.IsChecked := MainForm.FUseAutocomplete;
-  if FileExists(MainForm.FLogoImgPath)then
-    Self.ImageControlMainLogo.LoadFromFile(MainForm.FLogoImgPath);
-  if FileExists(MainForm.FClientImgPath)then
-    Self.ImageControlClientLogo.LoadFromFile(MainForm.FClientImgPath);
-  AIni.Free;
+  aIni := TIniFile.Create(ExtractFileDir(ParamStr(0))+'\felixmain.ini');
+  MainForm.FTileSideSize := StrToInt(aIni.ReadString('Common', 'TileSideSize', '300'));
+  MainForm.FLogoImgPath := aIni.ReadString('Common', 'LogoImgPath', Extractfilepath(ParamStr(0))+'img\gms-info.png');
+  MainForm.FClientImgPath := aIni.ReadString('Common', 'ClientImgPath', Extractfilepath(ParamStr(0))+'img\gms-info.png');
+  MainForm.FSoundPath := aIni.ReadString('Common', 'SoundPath',Extractfilepath(ParamStr(0))+'snd\newmessage.wav');
+  MainForm.FUseAutoComplete := strtobool(aIni.ReadString('Common', 'UseAutoComplete','false'));
+  self.Edit_TileSize.Text := inttostr(MainForm.FTileSideSize);
+  self.Edit_MainLogo.Text := MainForm.FLogoImgPath;
+  self.Edit_ClientLogo.Text := MainForm.FClientImgPath;
+  self.Edit_Sound.Text := MainForm.FSoundPath;
+  self.CheckBox_autocomplite.IsChecked := MainForm.FUseAutocomplete;
+  if FileExists(MainForm.FLogoImgPath) then
+    self.ImageControl_MainLogo.LoadFromFile(MainForm.FLogoImgPath);
+  if FileExists(MainForm.FClientImgPath) then
+    self.ImageControl_ClientLogo.LoadFromFile(MainForm.FClientImgPath);
+  aIni.Free;
 end;
 
-procedure TConfigForm.TabItemRolesClick(Sender: TObject);
+procedure TConfigForm.TabItem2Click(Sender: TObject);
 begin
   FillCombos;
   ShowRoleList;
@@ -403,339 +344,284 @@ begin
   Application.Terminate;
 end;
 
-procedure TConfigForm.ButtonAcceptSettingsClick(Sender: TObject);
-var
-  AIni: TIniFile;
+procedure TConfigForm.Button_AcceptSettingsClick(Sender: TObject);
+var aIni:TIniFile;
 begin
-  MainForm.FTileSideSize := StrToInt(Self.EditTileSize.Text);
-  MainForm.FLogoImgPath := Self.EditMainLogo.Text;
-  MainForm.FClientImgPath := Self.EditClientLogo.Text;
-  MainForm.FSoundPath := Self.EditSound.Text;
-  MainForm.FUseAutocomplete := Self.CheckBoxAutoComplete.IsChecked;
-  AIni := TIniFile.Create(ExtractFileDir(ParamStr(0))+ '\felixmain.ini');
-  AIni.WriteString('Common', 'TileSideSize', IntToStr(MainForm.FTileSideSize));
-  AIni.WriteString('Common', 'LogoImgPath', MainForm.FLogoImgPath);
-  AIni.WriteString('Common', 'ClientImgPath', MainForm.FClientImgPath);
-  AIni.WriteString('Common', 'SoundPath', MainForm.FSoundPath);
-  AIni.WriteString('Common', 'UseAutocomplete',
-    Booltostr(MainForm.FUseAutocomplete, True));
-  AIni.Free;
+  MainForm.FTileSideSize := strtoint(self.Edit_TileSize.Text);
+  MainForm.FLogoImgPath := self.Edit_MainLogo.Text;
+  MainForm.FClientImgPath := self.Edit_ClientLogo.Text;
+  MainForm.FSoundPath := self.Edit_Sound.Text;
+  MainForm.FUseAutocomplete := Self.CheckBox_autocomplite.IsChecked;
+  aIni := TIniFile.Create(ExtractFileDir(ParamStr(0))+'\felixmain.ini');
+  aIni.WriteString('Common', 'TileSideSize', inttostr(MainForm.FTileSideSize));
+  aIni.WriteString('Common', 'LogoImgPath', MainForm.FLogoImgPath);
+  aIni.WriteString('Common', 'ClientImgPath', MainForm.FClientImgPath);
+  aIni.WriteString('Common', 'SoundPath', MainForm.FSoundPath);
+  aIni.WriteString('Common', 'UseAutocomplete', booltostr(MainForm.FUseAutocomplete,true));
+  aIni.Free;
 end;
 
-procedure TConfigForm.ButtonAddAllForRoleClick(Sender: TObject);
-var
-  ARole_Id, AProg_ID, I: Integer;
+procedure TConfigForm.Button_AddAllForRoleClick(Sender: TObject);
+var aRole_Id, aProg_ID, i : integer;
 begin
-  ARole_ID := Self.ComboBoxUserRole.ListItems
-    [Self.ComboBoxUserRole.ItemIndex].Tag;
-  for I := 0 to ComboBoxApplications.Items.Count - 1 do
+  aRole_ID := self.ComboBox_UserRole.ListItems[self.ComboBox_UserRole.ItemIndex].Tag;
+  for I := 0 to ComboBox_Applications.Items.Count - 1 do
   begin
-    AProg_ID := Self.ComboBoxApplications.ListItems[I].Tag;
-    AddProgram_to_Role(ARole_ID, AProg_ID);
+    aProg_ID := self.ComboBox_Applications.ListItems[i].Tag;
+    AddProgram_to_Role(aRole_ID, aProg_ID);
   end;
   ShowRoleList;
 end;
 
-procedure TConfigForm.ButtonAddClick(Sender: TObject);
-var
-  AMaxID, ALastRow, I, K, J: Integer;
-  AQueryDml: TFDQuery;
+procedure TConfigForm.Button_AddClick(Sender: TObject);
+ var aMaxID, aLastRow, i, j : integer;
+     aqDml : TFDQuery;
 begin
-  ALastRow := Self.StringGridApplicationList.RowCount - 1;
-  AQueryDml := TFDQuery.Create(Self);
-  AQueryDml.Connection := DataModuleBase.FDConnectionFelix;
-  AQueryDml.SQL.Add
-    ('INSERT INTO USER_PROGRAMS(ID, Name, Path, Params, Runceone, Icon, Name_Short, Login_Type, AutoUpdate, DoAutoUpdateNow, ServerPath, SubFolders)');
-  AQueryDml.SQL.Add
-    ('VALUES (:1, :2, :3, :4, :5, :6, :7, :8, :9, :10, :11, :12)');
-  J := 0;
-  for I := 1 to 12 do
+  aLastRow := self.StringGrid_ApplicationList.RowCount - 1;
+  aqDml := TFDQuery.Create(self);
+  aqDml.Connection := DBase.IB_ConnectionFelix;
+  aqDml.SQL.Add('Insert into User_Programs (ID, Name, Path, Params, Runceone, ICON, Name_Short, Login_Type)');
+  aqDml.SQL.Add('Values (:1, :2, :3, :4, :5, :6, :7, :8)');
+  for i := 1 to 8 do
   begin
-    if I = 1 then
-      if Length(Self.StringGridApplicationList.Cells[J, ALastRow])> 0 then
-        AQueryDml.Params.ParamByName(Inttostr(I)).Value :=
-          StrToInt(Self.StringGridApplicationList.Cells[J, ALastRow])
+    if i = 1 then
+      if Length(self.StringGrid_ApplicationList.Cells[i-1,aLastRow]) > 0 then
+        aqDml.Params.ParamByName(inttostr(i)).Value := strtoint(self.StringGrid_ApplicationList.Cells[i-1,aLastRow])
       else
       begin
-        AMaxID := 0;
+        aMaxID := 0;
         // find the max id if id does not set
-        for K := 0 to ALastRow - 1 do
-          if AMaxID < StrToInt(Self.StringGridApplicationList.Cells[0, K])then
-            AMaxID := StrToInt(Self.StringGridApplicationList.Cells[0, K]);
-        AQueryDml.Params.ParamByName(IntToStr(I)).Value := AMaxID + 1;
+        for j := 0 to aLastRow-1 do
+          if aMaxID < strtoint(self.StringGrid_ApplicationList.Cells[0,j]) then
+            aMaxID := strtoint(self.StringGrid_ApplicationList.Cells[0,j]);
+        aqDml.Params.ParamByName(inttostr(i)).Value := aMaxID + 1;
       end
     else
-      if I = 6 then // Blob
-        if not Self.ImageControlBlob.Bitmap.IsEmpty then
-          AQueryDml.Params.ParamByName(IntToStr(I))
-            .Assign(TBlobField(Self.ImageControlBlob.Bitmap))
+      if i = 6 then  // Blob
+        if not self.ImageControl_Blob.Bitmap.IsEmpty then
+          aqDml.Params.ParamByName(inttostr(i)).Assign(TBlobField(self.ImageControl_Blob.Bitmap))
         else
-          AQueryDml.Params.ParamByName(IntToStr(I)).Value := Null
+          aqDml.Params.ParamByName(inttostr(i)).Value := null
       else
-        if I in[5, 9, 10] then // RunceOne
-          if Self.StringGridApplicationList.Cells[J, ALastRow]= 'Yes' then
-            AQueryDml.Params.ParamByName(IntToStr(I)).Value := '1'
+        if i = 5 then  // RunceOne
+          if self.StringGrid_ApplicationList.Cells[i-1,aLastRow] = 'Yes' then
+            aqDml.Params.ParamByName(inttostr(i)).Value := '1'
           else
-            AQueryDml.Params.ParamByName(IntToStr(I)).Value := '0'
+            aqDml.Params.ParamByName(inttostr(i)).Value := '0'
         else
-          if I = 8 then // EasyLogin + KeyLogin
+          if i = 8 then  // EasyLogin + KeyLogin
           begin
-            AQueryDml.Params.ParamByName(IntToStr(I)).Value := 0;
-            if Self.StringGridApplicationList.Cells[J, ALastRow]= 'Yes' then
-              AQueryDml.Params.ParamByName(IntToStr(I)).Value :=
-                AQueryDml.Params.ParamByName(IntToStr(I)).Value or CEasyLogin;
-            J := J + 1;
-            if Self.StringGridApplicationList.Cells[J, ALastRow]= 'Yes' then
-              AQueryDml.Params.ParamByName(IntToStr(I)).Value :=
-                AQueryDml.Params.ParamByName(IntToStr(I)).Value or CKeyLogin;
+            aqDml.Params.ParamByName(inttostr(i)).Value := 0;
+            if self.StringGrid_ApplicationList.Cells[i-1,aLastRow] = 'Yes' then
+              aqDml.Params.ParamByName(inttostr(i)).Value := aqDml.Params.ParamByName(inttostr(i)).Value or co_EasyLogin;
+            if self.StringGrid_ApplicationList.Cells[i,aLastRow] = 'Yes' then
+              aqDml.Params.ParamByName(inttostr(i)).Value := aqDml.Params.ParamByName(inttostr(i)).Value or co_KeyLogin;
           end
           else
-            AQueryDml.Params.ParamByName(IntToStr(I)).Value :=
-              Self.StringGridApplicationList.Cells[J, ALastRow];
-    J := J + 1;
+            aqDml.Params.ParamByName(inttostr(i)).Value := self.StringGrid_ApplicationList.Cells[i-1,aLastRow];
   end;
-  AQueryDml.ExecSQL;
-  AQueryDml.Free;
+  aqDml.ExecSQL;
+  aqDml.Free;
   ShowApplicationList;
 end;
 
 procedure TConfigForm.AddProgram_to_Role(RoleId: Integer; ProgId: Integer);
-var
-  AMaxID: Integer;
-  AQueryDml: TFDQuery;
+var aMaxID : integer;
+     aqDml : TFDQuery;
 begin
-  AQueryDml := TFDQuery.Create(Self);
-  AQueryDml.Connection := DataModuleBase.FDConnectionFelix;
-  AQueryDml.SQL.Add('SELECT MAX(ID) AS MaxID FROM User_Role_Programs');
-  AQueryDml.Open();
-  if AQueryDml.FieldByName('MaxID').IsNull then
-    AMaxID := 1
+  aqDml := TFDQuery.Create(self);
+  aqDml.Connection := DBase.IB_ConnectionFelix;
+  aqDml.SQL.Add('Select Max(ID) as MaxID from User_role_Programs');
+  aqDml.Open();
+  if aqDml.FieldByName('MaxID').IsNull then
+    aMaxID := 1
   else
-    AMaxID := AQueryDml.FieldByName('MaxID').AsInteger + 1;
+    aMaxID := aqDml.FieldByName('MaxID').AsInteger+1;
 
-  AQueryDml.Close;
-  AQueryDml.SQL.Clear;
-  AQueryDml.SQL.Add
-    ('INSERT INTO User_Role_Programs(ID, USER_PROGRAM_ID, USER_ROLE_ID)');
-  AQueryDml.SQL.Add('VALUES(' + IntToStr(AMaxID)+ ', ' + IntToStr(ProgID)+ ',' +
-    IntToStr(RoleID)+ ')');
-  AQueryDml.ExecSQL;
-  AQueryDml.Free;
+  aqDml.Close;
+  aqDml.SQL.Clear;
+  aqDml.SQL.Add('Insert into User_Role_Programs (ID, USER_PROGRAM_ID, USER_ROLE_ID)');
+  aqDml.SQL.Add('Values ('+inttostr(aMaxID)+', '+inttostr(ProgID)+','+inttostr(RoleID)+')');
+  aqDml.ExecSQL;
+  aqDml.Free;
 end;
 
-procedure TConfigForm.ButtonAddForRoleClick(Sender: TObject);
-var
-  ARole_Id, AProg_ID: Integer;
+
+procedure TConfigForm.Button_AddForRoleClick(Sender: TObject);
+var aRole_Id, aProg_ID : integer;
 begin
-  AProg_ID := Self.ComboBoxApplications.ListItems
-    [Self.ComboBoxApplications.ItemIndex].Tag;
-  ARole_ID := Self.ComboBoxUserRole.ListItems
-    [Self.ComboBoxUserRole.ItemIndex].Tag;
-  AddProgram_to_Role(ARole_ID, AProg_ID);
+  aProg_ID := self.ComboBox_Applications.ListItems[self.ComboBox_Applications.ItemIndex].Tag;
+  aRole_ID := self.ComboBox_UserRole.ListItems[self.ComboBox_UserRole.ItemIndex].Tag;
+  AddProgram_to_Role(aRole_ID, aProg_ID);
   ShowRoleList;
 end;
 
-procedure TConfigForm.ButtonDeleteAllForRoleClick(Sender: TObject);
-var
-  ACurRow: Integer;
-  AQueryDml: TFDQuery;
+procedure TConfigForm.Button_DeleteAllForRoleClick(Sender: TObject);
+var aCurRow : integer;
+    aqDml : TFDQuery;
 begin
-  ACurRow := FCurRowRoleList;
-  AQueryDml := TFDQuery.Create(Self);
-  AQueryDml.Connection := DataModuleBase.FDConnectionFelix;
-  AQueryDml.SQL.Add('DELETE FROM User_Role_Programs u');
-  AQueryDml.SQL.Add('WHERE u.User_Role_Id = :2');
-  AQueryDml.Params.ParamByName('2').Value := Self.ComboBoxUserRole.ListItems
-    [Self.ComboBoxUserRole.ItemIndex].Tag;
-  AQueryDml.ExecSQL;
-  AQueryDml.Free;
+  aCurRow := FCurRowRoleList;
+  aqDml := TFDQuery.Create(self);
+  aqDml.Connection := DBase.IB_ConnectionFelix;
+  aqDml.SQL.Add('Delete from User_Role_Programs u');
+  aqDml.SQL.Add('Where u.User_Role_Id = :2');
+  aqDml.Params.ParamByName('2').Value := self.ComboBox_UserRole.ListItems[self.ComboBox_UserRole.ItemIndex].Tag;
+  aqDml.ExecSQL;
+  aqDml.Free;
   ShowRoleList;
 end;
 
-procedure TConfigForm.ButtonDeleteClick(Sender: TObject);
-var
-  ACurRow: Integer;
-  AQueryDml: TFDQuery;
+procedure TConfigForm.Button_DeleteClick(Sender: TObject);
+var aCurRow : integer;
+    aqDml : TFDQuery;
 begin
-  ACurRow := FCurRowApplicationList;
-  AQueryDml := TFDQuery.Create(Self);
-  AQueryDml.Connection := DataModuleBase.FDConnectionFelix;
-  AQueryDml.SQL.Add('DELETE FROM User_Programs');
-  AQueryDml.SQL.Add('WHERE ID = :1');
-  AQueryDml.Params.ParamByName('1').Value :=
-    StrToInt(Self.StringGridApplicationList.Cells[0, ACurRow]);
-  AQueryDml.ExecSQL;
-  AQueryDml.Free;
+  aCurRow := FCurRowApplicationList;
+  aqDml := TFDQuery.Create(self);
+  aqDml.Connection := DBase.IB_ConnectionFelix;
+  aqDml.SQL.Add('Delete from User_Programs');
+  aqDml.SQL.Add('Where ID = :1');
+  aqDml.Params.ParamByName('1').Value := strtoint(self.StringGrid_ApplicationList.Cells[0,aCurRow]);
+  aqDml.ExecSQL;
+  aqDml.Free;
   ShowApplicationList;
 end;
 
-procedure TConfigForm.ButtonDeleteForRoleClick(Sender: TObject);
-var
-  ACurRow: Integer;
-  AQueryDml: TFDQuery;
+procedure TConfigForm.Button_DeleteforRoleClick(Sender: TObject);
+var aCurRow : integer;
+    aqDml : TFDQuery;
 begin
-  ACurRow := FCurRowRoleList;
-  AQueryDml := TFDQuery.Create(Self);
-  AQueryDml.Connection := DataModuleBase.FDConnectionFelix;
-  AQueryDml.SQL.Add('DELETE FROM User_Role_Programs u');
-  AQueryDml.SQL.Add('WHERE u.User_Program_ID = :1 AND u.User_Role_Id = :2');
-  AQueryDml.Params.ParamByName('1').Value :=
-    StrToInt(Self.StringGridRoleList.Cells[0, ACurRow]);
-  AQueryDml.Params.ParamByName('2').Value := Self.ComboBoxUserRole.ListItems
-    [Self.ComboBoxUserRole.ItemIndex].Tag;
-  AQueryDml.ExecSQL;
-  AQueryDml.Free;
+  aCurRow := FCurRowRoleList;
+  aqDml := TFDQuery.Create(self);
+  aqDml.Connection := DBase.IB_ConnectionFelix;
+  aqDml.SQL.Add('Delete from User_Role_Programs u');
+  aqDml.SQL.Add('Where u.User_Program_ID = :1 and u.User_Role_Id = :2');
+  aqDml.Params.ParamByName('1').Value := strtoint(self.StringGrid_RoleList.Cells[0,aCurRow]);
+  aqDml.Params.ParamByName('2').Value := self.ComboBox_UserRole.ListItems[self.ComboBox_UserRole.ItemIndex].Tag;
+  aqDml.ExecSQL;
+  aqDml.Free;
   ShowRoleList;
 end;
 
-procedure TConfigForm.ButtonEditClick(Sender: TObject);
-var
-  ACurRow, I, J: Integer;
-  QQueryDml: TFDQuery;
+procedure TConfigForm.Button_EditClick(Sender: TObject);
+var aCurRow, i : integer;
+     aqDml : TFDQuery;
 begin
-  ACurRow := FCurRowApplicationList;
-  QQueryDml := TFDQuery.Create(Self);
-  QQueryDml.Connection := DataModuleBase.FDConnectionFelix;
-  QQueryDml.SQL.Add('UPDATE User_Programs');
-  QQueryDml.SQL.Add
-    ('SET Name = :2, Path = :3, Params = :4, Runceone = :5, ICON = :6, Name_Short = :7, '
-    +
-    'Login_Type = :8, AUTOUPDATE = :9, DOAUTOUPDATENOW = :10, ServerPath = :11, SubFolders = :12 ');
-  QQueryDml.SQL.Add('WHERE ID = :1');
-  J := 0;
-  for I := 1 to 12 do
+  aCurRow := FCurRowApplicationList;
+  aqDml := TFDQuery.Create(self);
+  aqDml.Connection := DBase.IB_ConnectionFelix;
+  aqDml.SQL.Add('Update USER_PROGRAMS');
+  aqDml.SQL.Add('SET Name = :2, Path = :3, Params = :4, Runceone = :5, ICON = :6, Name_Short = :7, Login_Type = :8');
+  aqDml.SQL.Add('Where ID = :1');
+  for I := 1 to 8 do
   begin
-    if I = 1 then
-      QQueryDml.Params.ParamByName(IntToStr(I)).Value :=
-        StrToInt(Self.StringGridApplicationList.Cells[J, ACurRow])
+    if i = 1 then
+      aqDml.Params.ParamByName(inttostr(i)).Value := strtoint(self.StringGrid_ApplicationList.Cells[i-1,aCurRow])
     else
-      if I = 6 then
-        if not Self.ImageControlBlob.Bitmap.IsEmpty then
-          QQueryDml.Params.ParamByName(IntToStr(I))
-            .Assign(TBlobField(Self.ImageControlBlob.Bitmap))
+      if i = 6 then
+        if not self.ImageControl_Blob.Bitmap.IsEmpty then
+          aqDml.Params.ParamByName(inttostr(i)).Assign(TBlobField(self.ImageControl_Blob.Bitmap))
         else
-          QQueryDml.Params.ParamByName(IntToStr(I)).Value := Null
+          aqDml.Params.ParamByName(inttostr(i)).Value := null
       else
-        if I in[5, 9, 10] then
-          if StringGridApplicationList.Cells[J, ACurRow]= 'Yes' then
-            QQueryDml.Params.ParamByName(IntToStr(I)).Value := '1'
+        if i = 5 then
+          if StringGrid_ApplicationList.Cells[i-1,aCurRow] = 'Yes' then
+            aqDml.Params.ParamByName(inttostr(i)).Value := '1'
           else
-            QQueryDml.Params.ParamByName(IntToStr(I)).Value := '0'
+            aqDml.Params.ParamByName(inttostr(i)).Value := '0'
         else
-          if I = 8 then // EasyLogin + KeyLogin
+          if i = 8 then  // EasyLogin + KeyLogin
           begin
-            QQueryDml.Params.ParamByName(IntToStr(I)).Value := 0;
-            if Self.StringGridApplicationList.Cells[J, ACurRow]= 'Yes' then
-              QQueryDml.Params.ParamByName(IntToStr(I)).Value :=
-                QQueryDml.Params.ParamByName(IntToStr(I)).Value or CEasyLogin;
-            J := J + 1;
-            if Self.StringGridApplicationList.Cells[J, ACurRow]= 'Yes' then
-              QQueryDml.Params.ParamByName(IntToStr(I)).Value :=
-                QQueryDml.Params.ParamByName(IntToStr(I)).Value or CKeyLogin;
+            aqDml.Params.ParamByName(inttostr(i)).Value := 0;
+            if self.StringGrid_ApplicationList.Cells[i-1,aCurRow] = 'Yes' then
+              aqDml.Params.ParamByName(inttostr(i)).Value := aqDml.Params.ParamByName(inttostr(i)).Value or co_EasyLogin;
+            if self.StringGrid_ApplicationList.Cells[i,aCurRow] = 'Yes' then
+              aqDml.Params.ParamByName(inttostr(i)).Value := aqDml.Params.ParamByName(inttostr(i)).Value or co_KeyLogin;
           end
           else
-            QQueryDml.Params.ParamByName(IntToStr(I)).Value :=
-              Self.StringGridApplicationList.Cells[J, ACurRow];
-    J := J + 1;
+            aqDml.Params.ParamByName(inttostr(i)).Value := self.StringGrid_ApplicationList.Cells[i-1,aCurRow];
   end;
-  QQueryDml.ExecSQL;
-  QQueryDml.Free;
+  aqDml.ExecSQL;
+  aqDml.Free;
   ShowApplicationList;
 end;
 
-procedure TConfigForm.ButtonLocationMainLogoClick(Sender: TObject);
-var
-  AEdit: TEdit;
-  AImageControl: TImageControl;
+procedure TConfigForm.Button_LocationMainLogoClick(Sender: TObject);
+var aEdit : TEdit;
+    aImageControl : TImageControl;
 begin
-  case(Sender as TButton).Tag of
-  1:
-    begin
-      AEdit := Self.EditMainLogo;
-      AImageControl := Self.ImageControlMainLogo;
-    end;
-  2:
-    begin
-      AEdit := Self.EditClientLogo;
-      AImageControl := Self.ImageControlClientLogo;
-    end;
-  3:
-    begin
-      AEdit := Self.EditSound;
-      AImageControl := nil;
-    end;
+  case (sender as TButton).Tag of
+  1: Begin aEdit := self.Edit_MainLogo;   aImageControl := self.ImageControl_MainLogo;   end;
+  2: Begin aEdit := self.Edit_ClientLogo; aImageControl := self.ImageControl_ClientLogo; end;
+  3: Begin aEdit := self.Edit_Sound;      aImageControl := nil;                          end;
   end;
-  if Length(AEdit.Text)> 0 then
+
+  if Length(aEdit.Text) > 0  then
   begin
     // if theris no absolute path make it
-    if Length(Trim(ExtractFileDrive(AEdit.Text)))> 0 then
-      Self.OpenDialogLocation.InitialDir := ExtractFilePath(AEdit.Text)
+    if Length(trim(ExtractFileDrive(aEdit.Text))) > 0 then
+      self.OpenDialog_Location.InitialDir := ExtractFilePath(aEdit.Text)
     else
-      Self.OpenDialogLocation.InitialDir := ExtractFilePath(ParamStr(0))+
-        ExtractFilePath(AEdit.Text);
+      self.OpenDialog_Location.InitialDir := ExtractFilePath(ParamStr(0)) + ExtractFilePath(aEdit.Text);
   end
   else
-    Self.OpenDialogLocation.InitialDir := ExtractFilePath(ParamStr(0));
-  if Self.OpenDialogLocation.Execute then
+    self.OpenDialog_Location.InitialDir := ExtractFilePath(ParamStr(0));
+
+  if self.OpenDialog_Location.Execute then
   begin
-    AEdit.Text := Self.OpenDialogLocation.FileName;
-    if AImageControl <> nil then
-      AImageControl.LoadFromFile(AEdit.Text);
+    aEdit.Text := self.OpenDialog_Location.FileName;
+    if aImageControl <> nil then
+      aImageControl.LoadFromFile(aEdit.Text);
   end;
 end;
 
-procedure TConfigForm.ButtonSetupLocationClick(Sender: TObject);
+procedure TConfigForm.Button_setup_locationClick(Sender: TObject);
 begin
-  if Length(Self.StringGridApplicationList.Cells[2, FCurRowApplicationList])> 0
-  then
-    Self.OpenDialogLocation.InitialDir :=
-      ExtractFilePath(Self.StringGridApplicationList.Cells[2,
-      FCurRowApplicationList])
+  if Length(self.StringGrid_ApplicationList.Cells[2,FCurRowApplicationList]) > 0  then
+    self.OpenDialog_Location.InitialDir := ExtractFilePath(self.StringGrid_ApplicationList.Cells[2,FCurRowApplicationList])
   else
-    Self.OpenDialogLocation.InitialDir := ExtractFilePath(ParamStr(0));
-  if Self.OpenDialogLocation.Execute then
-    Self.StringGridApplicationList.Cells[2, FCurRowApplicationList]:=
-      Self.OpenDialogLocation.FileName;
+    self.OpenDialog_Location.InitialDir := ExtractFilePath(ParamStr(0));
+  if self.OpenDialog_Location.Execute then
+    self.StringGrid_ApplicationList.Cells[2,FCurRowApplicationList] := self.OpenDialog_Location.FileName;
 end;
 
-procedure TConfigForm.ButtonTestSoundClick(Sender: TObject);
+procedure TConfigForm.Button_TestSoundClick(Sender: TObject);
 begin
-  if FileExists(Self.EditSound.Text)then
-    SndPlaySound(PChar(Self.EditSound.Text), SND_ASYNC);
+  if FileExists(self.Edit_Sound.Text) then
+    sndPlaySound(PChar(self.Edit_Sound.Text), SND_ASYNC);
 end;
 
-procedure TConfigForm.ComboBoxUserRoleChange(Sender: TObject);
+procedure TConfigForm.ComboBox_UserRoleChange(Sender: TObject);
 begin
   ShowRoleList;
 end;
 
-procedure TConfigForm.FormClose(Sender: TObject;var Action: TCloseAction);
+procedure TConfigForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  if StringGridApplicationList.RowCount > FCurRowApplicationList + 1 then
-    Self.ButtonEditClick(Sender);
+  if StringGrid_ApplicationList.RowCount > FCurRowApplicationList+1 then
+    self.Button_EditClick(sender);
 end;
 
 procedure TConfigForm.FormGesture(Sender: TObject;
-  const EventInfo: TGestureEventInfo;var Handled: Boolean);
+  const EventInfo: TGestureEventInfo; var Handled: Boolean);
 var
-  DX, DY: Single;
+  DX, DY : Single;
 begin
-  if EventInfo.GestureID = IgiPan then
+  if EventInfo.GestureID = igiPan then
   begin
-    if(TInteractiveGestureFlag.GfBegin in EventInfo.Flags)
-      and((Sender = ToolbarPopup)
-      or(EventInfo.Location.Y >(ClientHeight - 70)))then
+    if (TInteractiveGestureFlag.gfBegin in EventInfo.Flags)
+      and ((Sender = ToolbarPopup)
+        or (EventInfo.Location.Y > (ClientHeight - 70))) then
     begin
       FGestureOrigin := EventInfo.Location;
       FGestureInProgress := True;
     end;
-    if FGestureInProgress and(TInteractiveGestureFlag.GfEnd in EventInfo.Flags)
-    then
+
+    if FGestureInProgress and (TInteractiveGestureFlag.gfEnd in EventInfo.Flags) then
     begin
       FGestureInProgress := False;
       DX := EventInfo.Location.X - FGestureOrigin.X;
       DY := EventInfo.Location.Y - FGestureOrigin.Y;
-      if(Abs(DY)> Abs(DX))then
+      if (Abs(DY) > Abs(DX)) then
         ShowToolbar(DY < 0);
     end;
   end
@@ -744,41 +630,36 @@ end;
 procedure TConfigForm.ShowToolbar(AShow: Boolean);
 begin
   ToolbarPopup.Width := ClientWidth;
-  ToolbarPopup.PlacementRectangle.Rect :=
-    TRectF.Create(0, ClientHeight - ToolbarPopup.Height, ClientWidth - 1,
-    ClientHeight - 1);
+  ToolbarPopup.PlacementRectangle.Rect := TRectF.Create(0, ClientHeight-ToolbarPopup.Height, ClientWidth-1, ClientHeight-1);
   ToolbarPopupAnimation.StartValue := ToolbarPopup.Height;
   ToolbarPopupAnimation.StopValue := 0;
+
   ToolbarPopup.IsOpen := AShow;
 end;
 
-procedure TConfigForm.StringGridApplicationListSelectCell(Sender: TObject;
-  const ACol, ARow: Integer;var CanSelect: Boolean);
+procedure TConfigForm.StringGrid_ApplicationListSelectCell(Sender: TObject;
+  const ACol, ARow: Integer; var CanSelect: Boolean);
 begin
-  if ARow > Self.StringGridApplicationList.RowCount then
-    Exit;
-  if(FCurRowApplicationList <> ARow)and
-    (Self.StringGridApplicationList.RowCount > FCurRowApplicationList + 1)then
-    Self.ButtonEditClick(Sender);
+  if ARow > self.StringGrid_ApplicationList.RowCount  then exit;
+  if (FCurRowApplicationList <> ARow) and (self.StringGrid_ApplicationList.RowCount > FCurRowApplicationList+1) then
+    self.Button_EditClick(sender);
   FCurRowApplicationList := ARow;
   FCurColApplicationList := ACol;
-  if Self.StringGridApplicationList.RowCount > ARow + 1 then
+  if self.StringGrid_ApplicationList.RowCount > ARow+1 then
   begin
-    Self.FDQueryApplicationList.Locate('ID',
-      StrToInt(StringGridApplicationList.Cells[0, ARow]),[]);
-    if Self.FDQueryApplicationList.FieldByName('ICON').IsNull then
-      Self.ImageControlBlob.Bitmap.Assign(nil)
+    self.Query_ApplicationList.Locate('ID',strtoint(StringGrid_ApplicationList.Cells[0,ARow]),[]);
+    if self.Query_ApplicationList.fieldbyname('ICON').IsNull then
+      self.ImageControl_Blob.Bitmap.Assign(nil)
     else
-      Self.ImageControlBlob.Bitmap.Assign
-        (TBLOBField(Self.FDQueryApplicationList.FieldByName('ICON')));
+      self.ImageControl_Blob.Bitmap.Assign(TBLOBField(self.Query_ApplicationList.fieldbyname('ICON')));
   end;
+
 end;
 
-procedure TConfigForm.StringGridRoleListSelectCell(Sender: TObject;const ACol,
-  ARow: Integer;var CanSelect: Boolean);
+procedure TConfigForm.StringGrid_RoleListSelectCell(Sender: TObject; const ACol,
+  ARow: Integer; var CanSelect: Boolean);
 begin
-  if ARow > Self.StringGridRoleList.RowCount then
-    Exit;
+  if ARow > self.StringGrid_RoleList.RowCount  then exit;
   FCurRowRoleList := ARow;
 end;
 

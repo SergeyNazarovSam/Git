@@ -4,14 +4,14 @@ object fmVorlagen: TfmVorlagen
   Caption = 'BlankForm'
   ClientHeight = 595
   ClientWidth = 640
-  StyleBook = StyleBook
+  StyleBook = StyleBook1
   FormFactor.Width = 1280
   FormFactor.Height = 1024
   FormFactor.Devices = [Desktop]
   FullScreen = True
   OnKeyDown = FormKeyDown
   DesignerMasterStyle = 0
-  object StyleBook: TStyleBook
+  object StyleBook1: TStyleBook
     Styles = <
       item
         ResourcesBin = {

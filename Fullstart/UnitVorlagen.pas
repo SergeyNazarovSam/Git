@@ -3,15 +3,13 @@ unit UnitVorlagen;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
-  System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.Ani, FMX.Layouts,
-  FMX.Gestures,
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.Ani, FMX.Layouts, FMX.Gestures,
   FMX.StdCtrls, FMX.Objects, FMX.Controls.Presentation;
 
 type
   TfmVorlagen = class(TForm)
-    StyleBook: TStyleBook;
+    StyleBook1: TStyleBook;
     ToolbarHolder: TLayout;
     ToolbarPopup: TPopup;
     ToolbarPopupAnimation: TFloatAnimation;
@@ -21,8 +19,8 @@ type
     ToolbarAddButton: TButton;
     procedure ToolbarCloseButtonClick(Sender: TObject);
     procedure FormGesture(Sender: TObject;
-      const EventInfo: TGestureEventInfo;var Handled: Boolean);
-    procedure FormKeyDown(Sender: TObject;var Key: Word;var KeyChar: Char;
+      const EventInfo: TGestureEventInfo; var Handled: Boolean);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
   private
     FGestureOrigin: TPointF;
@@ -34,17 +32,16 @@ type
   end;
 
 var
-  FmVorlagen: TfmVorlagen;
+  fmVorlagen: TfmVorlagen;
 
 implementation
 
 {$R *.fmx}
 
-
-procedure TfmVorlagen.FormKeyDown(Sender: TObject;var Key: Word;
+procedure TfmVorlagen.FormKeyDown(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
-  if Key = VkEscape then
+  if Key = vkEscape then
     ShowToolbar(not ToolbarPopup.IsOpen);
 end;
 
@@ -54,27 +51,26 @@ begin
 end;
 
 procedure TfmVorlagen.FormGesture(Sender: TObject;
-  const EventInfo: TGestureEventInfo;var Handled: Boolean);
+  const EventInfo: TGestureEventInfo; var Handled: Boolean);
 var
-  DX, DY: Single;
+  DX, DY : Single;
 begin
-  if EventInfo.GestureID = IgiPan then
+  if EventInfo.GestureID = igiPan then
   begin
-    if(TInteractiveGestureFlag.GfBegin in EventInfo.Flags)
-      and((Sender = ToolbarPopup)
-      or(EventInfo.Location.Y >(ClientHeight - 70)))then
+    if (TInteractiveGestureFlag.gfBegin in EventInfo.Flags)
+      and ((Sender = ToolbarPopup)
+        or (EventInfo.Location.Y > (ClientHeight - 70))) then
     begin
       FGestureOrigin := EventInfo.Location;
       FGestureInProgress := True;
     end;
 
-    if FGestureInProgress and(TInteractiveGestureFlag.GfEnd in EventInfo.Flags)
-    then
+    if FGestureInProgress and (TInteractiveGestureFlag.gfEnd in EventInfo.Flags) then
     begin
       FGestureInProgress := False;
       DX := EventInfo.Location.X - FGestureOrigin.X;
       DY := EventInfo.Location.Y - FGestureOrigin.Y;
-      if(Abs(DY)> Abs(DX))then
+      if (Abs(DY) > Abs(DX)) then
         ShowToolbar(DY < 0);
     end;
   end
@@ -83,9 +79,7 @@ end;
 procedure TfmVorlagen.ShowToolbar(AShow: Boolean);
 begin
   ToolbarPopup.Width := ClientWidth;
-  ToolbarPopup.PlacementRectangle.Rect :=
-    TRectF.Create(0, ClientHeight - ToolbarPopup.Height, ClientWidth - 1,
-    ClientHeight - 1);
+  ToolbarPopup.PlacementRectangle.Rect := TRectF.Create(0, ClientHeight-ToolbarPopup.Height, ClientWidth-1, ClientHeight-1);
   ToolbarPopupAnimation.StartValue := ToolbarPopup.Height;
   ToolbarPopupAnimation.StopValue := 0;
 

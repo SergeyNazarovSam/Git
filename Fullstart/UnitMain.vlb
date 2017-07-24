@@ -1,4 +1,7 @@
-﻿[ToolbarHolder]
+﻿[PopupMenu1]
+Coordinates=177,270,90,36
+
+[ToolbarHolder]
 Coordinates=318,328,96,36
 
 [ToolbarApplyButton]
@@ -10,11 +13,21 @@ Coordinates=205,328,103,36
 [ImageLogout]
 Coordinates=500,80,89,58
 
+[StyleBook1]
+Coordinates=683,166,79,36
+Visible=True
+
+[DBase.IB_DSQLExecute]
+Coordinates=350,30,157,58
+
 [ToolbarAddButton]
 Coordinates=170,150,118,58
 
 [ButtonShutdown]
 Coordinates=10,10,109,58
+
+[query_applications]
+Coordinates=610,70,122,58
 
 [ToolBar1]
 Coordinates=457,282,67,36
@@ -25,21 +38,48 @@ Coordinates=664,270,152,36
 [ButtonLogout]
 Coordinates=10,78,91,58
 
+[Rectangle_settings]
+Coordinates=323,282,124,36
+
 [ToolbarPopup]
 Coordinates=218,282,95,36
 
 [ToolBarStartmenu]
 Coordinates=89,282,119,36
 
+[Label_user]
+Coordinates=77,146,78,58
+
+[Image2]
+Coordinates=403,78,57,58
+
 [ToolbarCloseButton]
 Coordinates=111,78,128,58
+
+[DBase.QueryGetNextID]
+Coordinates=100,210,151,58
+
+[TabItem1]
+Coordinates=10,282,69,36
+
+[GlowEffect2]
+Coordinates=118,366,84,36
+
+[query_app]
+Coordinates=249,78,75,58
+
+[TabControl1]
+Coordinates=259,214,85,36
 
 [Image1]
 Coordinates=420,170,57,58
 
 []
-Coordinates=177,270,90,36
+Coordinates=770,380,91,36
 Visible=True
+
+[pnBrowser]
+Coordinates=580,230,76,36
 
 [hotelserverapi.RESTRequest1]
 Coordinates=572,310,188,102
@@ -50,101 +90,70 @@ Coordinates=805,188,174,58
 [hotelserverapi.RESTResponse1]
 Coordinates=805,111,198,58
 
+[ImageControl_logo]
+Coordinates=660,240,123,58
+
+[Label_newmessagecount]
+Coordinates=488,1,160,58
+
+[CalloutPanel_newmessagescount]
+Coordinates=955,1,208,36
+
+[Button_trash]
+Coordinates=0,0,87,58
+
+[Button_newmessages]
+Coordinates=276,1,140,58
+
+[Button_sent]
+Coordinates=490,210,83,58
+
+[Timer_Checknewmessages]
+Coordinates=955,56,172,36
+
+[Panel2]
+Coordinates=18,183,54,36
+
+[Button_inbox]
+Coordinates=540,150,90,58
+
+[AniIndicator_Loading]
+Coordinates=706,78,136,36
+
 [ConfigForm.Query_ApplicationList]
 Coordinates=706,1,211,58
 
 [ConfigForm.Query_RoleList]
 Coordinates=276,78,174,58
 
-[ImageControlClient]
+[ImageControl_Client]
 Coordinates=137,87,132,58
 
-[ImageControlLogo]
-Coordinates=660,240,123,58
-
-[LabelUserName]
-Coordinates=850,100,114,58
-
-[PanelMessageButtons]
-Coordinates=18,183,54,36
-
-[TimerHideScrol]
+[Timer_hideScrol]
 Coordinates=706,221,108,36
 
-[TimerCheckNewMessages]
-Coordinates=955,56,172,36
-
-[RectangleSettings]
-Coordinates=323,282,124,36
-
-[LabelUser]
-Coordinates=77,146,78,58
-
-[ImageUser]
-Coordinates=403,78,57,58
-
-[GlowEffectPopup]
-Coordinates=118,366,84,36
-
-[TabControlTile]
-Coordinates=259,214,85,36
-
-[TabItemTile]
-Coordinates=10,282,69,36
-
-[GridLayoutTile]
-Coordinates=706,325,85,36
-
-[CalloutPanelNewMessagesCount]
-Coordinates=955,1,208,36
-
-[LabelNewMessagesCount]
-Coordinates=488,1,160,58
-
-[FloatAnimationHideBrowser]
-Coordinates=310,402,108,36
-
-[ButtonMinimize]
-Coordinates=706,1,108,58
-
-[AniIndicatorLoading]
-Coordinates=706,78,136,36
-
-[ButtonInbox]
-Coordinates=540,150,90,58
-
-[ButtonTrash]
-Coordinates=0,0,87,58
-
-[ButtonNewMessages]
-Coordinates=276,1,140,58
-
-[ButtonSent]
-Coordinates=490,210,83,58
-
-[LabelLoading]
+[Label_Loading]
 Coordinates=307,155,99,58
 
-[SpeedButtonHideBrowser]
+[GridLayout1]
+Coordinates=706,325,85,36
+
+[SpeedButton_HideBrowser]
 Coordinates=830,200,169,58
 Visible=True
 
-[PanelBrowser]
-Coordinates=580,230,76,36
+[Label_UserName]
+Coordinates=850,100,114,58
 
-[FloatAnimationBrowser]
+[Label1]
+Coordinates=545,287,53,58
+
+[button_minimize]
+Coordinates=706,1,108,58
+
+[FloatAnimation2]
 Coordinates=419,402,108,36
 
-[FDQueryApplication]
-Coordinates=249,78,75,58
-
-[FDQueryApplicationList]
-Coordinates=610,70,122,58
-
-[StyleBook]
-Coordinates=683,166,79,36
-Visible=True
-
-[LabelTextLogin]
-Coordinates=545,287,53,58
+[FloatAnimation1]
+Coordinates=310,402,108,36
 

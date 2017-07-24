@@ -8,7 +8,7 @@ object menuRight: TmenuRight
   ClientWidth = 297
   Fill.Color = xFFF9F7F9
   Fill.Kind = Solid
-  StyleBook = StyleBook
+  StyleBook = StyleBook1
   Transparency = True
   FormStyle = StayOnTop
   FormFactor.Width = 320
@@ -18,7 +18,7 @@ object menuRight: TmenuRight
   OnMouseMove = FormMouseMove
   OnShow = FormShow
   DesignerMasterStyle = 0
-  object StyleBook: TStyleBook
+  object StyleBook1: TStyleBook
     Styles = <
       item
         ResourcesBin = {
@@ -4226,7 +4226,7 @@ object menuRight: TmenuRight
     Left = 96
     Top = 296
   end
-  object LayoutButton: TScaledLayout
+  object Layoutbutton: TScaledLayout
     Align = Client
     OriginalWidth = 289.000000000000000000
     OriginalHeight = 789.000000000000000000
@@ -4238,7 +4238,7 @@ object menuRight: TmenuRight
     Size.Height = 470.000000000000000000
     Size.PlatformDefault = False
   end
-  object LayoutOben: TLayout
+  object Layout_oben: TLayout
     Align = Top
     Margins.Left = 5.000000000000000000
     Margins.Top = 5.000000000000000000
@@ -4250,17 +4250,17 @@ object menuRight: TmenuRight
     Size.Height = 33.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 4
-    object ButtonMin: TSpeedButton
+    object button_min: TSpeedButton
       Align = Client
       Size.Width = 287.000000000000000000
       Size.Height = 33.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'SpeedButton1Style1'
-      Text = 'ButtonMin'
-      OnClick = ButtonMinClick
+      Text = 'button_min'
+      OnClick = button_minClick
     end
   end
-  object PanelLogout: TPanel
+  object Panel1: TPanel
     Align = Bottom
     Locked = True
     Margins.Left = 5.000000000000000000
@@ -4274,7 +4274,7 @@ object menuRight: TmenuRight
     Size.PlatformDefault = False
     StyleLookup = 'Panel1Style1'
     TabOrder = 3
-    object LabelUserName: TLabel
+    object Label_UserName: TLabel
       Align = Bottom
       StyledSettings = [Family, Style]
       Margins.Left = 5.000000000000000000
@@ -4287,7 +4287,7 @@ object menuRight: TmenuRight
       TextSettings.Font.Size = 20.000000000000000000
       TextSettings.FontColor = claBlue
     end
-    object ButtonLogoff: TButton
+    object Button_Logoff: TButton
       Align = Bottom
       Position.Y = 83.000000000000000000
       Size.Width = 287.000000000000000000
@@ -4297,9 +4297,9 @@ object menuRight: TmenuRight
       TabOrder = 2
       Text = 'Abmelden'
       TextSettings.HorzAlign = Leading
-      OnClick = ButtonLogoffClick
+      OnClick = Button_LogoffClick
     end
-    object ButtonExit: TButton
+    object Button_Exit: TButton
       Align = Bottom
       Position.Y = 116.000000000000000000
       Size.Width = 287.000000000000000000
@@ -4309,9 +4309,9 @@ object menuRight: TmenuRight
       TabOrder = 1
       Text = 'Beenden'
       TextSettings.HorzAlign = Leading
-      OnClick = ButtonExitClick
+      OnClick = Button_ExitClick
     end
-    object LabelTextLogin: TLabel
+    object Label1: TLabel
       Align = Bottom
       StyledSettings = [Style]
       Margins.Left = 5.000000000000000000
@@ -4327,9 +4327,9 @@ object menuRight: TmenuRight
       Text = 'angemeldet als'
     end
   end
-  object TimerHideMenu: TTimer
+  object Timer_HideMenu: TTimer
     Enabled = False
-    OnTimer = TimerHideMenuTimer
+    OnTimer = Timer_HideMenuTimer
     Left = 141
     Top = 160
   end

@@ -3,70 +3,71 @@ unit UnitVCL;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
 
 type
   TVCLForm = class(TForm)
-    Button: TButton;
-    procedure ButtonClick(Sender: TObject);
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   protected
-    procedure WndProc(var Message: TMessage); override;
+     procedure WndProc(var Message: TMessage); override;
+
   public
     { Public declarations }
   end;
 
-const
-  CLogout = 'gmslogout';
-  CLogin = 'gmslogin';
+  const
+szLogOut = 'gmslogout';
+szLogin = 'gmslogin';
 
 var
-  VLogout, VLogIn: Cardinal;
+wLogout, wLogIn: Cardinal;
 
 var
   VCLForm: TVCLForm;
 
 implementation
 
-uses UnitMain;
-
 {$R *.dfm}
-
+uses UnitMain;
 
 procedure TVclForm.WndProc(var Message: TMessage);
 begin
-  if message.Msg = VLogout then
+  if Message.Msg = wLogOut then
   begin
     MainForm.DoLogOut;
-  end
-  else
-    if message.Msg = VLogin then
+  end else
+    if Message.Msg = wLogIn then
     begin
-      MainForm.FUsernumber := InttoStr(message.WParam);
-      MainForm.DoLogIn(MainForm.FUsernumber); // user_number of Table Users
+      MainForm.FUsernumber := InttoStr(Message.wParam);
+      MainForm.DoLogIn(MainForm.FUsernumber); //user_number of Table Users
     end;
-  inherited WndProc(message);
+  inherited WndProc(Message);
 end;
 
-procedure TVCLForm.ButtonClick(Sender: TObject);
-var
-  ARecipient: DWORD;
-  AMsgValue: WPARAM;
+procedure TVCLForm.Button1Click(Sender: TObject);
+var dwRecipient: DWord;
+wMsgValue: WPARAM;
 begin
-  AMsgValue := 0;
-  ARecipient := BSM_APPLICATIONS;
-  BroadCastSystemMessage(BSF_POSTMESSAGE,@ARecipient, VLogout, AMsgValue, 0);
+//SendLogout to Application, wenn nicht von jemand anderen kommt
+//if Sender <> nil then
+begin
+wMsgValue := 0;
+dwRecipient := BSM_APPLICATIONS;
+BroadCastSystemMessage(BSF_POSTMESSAGE, @dwRecipient,
+wLogout, wMsgVAlue, 0);
+end;
 end;
 
 procedure TVCLForm.FormCreate(Sender: TObject);
 begin
-  VLogout := RegisterWindowMessage(CLogout);
-  VLogin := RegisterWindowMessage(CLogin);
-  Self.Hide;
+  wLogout := RegisterWindowMessage(szLogout);
+  wLogin := RegisterWindowMessage(szLogin);
+  self.hide;
 end;
 
 end.

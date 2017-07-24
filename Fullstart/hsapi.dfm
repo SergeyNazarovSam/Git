@@ -1,8 +1,8 @@
-object HotelServerApi: THotelServerApi
+object hotelserverapi: Thotelserverapi
   OldCreateOrder = False
   Height = 197
   Width = 401
-  object HTTP: TIdHTTP
+  object curl: TIdHTTP
     AllowCookies = True
     ProtocolVersion = pv1_0
     ProxyParams.BasicAuthentication = False
@@ -20,7 +20,7 @@ object HotelServerApi: THotelServerApi
     Left = 40
     Top = 76
   end
-  object RESTClient: TRESTClient
+  object RESTClient1: TRESTClient
     Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
     AcceptCharset = 'UTF-8, *;q=0.8'
     BaseURL = 'http://cloud2.gms.info:3000'
@@ -33,19 +33,19 @@ object HotelServerApi: THotelServerApi
     Left = 176
     Top = 80
   end
-  object RESTRequest: TRESTRequest
-    Client = RESTClient
+  object RESTRequest1: TRESTRequest
+    Client = RESTClient1
     Method = rmPOST
     Params = <>
     Resource = 
       'api/v1/user/users/sign_in?user_email=admin@felix.info&user_passw' +
       'ord=adminfelix'
-    Response = RESTResponse
+    Response = RESTResponse1
     SynchronizedEvents = False
     Left = 256
     Top = 80
   end
-  object RESTResponse: TRESTResponse
+  object RESTResponse1: TRESTResponse
     BindSource.AutoActivate = False
     BindSource.AutoEdit = False
     BindSource.AutoPost = False

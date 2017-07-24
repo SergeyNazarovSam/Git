@@ -1,152 +1,151 @@
 unit UnitMenu;
 
-// Embarcadero Delphi 10.1 Berlin
-// This is unit which contain visual elements of Left menu with
-// applications list, configuration access and Logoff and exit
-
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
-  System.Variants,
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
-  FMX.StdCtrls, Generics.Collections, FMX.Controls.Presentation, FMX.Objects;
+  FMX.StdCtrls,Generics.Collections, FMX.Controls.Presentation, FMX.Objects;
 
 type
   TmenuRight = class(TForm)
-    StyleBook: TStyleBook;
-    LayoutButton: TScaledLayout;
-    ButtonMin: TSpeedButton;
-    LayoutOben: TLayout;
-    PanelLogout: TPanel;
-    LabelUserName: TLabel;
-    ButtonLogoff: TButton;
-    ButtonExit: TButton;
-    LabelTextLogin: TLabel;
-    TimerHideMenu: TTimer;
+    StyleBook1: TStyleBook;
+    Layoutbutton: TScaledLayout;
+    button_min: TSpeedButton;
+    Layout_oben: TLayout;
+    Panel1: TPanel;
+    Label_UserName: TLabel;
+    Button_Logoff: TButton;
+    Button_Exit: TButton;
+    Label1: TLabel;
+    Timer_HideMenu: TTimer;
     procedure FormShow(Sender: TObject);
-    procedure ButtonMinClick(Sender: TObject);
-    procedure FormClose(Sender: TObject;var Action: TCloseAction);
-    procedure ButtonLogoffClick(Sender: TObject);
-    procedure ButtonExitClick(Sender: TObject);
+    procedure button_minClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button_LogoffClick(Sender: TObject);
+    procedure Button_ExitClick(Sender: TObject);
     procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Single);
-    procedure TimerHideMenuTimer(Sender: TObject);
+    procedure Timer_HideMenuTimer(Sender: TObject);
   private
     { Private-Deklarationen }
   public
-    procedure Addprogramm(Button: Tbutton);
-    procedure ClearProgramm;
-    procedure AddLine;
-    procedure AddListName(Title:string);
+    procedure addprogramm(button : Tbutton);
+    procedure clearProgramm;
+    procedure addLine;
+    procedure addListName(Title:string);
     { Public-Deklarationen }
   end;
 
 var
-  MenuRight: TmenuRight;
+  menuRight: TmenuRight;
 
 implementation
 
-uses UnitMain, Hsapi, UnitLogin;
+uses unitmain, hsapi, unitLogin;
 
 {$R *.fmx}
 
-
-procedure TmenuRight.Addprogramm(Button: Tbutton);
+procedure TmenuRight.addprogramm(button : Tbutton);
 begin
-  // Hier nur die Styles für den button anpassen
-  Button.Parent := Layoutbutton;
-  Button.Position.Y := 2000;
-  Button.Align := TAlignLayout.Top;
-  Button.Margins.Top := 1;
-  Button.Height := 40;
+// Hier nur die Styles für den button anpassen
+  button.Parent := layoutbutton;
+  button.Position.Y := 2000;
+  button.Align := TAlignLayout.Top;
+  button.Margins.Top := 1;
+  button.Height := 40;
 end;
 
-procedure TmenuRight.AddLine;
-var ALine: Tline;
+Procedure TmenuRight.addLine;
+var aLine : Tline;
 begin
-  ALine := TLine.Create(Self);
-  ALine.Parent := Layoutbutton;
-  ALine.Position.Y := 2000;
-  ALine.Align := TAlignLayout.Top;
-  ALine.Margins.Top := 0;
-  ALine.Height := 1;
+  aLine := TLine.Create(self);
+  aLine.Parent := layoutbutton;
+  aLine.Position.Y := 2000;
+  aLine.Align := TAlignLayout.Top;
+  aLine.Margins.Top := 0;
+  aLine.Height := 1;
 end;
 
-procedure TmenuRight.AddListName(Title:string);
-var ALabel: TLabel;
+Procedure TmenuRight.addListName(Title:string);
+var aLabel : TLabel;
 begin
-  ALabel := TLabel.Create(Self);
-  ALabel.Parent := Layoutbutton;
-  ALabel.Position.Y := 2000;
-  ALabel.Align := TAlignLayout.Top;
-  ALabel.Margins.Top := 1;
-  ALabel.Height := 40;
-  ALabel.Text := Title;
-  ALabel.StyleLookup := 'Label_UserNameStyle1';
-  // aLabel.FontColor := TAlphaColorRec.Black;
-  ALabel.StyledSettings := ALabel.StyledSettings -[TStyledSetting.FontColor];
+  aLabel := TLabel.Create(self);
+  aLabel.Parent := layoutbutton;
+  aLabel.Position.Y := 2000;
+  aLabel.Align := TAlignLayout.Top;
+  aLabel.Margins.Top := 1;
+  aLabel.Height := 40;
+  aLabel.Text := Title;
+  aLabel.StyleLookup := 'Label_UserNameStyle1';
+  //aLabel.FontColor := TAlphaColorRec.Black;
+  aLabel.StyledSettings := aLabel.StyledSettings - [TStyledSetting.FontColor];
 end;
 
-procedure TmenuRight.ClearProgramm;
+
+procedure TmenuRight.clearProgramm;
 begin
-  while Layoutbutton.ChildrenCount > 0 do
-    Layoutbutton.Children[0].Destroy;
+  While layoutbutton.ChildrenCount > 0 do
+    layoutbutton.Children[0].Destroy;
 end;
 
-procedure TmenuRight.ButtonMinClick(Sender: TObject);
+procedure TmenuRight.button_minClick(Sender: TObject);
 begin
-  if Self.Height < 40 then
+  if self.Height < 40 then
   begin
-    Self.Height := Screen.Height - 40;
-    Layoutbutton.Visible := True;
-    PanelLogout.Visible := True;
-    Self.Width := 300;
-    Self.BringToFront;
-  end
-  else
+    self.Height := Screen.Height - 40;
+    Layoutbutton.Visible := true;
+    Panel1.Visible := true;
+    self.Width := 300;
+    self.BringToFront;
+  end else
   begin
-    Layoutbutton.Visible := False;
-    PanelLogout.Visible := False;
-    Self.Width := 0;
-    Self.Height := 35;
+    Layoutbutton.Visible := false;
+    Panel1.Visible := false;
+    self.Width := 0;
+    self.Height := 35;
   end;
 end;
 
-procedure TmenuRight.FormClose(Sender: TObject;var Action: TCloseAction);
+procedure TmenuRight.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  Mainform.Close;
+  mainform.Close;
 end;
 
 procedure TmenuRight.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
   Y: Single);
 begin
-  if(Self.Width > 100)and(X < 0)then
-    TimerHideMenu.Enabled := True;
+  if (self.Width > 100) and (X < 0) then
+    Timer_HideMenu.Enabled := true;
 end;
 
 procedure TmenuRight.FormShow(Sender: TObject);
 begin
-  Self.Left := 0;
-  Self.Top := 0;
-  Self.Height := Screen.Height;
-  Self.Width := 300;
-  ButtonMinClick(nil);
+  self.Left := 0;
+  self.Top := 0;
+  self.Height := Screen.Height;
+  self.Width := 300;
+  button_minClick(nil);
 end;
 
-procedure TmenuRight.TimerHideMenuTimer(Sender: TObject);
+procedure TmenuRight.Timer_HideMenuTimer(Sender: TObject);
 begin
-  ButtonMinClick(nil);
-  TimerHideMenu.Enabled := False;
+  button_minClick(nil);
+  Timer_HideMenu.Enabled := false;
 end;
 
-procedure TmenuRight.ButtonExitClick(Sender: TObject);
+procedure TmenuRight.Button_ExitClick(Sender: TObject);
 begin
-  Hotelserverapi.Logout;
-  Self.Close;
+  hotelserverapi.logout;
+  self.Close;
 end;
 
-procedure TmenuRight.ButtonLogoffClick(Sender: TObject);
+procedure TmenuRight.Button_LogoffClick(Sender: TObject);
 begin
+  {Mainform.Button_newmessagesClick(Mainform.Button_newmessages);
+  hotelserverapi.logout;
+  MainForm.FLoginWithoutServer := false;
+  self.Hide;
+  MainForm.FormShow(nil);}
   MainForm.SendLogOut(Sender);
 end;
 

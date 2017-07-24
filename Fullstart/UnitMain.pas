@@ -1,48 +1,38 @@
 unit UnitMain;
 
-// Embarcadero Delphi 10.1 Berlin
-// This is main unit which contain main visual form and
-// application Tiles and space for message system
-
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
-  System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.Ani, FMX.Layouts,
-  FMX.Gestures,
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.Ani, FMX.Layouts, FMX.Gestures,
   FMX.StdCtrls, FMX.Controls.Presentation, FMX.Calendar, FMX.ListBox,
-  FMX.Objects, FMX.Effects, FireDAC.Stan.Intf, FireDAC.Stan.Option,
-  FireDAC.Stan.Param,
+  FMX.Objects, FMX.Effects, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, UnitLogin, Hsapi, Windows, Generics.Collections,
-  FMX.TMSTileList,
-  FMX.Menus, FMX.TabControl, System.Rtti, FMX.Grid, Fmx.Graphics,
-  UnitMenu, ChromiumVCLUnit, UnitVCL, FMX.WebBrowser, FMX.ExtCtrls, FMX.Edit,
-  IPPeerClient, REST.Client, Data.Bind.Components,
-  Data.Bind.ObjectScope, Ceffmx, Ceflib, System.Math.Vectors, FMX.Controls3D,
-  FMX.Layers3D, Mmsystem, FMX.TMSCustomEdit, FMX.TMSEdit, ShellAPI, Messages,
-  FMX.Platform.Win, CommCtrl, Vcl.Forms,
-  Cefvcl, System.ImageList, FMX.ImgList
-    ;
+  FireDAC.Comp.Client,unitLogin,hsapi, windows,Generics.Collections,FMX.TMSTileList,
+  FMX.Menus,  FMX.TabControl, System.Rtti, FMX.Grid,fmx.graphics,
+  UnitMenu,  ChromiumVCLUnit, UnitVCL, FMX.WebBrowser, FMX.ExtCtrls, FMX.Edit,  IPPeerClient, REST.Client, Data.Bind.Components,
+  Data.Bind.ObjectScope, ceffmx, ceflib, System.Math.Vectors, FMX.Controls3D,
+  FMX.Layers3D, mmsystem, FMX.TMSCustomEdit, FMX.TMSEdit, ShellAPI, Messages, FMX.Platform.Win, CommCtrl, vcl.Forms,
+  cefvcl, System.ImageList, FMX.ImgList, FrameChromium
+  ;
 
-type
-  TApplicationTile = class(TPanel)
-    ImageControl: TImageControl;
-    LabelAppName: TLabel;
-    Button: TButton;
-    constructor Create(AOwner: TComponent; Layout: TGridLayout); overload;
-  end;
 
-type
-  TApplication = record
-    Name:string;
-    Location:string;
-    Param:string;
-    Processid: Integer;
-    Runonce: Boolean;
-  end;
+type TApplicationTile = class(TPanel)
+       ImageControl : TImageControl;
+       Label_AppName: TLabel;
+       Button : TButton;
+       Constructor Create(AOwner:TComponent; Layout:TGridLayout); overload;
+end;
+
+
+type TApplication = Record
+       name : string;
+       location : string;
+       param : string;
+       processid : integer;
+       runonce : boolean;
+End;
 
 type
   TMainform = class(FMX.Forms.TForm)
@@ -55,284 +45,273 @@ type
     ToolbarAddButton: TButton;
     ToolBarStartmenu: TToolBar;
     Popup_settings: TPopup;
-    RectangleSettings: TRectangle;
+    Rectangle_settings: TRectangle;
     ButtonShutdown: TButton;
     Image1: TImage;
     ButtonLogout: TButton;
     ImageLogout: TImage;
-    LabelUser: TLabel;
-    ImageUser: TImage;
-    GlowEffectPopup: TGlowEffect;
-    FDQueryApplicationList: TFDQuery;
-    FDQueryApplication: TFDQuery;
-    TabControlTile: TTabControl;
-    StyleBook: TStyleBook;
-    TabItemTile: TTabItem;
-    PanelBrowser: TPanel;
-    ImageControlLogo: TImageControl;
-    PanelMessageButtons: TPanel;
-    ButtonNewMessages: TButton;
-    ButtonSent: TButton;
-    ButtonInbox: TButton;
-    ButtonTrash: TButton;
-    CalloutPanelNewMessagesCount: TCalloutPanel;
-    LabelNewMessagesCount: TLabel;
-    TimerCheckNewMessages: TTimer;
-    GridLayoutTile: TGridLayout;
-    TimerHideScrol: TTimer;
-    ImageControlClient: TImageControl;
-    AniIndicatorLoading: TAniIndicator;
-    LabelLoading: TLabel;
-    ButtonMinimize: TButton;
-    LabelUserName: TLabel;
-    LabelTextLogin: TLabel;
-    SpeedButtonHideBrowser: TSpeedButton;
-    FloatAnimationHideBrowser: TFloatAnimation;
-    FloatAnimationBrowser: TFloatAnimation;
-    PanelTile: TPanel;
-    PanelBottom: TPanel;
-    PanelLeft: TPanel;
-    PanelRight: TPanel;
-    AniIndicatorUpdate: TAniIndicator;
-    LabelUpdate: TLabel;
-    TimerDoAutoUpdate: TTimer;
-    ButtonManualUpdate: TButton;
+    Label_user: TLabel;
+    Image2: TImage;
+    GlowEffect2: TGlowEffect;
+    query_applications: TFDQuery;
+    PopupMenu1: TPopupMenu;
+    query_app: TFDQuery;
+    TabControl1: TTabControl;
+    StyleBook1: TStyleBook;
+    TabItem1: TTabItem;
+    pnBrowser: TPanel;
+    ImageControl_logo: TImageControl;
+    Panel2: TPanel;
+    Button_newmessages: TButton;
+    Button_sent: TButton;
+    Button_inbox: TButton;
+    Button_trash: TButton;
+    CalloutPanel_newmessagescount: TCalloutPanel;
+    Label_newmessagecount: TLabel;
+    Timer_Checknewmessages: TTimer;
+    GridLayout1: TGridLayout;
+    Timer_hideScrol: TTimer;
+    ImageControl_Client: TImageControl;
+    AniIndicator_Loading: TAniIndicator;
+    Label_Loading: TLabel;
+    button_minimize: TButton;
+    Label_UserName: TLabel;
+    Label1: TLabel;
+    SpeedButton_HideBrowser: TSpeedButton;
+    FloatAnimation1: TFloatAnimation;
+    FloatAnimation2: TFloatAnimation;
     procedure ToolbarCloseButtonClick(Sender: TObject);
     procedure FormGesture(Sender: TObject;
-      const EventInfo: TGestureEventInfo;var Handled: Boolean);
-    procedure FormKeyDown(Sender: TObject;var Key: Word;var KeyChar: Char;
+      const EventInfo: TGestureEventInfo; var Handled: Boolean);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
     procedure StartbuttonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ButtonTileClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure ButtonNewMessagesClick(Sender: TObject);
-    procedure TimerCheckNewMessagesTimer(Sender: TObject);
+    procedure Button_newmessagesClick(Sender: TObject);
+    procedure Timer_ChecknewmessagesTimer(Sender: TObject);
     procedure WebBrowserStandartDidFinishLoad(ASender: TObject);
-    procedure TimerHideScrolTimer(Sender: TObject);
+    procedure Timer_hideScrolTimer(Sender: TObject);
     procedure ButtonShowDesktopClick(Sender: TObject);
     procedure ConfigButtonClick(Sender: TObject);
-    procedure ImageClick(Sender: TObject);
-    procedure ButtonMinimizeClick(Sender: TObject);
+    procedure Image_Click(Sender: TObject);
+    procedure button_minimizeClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure WebBrowserLoadEnd(Sender: TObject;const Browser: ICefBrowser;
-      const Frame: ICefFrame; HttpStatusCode: Integer);
-    procedure SpeedButtonHideBrowserClick(Sender: TObject);
+    procedure webBrowserLoadEnd(Sender: TObject; const browser: ICefBrowser;
+      const frame: ICefFrame; httpStatusCode: Integer);
+    procedure SpeedButton_HideBrowserClick(Sender: TObject);
     procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Single);
-    procedure FloatAnimationHideBrowserFinish(Sender: TObject);
-    procedure FormClose(Sender: TObject;var Action: TCloseAction);
-    procedure TimerDoAutoUpdateTimer(Sender: TObject);
-    procedure ButtonManualUpdateClick(Sender: TObject);
+    procedure FloatAnimation1Finish(Sender: TObject);
+    procedure onRestoreApplication(sender: TObject);
   private
-    WebBrowserStandart: TWebBrowser;
+    WebBrowserStandart : TWebBrowser;
     FGestureOrigin: TPointF;
     FGestureInProgress: Boolean;
-    FAppName: array[0 .. 512] of Char;
-    FCurDir: array[0 .. 255] of Char;
-    WorkDir:string;
+    zAppName: array[0..512] of Char;
+    zCurDir: array[0..255] of Char;
+    WorkDir: string;
     StartupInfo: TStartupInfo;
     ProcessInfo: TProcessInformation;
     TrayWnd: HWND;
     TrayIconData: TNotifyIconData;
     TrayIconAdded: Boolean;
+    { Private-Deklarationen }
     procedure ShowToolbar(AShow: Boolean);
-    function Exec(const FileName:string;
-      const CmdShow: Integer): Longword;
-    function IsProcessVorhanden(ProzessID: Integer): THandle;
+    function Exec(const FileName: string;
+        const CmdShow: Integer): Longword;
+    function isprocessvorhanden(prozessID : integer): THandle;
     procedure TrayWndProc(var Message: TMessage);
   protected
 
   public
-    FLoginWithoutServer: Boolean;
-    FUrlNewMessages:string;
-    FUrlInbox:string;
-    FUrlSent:string;
-    FUrlTrash:string;
-    FLogoImgPath:string;
-    FClientImgPath:string;
-    FTileSideSize: Integer;
-    FSoundPath:string;
-    FHeight: Integer;
-    FWidth: Integer;
-    FAutoLogin:string; // for login
-    FUserNumber:string;
-    FNeedShowBalloon: Boolean;
-    FNeedSendLogin: Boolean;
-    FUseAutoComplete: Boolean; // for username atocomplete
-    LoginScreen: TfmLogin;
-    VCLForm: TVclForm;
-    FBrowserHeight: Integer;
-    FUpdatewithError: Boolean;
-    FFirstLaunch: Boolean;
+    FLoginWithoutServer : boolean;
+    FUrlnewmessages : string;
+    FUrlinbox : string;
+    FUrlsent : string;
+    FUrltrash : string;
+    FLogoImgPath : string;
+    FClientImgPath : string;
+    FTileSideSize : integer;
+    FSoundPath : string;
+    FHeight : integer;
+    FWidth : Integer;
+    FAutoLogin : string; // for login
+    FUsernumber: string;
+    FNeedShowBalloon : boolean;
+    FNeedSendLogin : boolean;
+    FUseAutocomplete : boolean; // for username atocomplete
+    LOGINSCREEN : TfmLogin;
+    VCLForm : TVclForm;
+    FBrowserHeight: integer;
     procedure AppException(Sender: TObject; E: Exception);
-    procedure LadeApplications(ARuleid: Integer);
-    function StarteProgramm(AApplicationID: Integer): TApplication;
-    procedure ShowWebWithParams(WebBrowser: TChromium; Url:string;
-      Sending: Boolean = False);
-    procedure SendLogin(PMitarbeiterID: Integer);
-    procedure SendLogOut(Sender: TObject);
-    procedure DoLogOut;
-    procedure DoLogIn(UserNumber:string);
-    procedure DoUpdate(ServerDir, LocalDir:string);
-    // Make an update for application list
+    procedure ladeApplications(aRuleid : integer);
+    function starteprogramm (aApplicationID : integer) : TApplication;
+    procedure ShowWebwithparams(wb:TChromium; FUrl:string; Sending:boolean = false);
+    procedure SendLogin(pMitarbeiterID: Integer);
+    procedure SendLogOut(sender:TObject);
+    Procedure DoLogOut;
+    Procedure DoLogIn(usernumber:string);
+    { Public-Deklarationen }
   end;
+
 
 var
   Mainform: TMainform;
-  VLogout, VLogIn: Cardinal;
+  wLogout, wLogIn: Cardinal;
 
 implementation
-
-uses DMBase, ConfigUnit;
+uses DMbase, ConfigUnit;
 
 {$R *.fmx}
 
-
-constructor TApplicationTile.Create(AOwner: TComponent; Layout: TGridLayout);
-var AButtonWidth: Integer;
+constructor TApplicationTile.Create(AOwner:TComponent; Layout:TGridLayout);
+var aButtonWidth : integer;
 begin
   inherited Create(AOwner);
-  Self.Parent := Layout;
+  self.Parent := Layout;
 
   ImageControl := TImageControl.Create(AOwner);
-  LabelAppName := TLabel.Create(AOwner);
+  Label_AppName := TLabel.Create(AOwner);
   Button := TButton.Create(AOwner);
 
-  Self.Margins.Left := Round(Self.Height * 0.05);
-  Self.Margins.Right := Round(Self.Height * 0.05);
-  Self.Margins.Top := Round(Self.Height * 0.05);
-  Self.Margins.Bottom := Round(Self.Height * 0.05);
-  Self.StyleLookup := 'Panel1Style1';
+  self.Margins.Left := round(self.Height * 0.05);
+  self.Margins.Right := round(self.Height * 0.05);
+  self.Margins.Top := round(self.Height * 0.05);
+  self.Margins.Bottom := round(self.Height * 0.05);
+  self.StyleLookup := 'Panel1Style1';
 
-  Self.ImageControl.Parent := Self;
-  Self.ImageControl.Align := TAlignLayout.Top;
-  Self.ImageControl.EnableOpenDialog := False;
-  Self.ImageControl.Height := Round(Self.Height * 0.8);
-  Self.ImageControl.StyleLookup := 'ImageControl1Style1';
-  Self.ImageControl.OnClick := MainForm.ImageClick;
+  self.ImageControl.Parent := self;
+  self.ImageControl.Align := TAlignLayout.Top;
+  self.ImageControl.EnableOpenDialog := false;
+  self.ImageControl.Height := round(self.Height * 0.8);
+  self.ImageControl.StyleLookup := 'ImageControl1Style1';
+  self.ImageControl.OnClick := MainForm.Image_Click;
 
-  Self.LabelAppName.Parent := Self;
-  Self.LabelAppName.Align := TAlignLayout.Bottom;
-  Self.LabelAppName.Height := Round(Self.Height * 0.2);
-  Self.LabelAppName.TextAlign := TTextAlign.Center;
-  Self.LabelAppName.Font.Size := Round(Self.Height * 0.07);
-  Self.LabelAppName.StyledSettings := Self.LabelAppName.StyledSettings -
-    [TStyledSetting.Size];
-  Self.LabelAppName.StyleLookup := 'Label_UserNameStyle1';
+  self.Label_AppName.Parent := self;
+  self.Label_AppName.Align := TAlignLayout.Bottom;
+  self.Label_AppName.Height := round(self.Height * 0.2);
+  self.Label_AppName.TextAlign := TTextAlign.Center;
+  self.Label_AppName.Font.Size := round(self.Height * 0.07);
+  self.Label_AppName.StyledSettings := self.Label_AppName.StyledSettings - [TStyledSetting.Size];
+  self.Label_AppName.StyleLookup := 'Label_UserNameStyle1';
 
-  Self.Button.Parent := Self;
-  Self.Button.Align := TAlignLayout.None;
-  AButtonWidth := Round(Self.Width * 0.2);
-  Self.Button.Position.X := Round(Self.Width * 0.4);
-  Self.Button.Position.Y := Round(Self.Height * 0.8)-
-    Round(AButtonWidth * 0.8);
-  Self.Button.Width := AButtonWidth;
-  Self.Button.Height := AButtonWidth;
-  Self.Button.TextSettings.Font.Size := Round(AButtonWidth * 0.4);
-  Self.Button.StyledSettings := Self.Button.StyledSettings -
-    [TStyledSetting.Size];
-  Self.Button.OnClick := MainForm.ButtonTileClick;
-  Self.Button.Visible := False;
+  self.Button.Parent :=  self;
+  self.Button.Align := TAlignLayout.None;
+  aButtonWidth := round(self.Width * 0.2);
+  self.Button.Position.X := round(self.Width * 0.4);
+  self.Button.Position.Y := round(self.Height * 0.8) - round(aButtonWidth * 0.8);
+  self.Button.Width := aButtonWidth;
+  self.Button.Height := aButtonWidth;
+  self.Button.TextSettings.Font.Size := round(aButtonWidth*0.4);
+  self.Button.StyledSettings := self.Button.StyledSettings - [TStyledSetting.Size];
+  self.Button.OnClick := MainForm.buttonTileClick;
+  self.Button.Visible := false;
 end;
 
-procedure TMainForm.ShowWebWithParams(WebBrowser: TChromium; Url:string;
-  Sending: Boolean = False);
+procedure TMainForm.onRestoreApplication(sender: TObject);
+begin
+  ShowMessage('OnRestore');
+end;
+
+procedure TMainForm.ShowWebwithparams(wb:TChromium; FUrl:string; Sending:boolean = false);
 begin
   if Sending then
   begin
-    WebBrowser.Visible := False;
-    WebBrowserStandart.Visible := True;
-    WebBrowserStandart.Navigate(Url + '?' + 'user_token=' + Hotelserverapi.Token
-      + '&' + 'lookup_company_id=1' + '&' + 'disable_header=true');
+    wb.Visible := false;
+    WebBrowserStandart.Visible := true;
+    WebBrowserStandart.Navigate(FUrl + '?' + 'user_token='+hotelserverapi.Token+'&' + 'lookup_company_id=1'+'&'+'disable_header=true');
   end
   else
   begin
-    WebBrowserStandart.Visible := False;
-    WebBrowser.Visible := True;
-    FormChromium.Left := Round(ToolBarStartmenu.Position.X)+
-      Round(PanelLeft.Width)+ 4;
-    FormChromium.Top := Round(TabControlTile.Height)+
-      Round(PanelMessageButtons.Height);
-    FormChromium.Height := Round(PanelBrowser.Height)- 2;
-    FormChromium.Width := Round(PanelBrowser.Width)- 8;
+    WebBrowserStandart.Visible := false;
+    wb.Visible := true;
     FormChromium.Show;
-    WebBrowser.Load(Url + '?' + 'user_token=' + Hotelserverapi.Token + '&' +
-      'lookup_company_id=1' + '&' + 'disable_header=true');
+    FormChromium.Left := round(ToolBarStartmenu.Position.X) + 5;
+    FormChromium.Top := round(TabControl1.Height) + round(Panel2.Height);
+    FormChromium.Height := round(pnBrowser.Height) - 2;
+    FormChromium.Width := round(pnBrowser.Width) - 10;
+    wb.Load(FUrl + '?' + 'user_token='+hotelserverapi.Token+'&' + 'lookup_company_id=1'+'&'+'disable_header=true');
   end;
 end;
 
-procedure TMainform.SpeedButtonHideBrowserClick(Sender: TObject);
+procedure TMainform.SpeedButton_HideBrowserClick(Sender: TObject);
 begin
   if FBrowserHeight = 0 then
-    FBrowserHeight := Round(PanelBrowser.Height);
-  if Round(PanelBrowser.Height)= 0 then
+    FBrowserHeight := Round(pnBrowser.Height);
+  if Round(pnBrowser.Height) = 0 then
   begin
-    PanelBrowser.Height := PanelBrowser.Height + FBrowserHeight;
+    pnBrowser.Height := pnBrowser.Height + FBrowserHeight;
     ToolBarStartmenu.Height := ToolBarStartmenu.Height + FBrowserHeight;
-    PanelTile.Height := PanelTile.Height - FBrowserHeight;
-    SpeedButtonHideBrowser.StyleLookup := 'arrowdowntoolbuttonborderedright';
+    //Panel2.Position.Y := Panel2.Position.Y - FBrowserHeight;
+    //CalloutPanel_newmessagescount.Position.Y := CalloutPanel_newmessagescount.Position.Y - FBrowserHeight;
+    //SpeedButton_HideBrowser.ImageIndex := 0;
+    SpeedButton_HideBrowser.StyleLookup := 'arrowdowntoolbuttonborderedright';
     // here we will make webBrowser visiable only on Finish of the FloatAnimation1
-    FloatAnimationHideBrowser.Inverse := False;
-    FloatAnimationBrowser.Inverse := False;
+    //FormChromium.Visible := true;
+    FloatAnimation1.Inverse := false;
+    FloatAnimation2.Inverse := false;
+    //FloatAnimation3.Inverse := false;
   end
   else
   begin
-    PanelBrowser.Height := PanelBrowser.Height - FBrowserHeight;
+    pnBrowser.Height := pnBrowser.Height - FBrowserHeight;
     ToolBarStartmenu.Height := ToolBarStartmenu.Height - FBrowserHeight;
-    PanelTile.Height := PanelTile.Height + FBrowserHeight;
-    SpeedButtonHideBrowser.StyleLookup := 'arrowuptoolbuttonborderedleft';
-    PanelBrowser.StyleLookup := 'pnBrowserStyle2';
-    FormChromium.Hide;
-    FloatAnimationHideBrowser.Inverse := True;
-    FloatAnimationBrowser.Inverse := True;
+    //Panel2.Position.Y := Panel2.Position.Y + FBrowserHeight;
+    //CalloutPanel_newmessagescount.Position.Y := CalloutPanel_newmessagescount.Position.Y + FBrowserHeight;
+    //SpeedButton_HideBrowser.ImageIndex := 1;
+    SpeedButton_HideBrowser.StyleLookup := 'arrowuptoolbuttonborderedleft';
+    FormChromium.Visible := false;
+    FloatAnimation1.Inverse := true;
+    FloatAnimation2.Inverse := true;
+    //FloatAnimation3.Inverse := true;
   end;
-  FloatAnimationHideBrowser.Start;
-  FloatAnimationBrowser.Start;
+  FloatAnimation1.Start;
+  FloatAnimation2.Start;
+  //FloatAnimation3.Start;
 end;
 
-function TMainform.IsProcessVorhanden(ProzessID: Integer): THandle;
-type
-  PSearch =^TSearch;
-
-  TSearch = record
-    PID: DWORD;
-    Wnd: THandle;
-  end;
-var
-  SearchRec: TSearch;
+function TMainform.isprocessvorhanden(prozessID : integer): THandle;
+ type
+   PSearch = ^TSearch;
+   TSearch = record
+     PID: DWORD;
+     Wnd: THandle;
+   end;
+ var
+   SearchRec: TSearch;
 
   function EnumWindowsProc(Wnd: THandle; Res: PSearch): Boolean; stdcall;
-  var
-    WindowPid: DWORD;
-  begin
-    WindowPid := 0;
-    GetWindowThreadProcessId(Wnd,@WindowPid);
-    if(WindowPid = Res^.PID)then
-    // and IsMainAppWindow(Wnd) then // <--- <--- <---
-    begin
-      Res^.Wnd := Wnd;
-      Result := False;
-    end
-    else
-      Result := True;
-  end;
+   var
+     WindowPid: DWORD;
+   begin
+     WindowPid := 0;
+     GetWindowThreadProcessId(Wnd, @WindowPid);
+     if (WindowPid = Res^.PID) then //and IsMainAppWindow(Wnd) then // <--- <--- <---
+     begin
+       Res^.Wnd := Wnd;
+       Result := False;
+     end
+     else
+       Result := True;
+   end;
 
 begin
-  SearchRec.PID := ProzessID;
-  SearchRec.Wnd := 0;
-  EnumWindows(@EnumWindowsProc, Integer(@SearchRec));
-  Result := SearchRec.Wnd;
+   SearchRec.PID := prozessID;
+   SearchRec.Wnd := 0;
+   EnumWindows(@EnumWindowsProc, Integer(@SearchRec));
+   result := SearchRec.Wnd;
 end;
 
 procedure TMainform.ConfigButtonClick(Sender: TObject);
 begin
-  MenuRight.ButtonMinClick(nil);
+  menuRight.button_minClick(nil);
   ConfigForm.ShowModal;
 end;
 
-procedure TMainform.ButtonMinimizeClick(Sender: TObject);
+procedure TMainform.button_minimizeClick(Sender: TObject);
 begin
-  Self.WindowState := TWindowState.WsMinimized;
+  self.WindowState := TWindowState.wsMinimized;
   FormChromium.Hide;
 end;
 
@@ -342,630 +321,478 @@ begin
 end;
 
 procedure TMainform.ButtonTileClick(Sender: TObject);
-var
-  PopupApps: Tpopup;
-  PopButton: TButton;
-  App: TApplication;
-  Handle: THandle;
-  Button: Tbutton;
-  Key:string;
-  Runonce: Boolean;
+var //Programmstart : string;
+  //I: Integer;
+  popupapps : Tpopup;
+  popbutton : TButton;
+  app : TApplication;
+  handle : THandle;
+  button : Tbutton;
+  key : string;
+  runonce : boolean;
 begin
-  Button := Sender as Tbutton;
-  Runonce := False;
-  if TDictionary<string, TApplication>(Button.TagObject).Count > 0 then
-  begin
-    PopupApps := Tpopup.Create(nil);
-    PopupApps.Parent := Button;
-    PopupApps.Width := Button.Width;
-    PopupApps.Height := 200;
+  //self.visible := false;
 
-    for Key in TDictionary<string, TApplication>(Button.TagObject).Keys do
+  button := Sender as Tbutton;
+  runonce := false;
+  if TDictionary<string,TApplication>(button.TagObject).Count > 0 then
+  begin
+    popupAPPs := Tpopup.Create(nil);
+    popupapps.Parent := button;
+    popupapps.Width := button.Width;
+    popupapps.Height := 200;
+
+  //  popupapps.PlacementTarget := Tilepage;
+    for key in TDictionary<string,TApplication>(button.TagObject).Keys do
     begin
-      Handle := IsProcessVorhanden(StrToInt(Key));
-      if Handle <> 0 then
+      handle := isprocessvorhanden(strtoint (key));
+      if handle <> 0 then
       begin
-        if TDictionary<string, TApplication>(Button.TagObject).Items[Key]
-          .Runonce = True then
+        if TDictionary<string,TApplication>(button.TagObject).Items[key].runonce = true then
         begin
-          Runonce := True;
-          SetForegroundWindow(Handle);
-          ShowWindow(Handle, SW_SHOW);
-        end
-        else
+           //menuRight.button_minClick(nil);
+           runonce := true;
+           SetForegroundWindow(handle);
+           ShowWindow(handle, SW_SHOW);
+        end else
         begin
-          PopButton := TButton.Create(nil);
-          PopButton.Margins.Top := 10;
-          PopButton.Margins.Left := 10;
-          PopButton.Margins.Right := 10;
-          PopButton.Height := 50;
-          PopButton.Parent := PopupApps;
-          PopButton.Align := TAlignLayout.MostTop;
-          PopButton.Text := TDictionary<string, TApplication>(Button.TagObject)
-            .Items[Key].Name;
+          popbutton := TButton.Create(nil);
+          popbutton.Margins.top := 10;
+          popbutton.Margins.Left := 10;
+          popbutton.Margins.Right := 10;
+          popbutton.Height := 50;
+
+          popbutton.Parent := popupapps;
+    //    popbutton.StyledSettings := [TStyledSetting.ssFamily, TStyledSetting.ssSize, TStyledSetting.ssStyle];
+          popbutton.Align := TAlignLayout.MostTop;
+          popbutton.Text := TDictionary<string,TApplication>(button.TagObject).Items[key].name;
         end;
-      end
-      else
+      end else
       begin
-        TDictionary<string, TApplication>(Button.TagObject).Remove(Key);
+        TDictionary<string,TApplication>(button.TagObject).Remove(key);
       end;
     end;
-    if((TDictionary<string, TApplication>(Button.TagObject).Count = 0))then
+    if ((TDictionary<string,TApplication>(button.TagObject).Count = 0)) then
     begin
-      App := StarteProgramm(Button.Tag);
-      if App.Processid > 0 then
+      //menuRight.button_minClick(nil);
+      app := starteprogramm (button.Tag);
+      if app.processid > 0 then
       begin
-        TDictionary<string, TApplication>(Button.TagObject)
-          .Add(IntToStr(App.Processid), App);
+        TDictionary<string,TApplication>(button.TagObject).Add (inttostr(app.processid),app);
       end;
-    end
-    else
-      if Runonce = False then
-      begin
-        PopButton := TButton.Create(nil);
-        PopButton.Margins.Top := 10;
-        PopButton.Margins.Left := 10;
-        PopButton.Margins.Right := 10;
-        PopButton.Parent := PopupApps;
-        PopButton.Height := 50;
-        PopButton.Align := TAlignLayout.Top;
-        PopButton.Text := 'Programm neu öffnen';
-        PopupApps.Popup;
-      end;
-  end
-  else
+    end else
+    if runonce = false then
+    begin
+      popbutton := TButton.Create(nil);
+  //    popbutton.StyledSettings := [TStyledSetting.ssFamily, TStyledSetting.ssSize, TStyledSetting.ssStyle];
+      popbutton.Margins.top := 10;
+      popbutton.Margins.Left := 10;
+      popbutton.Margins.Right := 10;
+      popbutton.Parent := popupapps;
+      popbutton.Height := 50;
+      popbutton.Align := TAlignLayout.Top;
+      popbutton.Text := 'Programm neu öffnen';
+      popupApps.Popup;
+    end;
+  end else
   begin
-    App := StarteProgramm(Button.Tag);
-    if App.Processid > 0 then
+    //menuRight.button_minClick(nil);
+    app := starteprogramm (button.Tag);
+    if app.processid > 0 then
     begin
-      TDictionary<string, TApplication>(Button.TagObject)
-        .Add(IntToStr(App.Processid), App);
+      TDictionary<string,TApplication>(button.TagObject).Add (inttostr(app.processid),app);
     end;
   end;
 end;
 
-procedure TMainform.ButtonManualUpdateClick(Sender: TObject);
-begin
-  if TimerDoAutoUpdate.Enabled then
-  begin
-    TimerDoAutoUpdate.Enabled := False;
-    TimerDoAutoUpdate.Interval := 1000;
-    TimerDoAutoUpdate.Enabled := True;
-  end;
-end;
 
-procedure TMainform.ButtonNewMessagesClick(Sender: TObject);
-var
-  ButtonPressed: TFMXObject;
+
+procedure TMainform.Button_newmessagesClick(Sender: TObject);
+Var ButtonPressed : TFMXObject;
 begin
   // Change style of button for show the pressed button
-  for ButtonPressed in PanelMessageButtons.Children do
+  for ButtonPressed in Panel2.Children do
     if ButtonPressed.ClassName = 'TButton' then
-      if(ButtonPressed as TButton).Text = LabelLoading.Text then
+      if (ButtonPressed as TButton).Text = Label_Loading.Text then
         (ButtonPressed as TButton).StyleLookup := 'Button_sentStyle1';
-  (Sender as Tbutton).StyleLookup := 'Button_inboxStyle1';
-  LabelLoading.Text :=(Sender as TButton).Text;
-  AniIndicatorLoading.Enabled := True;
+  (sender as Tbutton).StyleLookup := 'Button_inboxStyle1';
+  Label_Loading.Text := (sender as TButton).Text;
+  AniIndicator_Loading.Enabled := true;
 
-  case(Sender as TButton).Tag of
-  1:
-    ShowWebwithParams(FormChromium.WebBrowser, FurlNewMessages);
-  2:
-    ShowWebwithParams(FormChromium.WebBrowser, Furlinbox);
-  3:
-    ShowWebwithParams(FormChromium.WebBrowser, Furlsent);
-  4:
-    ShowWebwithParams(FormChromium.WebBrowser, Furltrash);
-  end;
+  Case (sender as TButton).Tag of
+   1: showWebwithParams(FormChromium.webBrowser,FurlNewMessages);
+   2: showWebwithParams(FormChromium.webBrowser,Furlinbox);
+   3: showWebwithParams(FormChromium.webBrowser,Furlsent);
+   4: showWebwithParams(FormChromium.webBrowser,Furltrash);
+  End;
 end;
 
-function TMainform.Exec(const FileName:string;
+function TMainform.Exec(const FileName: string;
   const CmdShow: Integer): Longword;
 begin
-  StrPCopy(FAppName, FileName);
+  StrPCopy(zAppName, FileName);
   GetDir(0, WorkDir);
-  StrPCopy(FCurDir, WorkDir);
+  StrPCopy(zCurDir, WorkDir);
   FillChar(StartupInfo, SizeOf(StartupInfo), #0);
-  StartupInfo.Cb := SizeOf(StartupInfo);
-  StartupInfo.DwFlags := STARTF_USESHOWWINDOW;
-  StartupInfo.WShowWindow := CmdShow;
+  StartupInfo.cb          := SizeOf(StartupInfo);
+  StartupInfo.dwFlags     := STARTF_USESHOWWINDOW;
+  StartupInfo.wShowWindow := CmdShow;
   CreateProcess(nil,
-    FAppName, // pointer to command line string
+    zAppName, // pointer to command line string
     nil, // pointer to process security attributes
     nil, // pointer to thread security attributes
     False, // handle inheritance flag
     CREATE_NEW_CONSOLE or // creation flags
     NORMAL_PRIORITY_CLASS,
-    nil, // pointer to new environment block
-    PChar(ExtractFilePath(Filename)),
-    // nil, // pointer to current directory name
+    nil, //pointer to new environment block
+    PChar(ExtractFilePath(Filename)), // nil, // pointer to current directory name
     StartupInfo, // pointer to STARTUPINFO
     ProcessInfo);
-  Result := ProcessInfo.DwProcessId;
-  DataModuleBase.WriteToLog('Run application ' + FileName, True);
+    result := ProcessInfo.dwProcessId;
 end;
+
 
 procedure TMainform.AppException(Sender: TObject; E: Exception);
 begin
+
   if Sender is TComponent then
-    DataModuleBase.WriteToLog
-      (Format('Es ist folgender Fehler aufgetreten:%s%s%s' +
-      'Fehlertyp:%s%s%sSender:%s%s [%s]',[#10#13, E.Message,
-      #13#10#13#10, #10#13, E.ClassName, #10#13#10#13, #13#10,
-      TComponent(Sender).Name, Sender.ClassName]), True)
+    dbase.WriteToLog(Format('Es ist folgender Fehler aufgetreten:%s%s%s'+
+    'Fehlertyp:%s%s%sSender:%s%s [%s]', [#10#13, E.Message,
+    #13#10#13#10, #10#13, E.ClassName, #10#13#10#13, #13#10,
+    TComponent(Sender).Name, Sender.ClassName]),true)
   else
-    DataModuleBase.WriteToLog
-      (Format('Es ist folgender Fehler aufgetreten:%s%s%s' +
-      'Fehlertyp:%s%s%sSender:%s%s',[#10#13, E.Message, #13#10#13#10,
-      #10#13, E.ClassName, #10#13#10#13, #13#10, Sender.ClassName]),
-      True);
+    dbase.WriteToLog(Format('Es ist folgender Fehler aufgetreten:%s%s%s'+
+    'Fehlertyp:%s%s%sSender:%s%s', [#10#13, E.Message, #13#10#13#10,
+    #10#13, E.ClassName, #10#13#10#13, #13#10, Sender.ClassName]),
+    true);
 end;
 
-procedure TMainform.FormKeyDown(Sender: TObject;var Key: Word;
+procedure TMainform.FormKeyDown(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
-  if Key = VkF6 then
-    MenuRight.ButtonLogoffClick(nil);
+ { if Key = vkEscape then
+    ShowToolbar(not ToolbarPopup.IsOpen); }
+  if key = vkF6 then
+    Menuright.Button_LogoffClick(nil);
 end;
+
 
 procedure TMainform.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
   Y: Single);
 begin
-  if(X = 0)and(MenuRight.Width < 35)then
-    MenuRight.ButtonMinClick(nil);
+  if (X = 0) and (Menuright.Width < 35) then
+    Menuright.button_minClick(nil);
   // here we try to find when we need show webbrowser
-  if(X > 0)
-    and(not FormChromium.Visible)
-    and(Round(PanelBrowser.Height)> 0)
-    and(not FloatAnimationHideBrowser.Running)then
-    FormChromium.Visible := True;
+  if (X > 0) and( not FormChromium.Visible) and (round(pnBrowser.Height) > 0) and (not FloatAnimation1.Running) then
+    FormChromium.Visible := true;
 end;
 
 procedure TMainform.FormShow(Sender: TObject);
-var ANeedBuildApplicationList: Boolean;
-  AFDQueryDml: TFDQuery;
+var aNeedBuildApplicationList : boolean;
+    aqDml : TFDQuery;
 begin
-  DataModuleBase.WriteToLog('Start of GMSStart', True);
-  MenuRight.Show;
-  PanelBrowser.StyleLookup := 'pnBrowserStyle2';
-  ANeedBuildApplicationList := False;
-  Self.TimerChecknewMessages.Enabled := False;
-  Self.WebBrowserStandart.Parent := PanelBrowser;
-  Self.WebBrowserStandart.Align := TAlignLayout.Client;
-  Self.WebBrowserStandart.OnDidFinishLoad :=
-    Self.WebBrowserStandartDidFinishLoad;
-  if FileExists(FLogoImgPath)then
+  menuright.show;
+  self.SendToBack;
+  aNeedBuildApplicationList := false;
+  self.Timer_Checknewmessages.Enabled := false;
+  self.WebBrowserStandart.Parent := pnBrowser;
+  self.WebBrowserStandart.Align := TAlignLayout.Client;
+  self.WebBrowserStandart.OnDidFinishLoad := self.WebBrowserStandartDidFinishLoad;
+  if fileexists(FLogoImgPath) then
   begin
-    ImageControlLogo.LoadFromFile(FLogoImgPath);
-    LoginScreen.ImageControlLogo.LoadFromFile(FLogoImgPath);
+    imageControl_logo.LoadFromFile(FLogoImgPath);
+    LOGINSCREEN.imageControl_logo.LoadFromFile(FLogoImgPath);
   end;
-  if FileExists(FClientImgPath)then
-    ImageControlClient.LoadFromFile(FClientImgPath);
+  if fileexists(FClientImgPath) then
+    imageControl_Client.LoadFromFile(FClientImgPath);
+  //hotelserverapi.URL :='http://cloud2.gms.info:3000';
 
-  FUrlNewMessages := HotelServerApi.URL + '/setting/announcements';
-  FUrlInbox := HotelServerApi.URL + '/setting/announcements/inbox';
-  FUrlSent := HotelServerApi.URL + '/setting/announcements/sent';
-  FUrlTrash := HotelServerApi.URL + '/setting/announcements/trash';
+  FUrlnewmessages :=  hotelserverapi.URL + '/setting/announcements';
+  FUrlinbox       :=  hotelserverapi.URL + '/setting/announcements/inbox';
+  FUrlsent        :=  hotelserverapi.URL + '/setting/announcements/sent';
+  FUrltrash       :=  hotelserverapi.URL + '/setting/announcements/trash';
 
   // Trying to login
-  DataModuleBase.WriteToLog('Showing Login diaolog', True);
-  if(not HotelServerApi.IsLogin)and(not FLoginWithoutServer)then
-    if LoginScreen.ShowModal = MrOk then
+  //hotelserverapi.Username := 'admin@felix.info';
+  //hotelserverapi.Password := 'adminfelix';
+
+  if (not hotelserverapi.isLogin) and (not FLoginWithoutServer) then
+    if LOGINSCREEN.ShowModal = mrOk then
     begin
       try
-        HotelServerApi.Login;
+        hotelserverapi.Login;
       except
 
       end;
-      ANeedBuildApplicationList := True;
+      aNeedBuildApplicationList := true;
     end
     else
     begin
-      Self.Close;
-      Exit;
+      self.Close;
+      exit;
     end;
 
-  if not HotelServerApi.IsLogin then
+  if not hotelserverapi.isLogin then
   begin
-    if(HotelServerApi.UserName = 'admin@felix.info')and
-      (HotelServerApi.Password = 'adminfelix')then
-    begin
-      FLoginWithoutServer := True;
-      DataModuleBase.WriteToLog
-        ('Login without messages as admin@felix.info', True);
-    end
+    if (hotelserverapi.Username = 'admin@felix.info') and (hotelserverapi.Password = 'adminfelix') then
+      FLoginWithoutServer := true
     else
     begin
-      DataModuleBase.WriteToLog('Falsche Anmeldedaten', True);
       ShowMessage('Falsche Anmeldedaten');
-      FormShow(Self);
+      formShow(self);
     end;
   end;
 
-  DataModuleBase.WriteToLog('Succefully login as ' +
-    HotelServerApi.UserName, True);
-  LoginScreen.EditUserName.Lookup.DisplayList.Add(HotelServerApi.UserName);
-  MenuRight.LabelUserName.Text := HotelServerApi.UserName;
-  LabelUserName.Text := HotelServerApi.UserName;
+  LOGINSCREEN.edit_username.Lookup.DisplayList.Add(hotelserverapi.Username);
+  menuright.Label_Username.Text := hotelserverapi.Username;
+  Label_Username.Text := hotelserverapi.Username;
   if not FLoginWithoutServer then
   begin
-    Self.TimerCheckNewMessages.Enabled := True;
-    LabelLoading.Text := ButtonNewMessages.Text;
-    AniIndicatorLoading.Enabled := True;
-    ShowWebWithParams(FormChromium.WebBrowser, FUrlNewMessages);
+    self.Timer_Checknewmessages.Enabled := true;
+    Label_Loading.Text := Button_NewMessages.Text;
+    AniIndicator_Loading.Enabled := true;
+    ShowWebwithparams(FormChromium.webBrowser, FUrlNewMessages);
   end;
   // Get user_number from table
-  AFDQueryDml := TFDQuery.Create(Self);
-  AFDQueryDml.Connection := DataModuleBase.FDConnectionFelix;
-  AFDQueryDml.SQL.Text := 'select user_number ' + #13#10 +
-    '  from USER_USERS  ' + #13#10 +
-    ' where username =''' + HotelServerApi.UserName + '''';
-  AFDQueryDml.Open();
-  if AFDQueryDml.RecordCount > 0 then
+  aqDml := TFDQuery.Create(self);
+  aqDml.Connection := DBase.IB_ConnectionFelix;
+  aqDml.SQL.Text := 'select user_number from user_users where username ='''+hotelserverapi.Username+'''';
+  aqDml.Open();
+  if aqDml.RecordCount > 0 then
   begin
-    AFDQueryDml.First;
-    FUserNumber := AFDQueryDml.Fields.Fields[0].AsString;
+    aqDml.First;
+    FUsernumber := aqDml.Fields.Fields[0].AsString;
   end
   else
     FUsernumber := '0';
-  AFDQueryDml.Free;
+  aqDml.Free;
 
   // here we send SendLogin
   if FNeedSendLogin then
-    SendLogin(Strtoint(FUserNumber));
+    SendLogin(strtoint(FUserNumber));
 
-  if ANeedBuildApplicationList then
+  if aNeedBuildApplicationList then
   begin
-    FDQueryApplicationList.Close;
-    FDQueryApplicationList.Params.ParamByName('Username').AsString :=
-      HotelServerApi.UserName;
-    FDQueryApplicationList.Open();
+    query_applications.Close;
+    query_applications.Params.ParamByName('Username').AsString := hotelserverapi.Username;
+    query_applications.Open();
     // Build application list
-    LadeApplications(0);
+    ladeApplications(0);
   end;
 
 end;
 
-procedure TMainform.ImageClick(Sender: TObject);
-var
-  ATile: TPanel;
-  AButton: TFmxObject;
+procedure TMainform.Image_Click(Sender: TObject);
+var aTile : TPanel;
+    aButton : TFmxObject;
 begin
   // There we will Launch the program when user click on Image of tile
-  ATile :=((Sender as TImageControl).Parent as TPanel);
-  for AButton in ATile.Children do
-    if AButton.ClassName = 'TButton' then
+  aTile := ((sender as TImageControl).Parent as TPanel);
+  for aButton in aTile.Children do
+    if aButton.ClassName = 'TButton' then
     begin
-      ButtonTileClick(AButton);
-      Break;
+      ButtonTileClick(aButton);
+      break;
     end;
 end;
 
-procedure TMainform.LadeApplications(ARuleid: Integer);
+procedure TMainform.ladeApplications(aRuleid: integer);
 var
-  AppButton, AppButtonMenu: TButton;
-  ATile: TApplicationTile;
-  List: TDictionary<string, TApplication>;
+  appbutton,appbuttonmenu : Tbutton;
+  aTile : TApplicationTile;
+  //maxfelder,aktfelder : integer;
+  list : TDictionary<string,TApplication>;
   I: Integer;
-  Rect: TRectangle;
-  TextOben: TText;
+  rect : TRectangle;
+  textOben : TText;
 begin
-  DataModuleBase.WriteToLog('Start build Application list ', True);
-  GridLayoutTile.Free;
-  GridLayoutTile := TGridLayout.Create(Self);
-  GridLayoutTile.Parent := TabControlTile.Tabs[0];
-  GridLayoutTile.Align := TAlignLayout.Client;
-  GridLayoutTile.ItemHeight := FTileSideSize;
-  GridLayoutTile.ItemWidth := FTileSideSize;
+//  maxfelder := Tilepage.Rows * Tilepage.Columns;
+//  aktfelder := 0;
+//  Tilepage.BeginUpdate;
+//  Tilepage.Tiles.Clear;
+ // gridlayout.
+  //Programmlist.Tiles.Clear;
+ // Listapps.Tiles.Clear;
+  GridLayout1.Free;
+  GridLayout1 := TGridLayout.Create(self);
+  GridLayout1.Parent := TabControl1.Tabs[0];
+  GridLayout1.Align := TAlignLayout.Client;
+  GridLayout1.ItemHeight := FTileSideSize;
+  GridLayout1.ItemWidth  := FTileSideSize;
 
-  MenuRight.ClearProgramm;
-  MenuRight.AddLine;
+  menuRight.clearProgramm;
+  menuRight.addLine;
   // if user is admin then make access
-  if HotelServerApi.UserName = 'admin@felix.info' then
+  if hotelserverapi.Username = 'admin@felix.info' then
   begin
-    AppButtonMenu := Tbutton.Create(nil);
-    AppButtonMenu.Text := 'Konfigurieren';
-    AppButtonMenu.OnClick := ConfigButtonClick;
-    AppButtonMenu.StyleLookup := 'Button_ProgramMenuStyle1';
-    AppButtonMenu.TextSettings.HorzAlign := TTextAlign.Leading;
-    MenuRight.AddProgramm(AppButtonMenu);
-    MenuRight.AddLine;
+    appbuttonmenu := Tbutton.Create(nil);
+    appbuttonmenu.Text := 'Konfigurieren';
+    appbuttonmenu.OnClick := ConfigButtonClick;
+    appbuttonmenu.StyleLookup := 'Button_ProgramMenuStyle1';
+    appbuttonmenu.TextSettings.HorzAlign := TTextAlign.Leading;
+    menuRight.addprogramm(appbuttonmenu);
+    menuRight.addLine;
   end;
 
-  AppButtonMenu := Tbutton.Create(nil);
-  AppButtonMenu.Text := 'Desktop anzeigen';
-  AppButtonMenu.OnClick := ButtonShowDesktopClick;
-  AppButtonMenu.StyleLookup := 'Button_ProgramMenuStyle1';
-  AppButtonMenu.TextSettings.HorzAlign := TTextAlign.Leading;
-  MenuRight.AddProgramm(AppButtonMenu);
-  MenuRight.AddLine;
+  appbuttonmenu := Tbutton.Create(nil);
+  appbuttonmenu.Text := 'Desktop anzeigen';
+  appbuttonmenu.OnClick := ButtonShowDesktopClick;
+  appbuttonmenu.StyleLookup := 'Button_ProgramMenuStyle1';
+  appbuttonmenu.TextSettings.HorzAlign := TTextAlign.Leading;
+  menuRight.addprogramm(appbuttonmenu);
+  menuRight.addLine;
 
-  MenuRight.AddListName('Programmliste');
+  menuRight.addListName('Programmliste');
 
-  with FDQueryApplicationList do
+  with query_applications do
   begin
-    Close;
-    Open;
+    close;
+    open;
     First;
     I := 1;
-    while not Eof do
+    while not eof do
     begin
-      if FileExists(FieldByName('Path').AsString)then
+      if FileExists(fieldbyname ('Path').AsString) then
       begin
-        Rect := TRectangle.Create(nil);
-        Rect.XRadius := 10;
-        Rect.YRadius := 10;
-        Rect.Fill.Kind := TBrushKind.None;
-        Rect.Stroke.Kind := Tbrushkind.None;
 
-        AppButton := Tbutton.Create(nil);
-        List := TDictionary<string, TApplication>.Create;
-        AppButton.TagObject := List;
-        AppButton.HitTest := True;
-        AppButton.Margins.Left := 5;
-        AppButton.Margins.Right := 5;
-        AppButton.Margins.Top := 5;
-        AppButton.Margins.Bottom := 5;
-        AppButton.Align := TAlignLayout.None;
-        AppButton.OnClick := ButtonTileClick;
-        AppButton.Tag := FieldByName('id').AsInteger;
-        AppButton.Parent := Rect;
+        //it := Programmlist.Tiles.Add;
+        rect := TRectangle.Create(nil);
+        rect.XRadius := 10;
+        rect.YRadius := 10;
+        rect.Fill.Kind := TBrushKind.None;
+        rect.Stroke.Kind := Tbrushkind.none;
 
-        AppButtonMenu := Tbutton.Create(nil);
-        AppButtonMenu.Tag := FieldByName('id').AsInteger;
-        AppButtonMenu.TagObject := AppButton.TagObject;
-        AppButtonMenu.Text := '     ' + FieldByName('Name').AsString;
-        AppButtonMenu.TabOrder := I;
-        AppButtonMenu.OnClick := ButtonTileClick;
-        AppButtonMenu.StyleLookup := 'Button_ProgramMenuStyle1';
-        AppButtonMenu.TextSettings.HorzAlign := TTextAlign.Leading;
-        MenuRight.AddProgramm(AppButtonMenu);
-        MenuRight.AddLine;
+        appbutton := Tbutton.Create(nil);
+        list := TDictionary<string,TApplication>.Create;
+        appbutton.TagObject := list;
+        appbutton.HitTest := true;
+        appbutton.Margins.Left := 5;
+        appbutton.Margins.Right := 5;
+        appbutton.Margins.Top := 5;
+        appbutton.Margins.Bottom := 5;
+        appbutton.Align := TAlignLayout.None;
+        appbutton.OnClick := ButtonTileClick;
+        appbutton.Tag := fieldbyname ('id').AsInteger;
+        appbutton.Parent := rect;
 
-        TextOben := TText.Create(nil);
-        TextOben.Text := FieldByName('Name').AsString;
-        TextOben.Align := TAlignLayout.Top;
-        TextOben.Font.Size := 30;
-        TextOben.HitTest := False;
-        TextOben.Parent := AppButton;
 
-        ATile := TApplicationTile.Create(Self, Self.GridLayoutTile);
-        ATile.LabelAppName.Text := FieldByName('Name').AsString;
-        ATile.ImageControl.Bitmap.Assign(TBLOBField(FieldByName('Icon')));
-        ATile.Button.Text := FieldByName('Name_Short').AsString;
-        ATile.Button.TagObject := List;
-        ATile.Button.Tag := FieldByName('id').AsInteger;
+        appbuttonmenu := Tbutton.Create(nil);
+        appbuttonmenu.Tag := fieldbyname ('id').AsInteger;
+        appbuttonmenu.TagObject := appbutton.TagObject;
+        appbuttonmenu.Text := '     '+fieldbyname ('Name').AsString;
+        appbuttonmenu.TabOrder := I;
+        appbuttonmenu.OnClick := buttonTileClick;
+        appbuttonmenu.StyleLookup := 'Button_ProgramMenuStyle1';
+        appbuttonmenu.TextSettings.HorzAlign := TTextAlign.Leading;
+        menuRight.addprogramm(appbuttonmenu);
+        menuRight.addLine;
+
+        textOben := TText.Create(nil);
+        textOben.Text := fieldbyname ('Name').AsString;
+        textOben.Align := TAlignLayout.Top;
+        textOben.Font.Size := 30;
+        textoben.HitTest := false;
+        textOben.Parent := appbutton;
+
+        //it.Caption := fieldbyname ('Name').AsString;
+        //it.Badge := fieldbyname ('id').AsString;
+        //it.Shape.Fill.Kind := TBrushKind.None;
+        //it.Bitmap.Assign(TBLOBField(fieldbyname('IMG')));
+        //it.Bitmap.
+
+       // it.DataObject := appbuttonmenu;
+
+        aTile := TApplicationTile.Create(self,self.GridLayout1);
+        aTile.Label_AppName.Text := fieldbyname ('Name').AsString;
+        aTile.ImageControl.Bitmap.Assign(TBLOBField(fieldbyname('ICON')));
+        aTile.Button.Text := fieldbyname ('Name_Short').AsString;
+        aTile.Button.TagObject := list;
+        aTile.Button.Tag := fieldbyname ('id').AsInteger;
 
         I := I + 1;
       end;
-      Next;
+      next;
     end;
   end;
 end;
 
-function TMainform.StarteProgramm(AApplicationID: Integer): TApplication;
+function TMainform.starteprogramm(aApplicationID: integer): TApplication;
 begin
-  with FDQueryApplication do
+  with query_app do
   begin
-    Close;
-    ParamByName('id').AsInteger := AApplicationID;
-    Open;
-    Result.Name := FieldByName('Name').AsString;
-    Result.Location := FieldByName('Path').AsString;
-    Result.Param := FieldByName('Params').AsString;
+    close;
+    ParamByName('id').AsInteger := aApplicationID;
+    open;
+    result.name := fieldbyname ('NAME').AsString;
+    result.location := fieldbyname ('Path').AsString;
+    result.param := fieldbyname ('PARAMS').AsString;
     // analyze login type and make param string
-    if(FieldByName('Login_Type').AsInteger and CEasyLogin)= CEasyLogin then
+    if (fieldbyname ('Login_Type').AsInteger and co_EasyLogin) = co_EasyLogin then
     begin
-      Result.Param := Result.Param + ' ' + 'x ' + FUsernumber;
-      Result.Param := Trim(Result.Param);
+      result.param := result.param + ' ' + 'x ' +FUsernumber;
+      result.param := trim(result.param);
     end;
-    if(FieldByName('Login_Type').AsInteger and CKeyLogin)= CKeyLogin then
-      Result.Param := Result.Param + '?' + 'user_token=' + HotelServerApi.Token
-        + '&lookup_company_id=1';
+    if (fieldbyname ('Login_Type').AsInteger and co_KeyLogin) = co_KeyLogin then
+      result.param := result.param + '?' + 'user_token='+hotelserverapi.Token+ '&lookup_company_id=1';
 
-    if FieldByName('Runceone').AsInteger = 0 then
-      Result.Runonce := False
+    if fieldbyname ('RUNCEONE').AsInteger = 0 then
+      result.runonce := false
     else
-      Result.Runonce := True;
+      result.runonce := true;
 
-    Result.Processid := Exec(Result.Location + ' ' + Result.Param, SW_SHOW);
+    result.processid := Exec(result.location+' '+result.param,SW_SHOW);
   end;
 end;
 
-procedure TMainform.TimerCheckNewMessagesTimer(Sender: TObject);
-var
-  ACount:string;
+procedure TMainform.Timer_ChecknewmessagesTimer(Sender: TObject);
+var aCount : string;
+    Msg : TMessage;
 begin
-  ACount := HotelServerApi.GetMessageCount(IntToStr(HotelServerApi.UserID),
-    HotelServerApi.Token);
-  if(StrToInt(ACount)> StrToInt(LabelNewMessagesCount.Text))and
-    FileExists(FSoundPath)then
+  aCount := hotelserverapi.getmessagecount(inttostr(hotelserverapi.UserID), hotelserverapi.Token);
+  if (strtoint(aCount) > strtoint(Label_Newmessagecount.Text)) and fileexists(FSoundPath) then
   begin
     // Play sound
-    SndPlaySound(PChar(FSoundPath), SND_ASYNC);
-    FNeedShowBalloon := True;
+    sndPlaySound(PChar(FSoundPath), SND_ASYNC);
+    FNeedShowBalloon := true;
   end;
   // show the notification
   if FneedShowBalloon then
   begin
     with TrayIconData do
     begin
-      StrLCopy(SzInfo, PChar(ACount + ' ungelesene Nachrichten'), high(SzInfo));
-      StrLCopy(SzInfoTitle, PChar('Nachrichten'), high(SzInfoTitle));
-      UFlags := NIF_INFO;
-      DwInfoFlags := 0;
+      StrLCopy(szInfo, PChar(aCount+' ungelesene Nachrichten'), High(szInfo));
+      StrLCopy(szInfoTitle, PChar('Nachrichten'), High(szInfoTitle));
+      uFlags := NIF_INFO;
+      dwInfoFlags := 0;
     end;
-    Shell_NotifyIcon(NIM_MODIFY,@TrayIconData);
+    Shell_NotifyIcon(NIM_MODIFY, @TrayIconData);
   end;
-  TimerCheckNewMessages.Interval := 30000;
-  LabelNewMessagesCount.Text := ACount;
+  Timer_Checknewmessages.Interval := 30000;
+  Label_Newmessagecount.Text := aCount;
 end;
 
-procedure TMainform.TimerDoAutoUpdateTimer(Sender: TObject);
-// here we will make fullupdate
-var AFDQueryList: TFDQuery;
-  I: Integer;
-  ASubFolderList, ASubFolderName:string;
-  AFoldersList: TStringList;
-  AServerPath, ALocalPath:string;
-
-  // building the list of directories in subfolders
-  procedure BuildSubDirList(DirectoryName, SubFolder:string;
-    ResultList: TstringList);
-  var
-    ATsr: TSearchRec;
-    I, APrevSubFolderListCount, ANewSubFolderListCount: Integer;
-  begin
-    APrevSubFolderListCount := ResultList.Count;
-    if APrevSubFolderListCount = 0 then
-      APrevSubFolderListCount := 1;
-    // try to find directories in the subfolder
-    if FindFirst(DirectoryName + '\' + SubFolder + '\' + '*.*', FaDirectory,
-      Atsr)= 0 then
-      repeat
-        if(ATsr.Name = '')or(ATsr.Name = '.')or(ATsr.Name = '..')then
-          Continue;
-        if((ATsr.Attr and FaDirectory)= 0)then
-          Continue;
-        ResultList.Add(SubFolder + '\' + ATsr.Name);
-      until FindNext(ATsr)<> 0;
-    System.SysUtils.FindClose(ATsr);
-    // if we found the directories here we make recursion for folders
-    ANewSubFolderListCount := ResultList.Count;
-    while APrevSubFolderListCount < ANewSubFolderListCount do
-    begin
-      for I := APrevSubFolderListCount to ANewSubFolderListCount - 1 do
-      begin
-        if FindFirst(DirectoryName + '\' + ResultList.Strings[I]+ '\' + '*.*',
-          FaDirectory, Atsr)= 0 then
-          repeat
-            if(ATsr.Name = '')or(ATsr.Name = '.')or(ATsr.Name = '..')then
-              Continue;
-            if((ATsr.Attr and FaDirectory)= 0)then
-              Continue;
-            ResultList.Add(ResultList.Strings[I]+ '\' + ATsr.Name);
-          until FindNext(ATsr)<> 0;
-        System.SysUtils.FindClose(ATsr);
-      end;
-      APrevSubFolderListCount := ANewSubFolderListCount;
-      ANewSubFolderListCount := ResultList.Count;
-    end;
-
-  end;
-
+procedure TMainform.Timer_hideScrolTimer(Sender: TObject);
+var ajscript : string;
 begin
-  TimerDoAutoUpdate.Enabled := False;
-  AniIndicatorUpdate.Enabled := True;
-  FUpdatewithError := False;
-  TimerDoAutoUpdate.Interval := 600000;
-  LabelUpdate.Text := 'Check for Updates';
-  AFDQueryList := TFDQuery.Create(nil);
-  AFDQueryList.Connection := DataModuleBase.FDConnectionFelix;
-  if FFirstLaunch then
-  begin
-    AFDQueryList.SQL.Text :=
-      'select *              ' + #13#10 +
-      '  from User_Programs  ' + #13#10 +
-      ' where AutoUpdate = ''1''';
-    FFirstLaunch := False;
-  end
-  else
-    AFDQueryList.SQL.Text :=
-      'select *                   ' + #13#10 +
-      '  from User_Programs       ' + #13#10 +
-      ' where AutoUpdate = ''1''  ' + #13#10 +
-      '   and DoAutoUpdateNow = ''1'' ';
-  AFDQueryList.Open();
-  if AFDQueryList.RecordCount > 0 then
-    while not AFDQueryList.Eof do
-    begin
-      // Make an update for application
-      LabelUpdate.Text := 'Update main folder for ' + AFDQueryList.FieldByName
-        ('Name').AsString;
-      // kill additional "\" symbol
-      AServerPath := AFDQueryList.FieldByName('ServerPath').AsString;
-      ALocalPath := ExtractFilePath(AFDQueryList.FieldByName('Path').AsString);
-      // update main folder
-      DoUpdate(AServerPath, ALocalPath);
-      // now lets get the list of subfolders wich should be updated
-      AFoldersList := TStringList.Create;
-      I := 1;
-      ASubFolderList := AFDQueryList.FieldByName('Subfolders').AsString;
-      while(Length(ASubFolderList)> 0)or(I > 0)do
-      begin
-        I := Pos(';', ASubFolderList);
-        if(I = 0)and(Length(ASubFolderList)> 0)then
-        begin
-          ASubFolderName := ASubFolderList;
-          ASubFolderList := '';
-        end
-        else
-          if I > 0 then
-            ASubFolderName := Copy(ASubFolderList, 1, I - 1)
-          else
-            Continue;
-        if Length(ASubFolderList)> 0 then
-          ASubFolderList := Copy(ASubFolderList, I + 1);
-        LabelUpdate.Text := 'Build subfolders list for ' +
-          AFDQueryList.FieldByName('Name').AsString;
-        AFoldersList.Add(ASubFolderName);
-        BuildSubDirList(AServerPath, ASubFolderName, AFoldersList);
-      end;
+  Timer_hideScrol.Enabled := false;
 
-      for I := 0 to AFoldersList.Count - 1 do
-      begin
-        // create new folders if it is nessasary
-        if not DirectoryExists(ALocalPath + '\' + AFoldersList.Strings[I])then
-          ForceDirectories(ALocalPath + '\' + AFoldersList.Strings[I]);
-        // update all file in directory
-        LabelUpdate.Text := 'Update ' + AFoldersList.Strings[I]+ ' files for '
-          + AFDQueryList.FieldByName('Name').AsString;
-        DoUpdate(AServerPath + '\' + AFoldersList.Strings[I],
-          ALocalPath + '\' + AFoldersList.Strings[I]);
-      end;
-      AFoldersList.Free;
-      AFDQueryList.Next;
-    end;
+  ajscript := 'document.documentElement.style.overflowX = ''hidden'';';
+  WebBrowserStandart.EvaluateJavaScript(ajscript);
 
-  if FUpdatewithError then
-  begin
-    LabelUpdate.Text :=
-      'Update complete with Errors, Please close all programm and start the update manualy';
-    ButtonManualUpdate.Visible := True;
-  end
-  else
-  begin
-    LabelUpdate.Text := 'Update succefully complete';
-    ButtonManualUpdate.Visible := False;
-  end;
-  AFDQueryList.Free;
-  AniIndicatorUpdate.Enabled := False;
-  TimerDoAutoUpdate.Enabled := True;
-end;
+  ajscript := 'var attempts = 0;';
+  WebBrowserStandart.EvaluateJavaScript(ajscript);
 
-procedure TMainform.TimerHideScrolTimer(Sender: TObject);
-var Ajscript:string;
-begin
-  TimerHideScrol.Enabled := False;
+  ajscript := '$(document).keydown(function(e) { ' +
+              ' if ((e.which == 8) || ((e.which >= 37) && (e.which <= 40)) || (e.which == 86) ) ' +
+              ' { ' +
+              '   if(attempts < 2) { ' +
+              '     attempts = attempts + 1;   ' +
+              '     e.preventDefault(); ' +
+              ' } else attempts = 0; }  ' +
+              '});';
+  WebBrowserStandart.EvaluateJavaScript(ajscript);
 
-  Ajscript := 'document.documentElement.style.overflowX = ''hidden'';';
-  WebBrowserStandart.EvaluateJavaScript(Ajscript);
-
-  Ajscript := 'var attempts = 0;';
-  WebBrowserStandart.EvaluateJavaScript(Ajscript);
-
-  Ajscript := '$(document).keydown(function(e) { ' +
-    ' if ((e.which == 8) || ((e.which >= 37) && (e.which <= 40)) || (e.which == 86) ) '
-    +
-    ' { ' +
-    '   if(attempts < 2) { ' +
-    '     attempts = attempts + 1;   ' +
-    '     e.preventDefault(); ' +
-    ' } else attempts = 0; }  ' +
-    '});';
-  WebBrowserStandart.EvaluateJavaScript(Ajscript);
-
-  AniIndicatorLoading.Enabled := False;
+  aniIndicator_Loading.Enabled := false;
 end;
 
 procedure TMainform.ToolbarCloseButtonClick(Sender: TObject);
@@ -975,284 +802,223 @@ end;
 
 procedure TMainform.WebBrowserStandartDidFinishLoad(ASender: TObject);
 begin
-  TimerHideScrol.Enabled := True;
+ Timer_hideScrol.Enabled := true;
 end;
 
-procedure TMainform.FloatAnimationHideBrowserFinish(Sender: TObject);
+
+
+procedure TMainform.FloatAnimation1Finish(Sender: TObject);
 begin
   // if the direction is not-inverse then make it visiable
-  if not FloatAnimationHideBrowser.Inverse then
-  begin
-    MainForm.PanelBrowser.StyleLookup := 'pnBrowserStyle1';
-    FormChromium.Visible := True;
-  end;
-end;
-
-procedure TMainform.FormClose(Sender: TObject;var Action: TCloseAction);
-begin
-  DataModuleBase.WriteToLog('Close GMSStart', True);
+  if not FloatAnimation1.Inverse then
+    FormChromium.Visible := true;
 end;
 
 procedure TMainform.FormCreate(Sender: TObject);
 begin
-  HotelServerApi := THotelServerApi.Create(Self);
-  LoginScreen := TfmLogin.Create(Self);
+{  Application.OnException := AppException;
+  hotelserverapi.URL := 'https://salzburg.gms.info:8080/api/v1';
+  while not hotelserverapi.isLogin = true do
+  begin
+    LoginScreen := TFMLOGIN.Create(nil);
+    LOGINSCREEN.TextError.Text := hotelserverapi.LASTERROR;
+    LOGINSCREEN.Image_error.Visible := length (hotelserverapi.LASTERROR) > 1;
+    LoginScreen.ShowModal;
+    if LOGINSCREEN.FABBRUCH = false then
+    begin
+      hotelserverapi.Login;
+    end else
+    begin
+      application.Terminate;
+      exit;
+    end;
+    LOGINSCREEN.Free;
+  end;
+  user.Text := hotelserverapi.Username;   }
 
-  WebBrowserStandart := TWebBrowser.Create(Self);
-  FLoginWithoutServer := False;
+
+  hotelserverapi := Thotelserverapi.Create(self);
+  LOGINSCREEN := TfmLogin.Create(self);
+
+  WebBrowserStandart := TWebBrowser.Create(self);
+  FLoginWithoutServer := false;
 
   // use tray icon here
   TrayWnd := AllocateHWnd(TrayWndProc);
   with TrayIconData do
   begin
-    CbSize := System.SizeOf(TrayIconData);
+    cbSize := System.SizeOf(TrayIconData);
     Wnd := TrayWnd;
-    UID := 1;
-    UFlags := NIF_MESSAGE or NIF_ICON or NIF_TIP;
-    UCallbackMessage := WM_USER + 1;
-    HIcon := GetClassLong(FmxHandleToHWND(Self.Handle), GCL_HICONSM);
-    StrPCopy(SzTip, Application.Title);
+    uID := 1;
+    uFlags := NIF_MESSAGE or NIF_ICON or NIF_TIP;
+    uCallbackMessage := WM_USER+1;
+    hIcon := GetClassLong(FmxHandleToHWND(self.Handle), GCL_HICONSM);
+    StrPCopy(szTip, Application.Title);
   end;
 
   if not TrayIconAdded then
-    TrayIconAdded := Shell_NotifyIcon(NIM_ADD,@TrayIconData);
+    TrayIconAdded := Shell_NotifyIcon(NIM_ADD, @TrayIconData);
 
   // setup the form size
-  Self.Height := Screen.WorkAreaHeight;
-  Self.Width := Screen.WorkAreaWidth;
+  self.Height := Screen.WorkAreaHeight;
+  self.Width := Screen.WorkAreaWidth;
 
   // login and logout
-  VLogout := RegisterWindowMessage(CLogout);
-  VLogIn := RegisterWindowMessage(CLogin);
+  wLogout := RegisterWindowMessage(szLogout);
+  wLogin := RegisterWindowMessage(szLogin);
 
   // for balloon
-  FNeedShowBalloon := False;
+  FNeedShowBalloon := false;
   // for login to prevent double login
-  MainForm.FNeedSendLogin := False;
+  MainForm.FNeedSendLogin := false;
   // save the height of a browser for hide function
   FBrowserHeight := 0;
-  FFirstLaunch := True;
+  // set the restore event
+
 end;
 
-procedure TMainForm.DoLogOut;
+Procedure TMainForm.DoLogOut;
 begin
-  ButtonNewMessagesClick(MainForm.ButtonNewMessages);
-  HotelServerApi.Logout;
-  FLoginWithoutServer := False;
-  MenuRight.Hide;
+  Button_newmessagesClick(Mainform.Button_newmessages);
+  hotelserverapi.logout;
+  FLoginWithoutServer := false;
+  menuRight.Hide;
   FormShow(nil);
 end;
 
-procedure TMainForm.DoLogIn(Usernumber:string);
-var
-  AUserNum: Integer;
-  AToken:string;
-  AFDQueryDml: TFDQuery;
+Procedure TMainForm.DoLogIn(usernumber:string);
+var aUserNum : integer;
+    aToken : string;
+    aqDml : TFDQuery;
 begin
   // skip do login if this application initiate send login
   if FNeedSendLogin then
   begin
-    FNeedSendLogin := False;
-    Exit;
+    FNeedSendLogin := false;
+    exit;
   end;
 
-  AFDQueryDml := TFDQuery.Create(Self);
-  AFDQueryDml.Connection := DataModuleBase.FDConnectionFelix;
-  AFDQueryDml.SQL.Text := 'select ID, UserName, Authentication_Token ' + #13#10 +
-    '  from User_Users                         ' + #13#10 +
-    ' where User_Number = ' + UserNumber;
-  AFDQueryDml.Open();
-  if AFDQueryDml.RecordCount > 0 then
+  aqDml := TFDQuery.Create(self);
+  aqDml.Connection := DBase.IB_ConnectionFelix;
+  aqDml.SQL.Text := 'select ID, USERNAME, AUTHENTICATION_TOKEN from user_users where user_number = '+usernumber;
+  aqDml.Open();
+  if aqDML.RecordCount > 0 then
   begin
-    AFDQueryDml.First;
-    HotelServerApi.Token := AFDQueryDml.FieldByName
-      ('Authentication_Token').AsString;
-    HotelServerApi.Username := AFDQueryDml.FieldByName('UserName').AsString;
-    HotelServerApi.UserID := AFDQueryDml.FieldByName('ID').AsInteger;
+    aqDml.First;
+    hotelserverapi.Token := aqDml.FieldByName('AUTHENTICATION_TOKEN').AsString;
+    hotelserverapi.Username := aqDml.FieldByName('USERNAME').AsString;
+    //hotelserverapi.UserID := strtoint(usernumber);
+    hotelserverapi.UserID := aqDml.FieldByName('ID').AsInteger;
   end;
-  AFDQueryDml.Free;
-  LoginScreen.ModalResult := MrOk;
-  LoginScreen.CloseModal;
+  aqDml.Free;
+  LOGINSCREEN.ModalResult := mrOk;
+  //LOGINSCREEN.Button_loginClick(nil);
+  LOGINSCREEN.CloseModal;
 end;
 
-procedure TMainForm.DoUpdate(ServerDir, LocalDir:string);
-// Make an update for application list
-var I, J: Integer;
-  IsNewFile: Boolean;
-  AFileListLocal, AFileListServer, AFileListResult: TStringList;
-  // Filling the list
-  procedure FillList(DirectoryName:string; FilesList: TStringList);
-  var ATsr: TSearchRec;
+procedure TMainForm.SendLogin(pMitarbeiterID: Integer);
+var dwRecipient: DWord;
+    wMsgValue: WPARAM;
+begin
+  wMsgValue := pMitarbeiterID;
+  dwRecipient := BSM_APPLICATIONS;
+  BroadCastSystemMessage(BSF_POSTMESSAGE, @dwRecipient, wLogIn, wMsgVAlue, 0);
+end;
+
+procedure TMainForm.SendLogOut(sender:TObject);
+var dwRecipient: DWord;
+wMsgValue: WPARAM;
+begin
+  //SendLogout to Application, wenn nicht von jemand anderen kommt
+// if Sender <> nil then
   begin
-    if FindFirst(DirectoryName + '\' + '*.*', FaAnyFile, ATsr)= 0 then
-      repeat
-        if((ATsr.Attr and FaDirectory)<> 0)or(Trim(ATsr.Name)= '')
-        then
-          Continue;
-        FilesList.Add(ATsr.Name);
-      until FindNext(ATsr)<> 0;
-    System.SysUtils.FindClose(ATsr);
-  end;
-
-begin
-  // Make 2 lists for application files native and on server
-  try
-    AFileListLocal := TStringList.Create;
-    FillList(LocalDir, AFileListLocal);
-    AFileListServer := TStringList.Create;
-    FillList(ServerDir, AFileListServer);
-    // compare each other and make only one result list
-    AFileListResult := TStringList.Create;
-    for I := 0 to AFileListServer.Count - 1 do
-    begin
-      IsNewFile := True;
-      for J := 0 to AFileListLocal.Count - 1 do
-        if AFileListServer.Strings[I]= AFileListLocal.Strings[J] then
-        begin
-          IsNewFile := False;
-          if FileAge(ServerDir + '\' + AFileListServer.Strings[I])>
-            FileAge(LocalDir + '\' + AFileListServer.Strings[I])then
-            AFileListResult.Add(AFileListServer.Strings[I]);
-          AFileListLocal.Delete(J);
-          Break;
-        end;
-      if IsNewFile then
-        AFileListResult.Add(AFileListServer.Strings[I]);
-    end;
-
-    // proceed the list copy all with the replace
-    if AFileListResult.Count > 0 then
-      for I := 0 to AFileListResult.Count - 1 do
-      begin
-        try
-          // copying with the replace
-          DataModuleBase.WriteToLog('Update file: ' + LocalDir + '\' +
-            AFileListResult.Strings[I], True);
-          if not CopyFile(PChar(ServerDir + '\' + AFileListResult.Strings[I]),
-            Pchar(LocalDir + '\' + AFileListResult.Strings[I]), False)then
-          begin
-            FUpdatewithError := True;
-            DataModuleBase.WriteToLog('Fail the update of file: ' + LocalDir +
-              '\' + AFileListResult.Strings[I], True);
-          end;
-
-        except
-          on E: Exception do
-          begin
-            DataModuleBase.WriteToLog('Error in DoUpdate procedure: ' +
-              E.Message, True);
-            FUpdatewithError := True;
-          end;
-        end;
-
-      end;
-
-  finally
-    AFileListLocal.Free;
-    AFileListServer.Free;
-    AFileListResult.Free;
+    wMsgValue := 0;
+    dwRecipient := BSM_APPLICATIONS;
+    BroadCastSystemMessage(BSF_POSTMESSAGE, @dwRecipient, wLogout, wMsgVAlue, 0);
   end;
 end;
 
-procedure TMainForm.SendLogin(PMitarbeiterID: Integer);
-var
-  DwRecipient: DWord;
-  WMsgValue: WPARAM;
-begin
-  WMsgValue := PMitarbeiterID;
-  DwRecipient := BSM_APPLICATIONS;
-  BroadCastSystemMessage(BSF_POSTMESSAGE,@DwRecipient, VLogIn, WMsgVAlue, 0);
-end;
-
-procedure TMainForm.SendLogOut(Sender: TObject);
-var
-  DwRecipient: DWord;
-  WMsgValue: WPARAM;
-begin
-  // SendLogout to Application, wenn nicht von jemand anderen kommt
-  WMsgValue := 0;
-  DwRecipient := BSM_APPLICATIONS;
-  BroadCastSystemMessage(BSF_POSTMESSAGE,@DwRecipient, VLogout, WMsgVAlue, 0);
-end;
 
 procedure TMainform.FormDestroy(Sender: TObject);
 begin
-  if TrayIconAdded then
-    Shell_NotifyIcon(NIM_DELETE,@TrayIconData);
-  DeallocateHWnd(TrayWnd);
+ if TrayIconAdded then
+   Shell_NotifyIcon(NIM_DELETE, @TrayIconData);
+ DeallocateHWnd(TrayWnd);
 end;
 
 procedure TMainform.TrayWndProc(var Message: TMessage);
 begin
-  if message.Msg = WM_ACTIVATEAPP then
-  // Message.Msg = 28 the action of clossing balloon message
+  if Message.Msg = WM_ACTIVATEAPP then // Message.Msg = 28 the action of clossing balloon message
   begin
-    FNeedShowBalloon := False;
-    if(message.WParam = 0)then
-      FormChromium.Hide;
+    FNeedShowBalloon := false;
+    if (Message.WParam = 1) and (Round(pnBrowser.Height) > 0) then FormChromium.Show;
+    if (Message.WParam = 0) then FormChromium.Hide;
   end
   else
-    message.Result := DefWindowProc(TrayWnd, message.Msg, message.WParam,
-      message.LParam);
+    Message.Result := DefWindowProc(TrayWnd, Message.Msg, Message.WParam, Message.LParam);
 end;
 
-procedure TMainform.WebBrowserLoadEnd(Sender: TObject;
-  const Browser: ICefBrowser;const Frame: ICefFrame; HttpStatusCode: Integer);
-var
-  Ajscript:string;
+
+procedure TMainform.webBrowserLoadEnd(Sender: TObject;
+  const browser: ICefBrowser; const frame: ICefFrame; httpStatusCode: Integer);
+var ajscript : string;
 begin
-  Ajscript := 'document.documentElement.style.overflowX = ''hidden'';';
-  Browser.MainFrame.ExecuteJavaScript(Ajscript, 'about:blank', 0);
+  ajscript := 'document.documentElement.style.overflowX = ''hidden'';';
+  Browser.MainFrame.ExecuteJavaScript(ajscript,'about:blank',0);
   // here we save the atempts
-  Ajscript := 'var attempts = 0;';
-  Browser.MainFrame.ExecuteJavaScript(Ajscript, 'about:blank', 0);
+  ajscript := 'var attempts = 0;';
+  Browser.MainFrame.ExecuteJavaScript(ajscript,'about:blank',0);
   // the make new line doesn't work, so use javascript to make it
-  Ajscript := '$("#setting_announcement_message").keyup(function(e) { ' +
-    ' if(e.which == 13) ' +
-    ' { ' +
-    '   var txt = $("#setting_announcement_message").val(); ' +
-    '   $("#setting_announcement_message").val(txt + ''\n''); ' +
-    ' } ' +
-    '});';
-  Browser.MainFrame.ExecuteJavaScript(Ajscript, 'about:blank', 0);
+  ajscript := '$("#setting_announcement_message").keyup(function(e) { ' +
+                ' if(e.which == 13) ' +
+                ' { ' +
+                '   var txt = $("#setting_announcement_message").val(); ' +
+                '   $("#setting_announcement_message").val(txt + ''\n''); ' +
+                ' } ' +
+                '});';
+  browser.MainFrame.ExecuteJavaScript(ajscript,'about:blank',0);
   // this is the javascript for backspase arrow keys and Ctrl+v it prevent triple execute
   // lock triple execute in comboboxs
-  Ajscript := '$(document).keydown(function(e) { ' +
-    ' if ((e.which == 8) || ((e.which >= 37) && (e.which <= 40)) || (e.which == 86) ) '
-    +
-    ' { ' +
-    '   if(attempts < 2) { ' +
-    '     attempts = attempts + 1;   ' +
-    '     e.preventDefault(); ' +
-    ' } else attempts = 0; }  ' +
-    '});';
-  Browser.MainFrame.ExecuteJavaScript(Ajscript, 'about:blank', 0);
+  ajscript := '$(document).keydown(function(e) { ' +
+         //     ' alert("e.which == "+String(e.which)); ' +
+         //     ' alert("e.which == "+String(e.type)); ' +
+         //     '     e.preventDefault(); ' +
+              ' if ((e.which == 8) || ((e.which >= 37) && (e.which <= 40)) || (e.which == 86) ) ' +
+              ' { ' +
+              '   if(attempts < 2) { ' +
+              '     attempts = attempts + 1;   ' +
+              '     e.preventDefault(); ' +
+              ' } else attempts = 0; }  ' +
+     //         '   var txt = $("#setting_announcement_message").val(); ' +
+     //         '   $("#setting_announcement_message").val(txt + String(attempts)); ' +
+              '});';
+  browser.MainFrame.ExecuteJavaScript(ajscript,'about:blank',0);
 
-  AniIndicatorLoading.Enabled := False;
+
+  aniIndicator_Loading.Enabled := false;
 end;
 
 procedure TMainform.FormGesture(Sender: TObject;
-  const EventInfo: TGestureEventInfo;var Handled: Boolean);
+  const EventInfo: TGestureEventInfo; var Handled: Boolean);
 var
-  DX, DY: Single;
+  DX, DY : Single;
 begin
-  if EventInfo.GestureID = IgiPan then
+  if EventInfo.GestureID = igiPan then
   begin
-    if(TInteractiveGestureFlag.GfBegin in EventInfo.Flags)
-      and((Sender = ToolbarPopup)
-      or(EventInfo.Location.Y >(ClientHeight - 70)))then
+    if (TInteractiveGestureFlag.gfBegin in EventInfo.Flags)
+      and ((Sender = ToolbarPopup)
+        or (EventInfo.Location.Y > (ClientHeight - 70))) then
     begin
       FGestureOrigin := EventInfo.Location;
       FGestureInProgress := True;
     end;
 
-    if FGestureInProgress and(TInteractiveGestureFlag.GfEnd in EventInfo.Flags)
-    then
+    if FGestureInProgress and (TInteractiveGestureFlag.gfEnd in EventInfo.Flags) then
     begin
       FGestureInProgress := False;
       DX := EventInfo.Location.X - FGestureOrigin.X;
       DY := EventInfo.Location.Y - FGestureOrigin.Y;
-      if(Abs(DY)> Abs(DX))then
+      if (Abs(DY) > Abs(DX)) then
         ShowToolbar(DY < 0);
     end;
   end
@@ -1261,11 +1027,10 @@ end;
 procedure TMainform.ShowToolbar(AShow: Boolean);
 begin
   ToolbarPopup.Width := ClientWidth;
-  ToolbarPopup.PlacementRectangle.Rect :=
-    TRectF.Create(0, ClientHeight - ToolbarPopup.Height, ClientWidth - 1,
-    ClientHeight - 1);
+  ToolbarPopup.PlacementRectangle.Rect := TRectF.Create(0, ClientHeight-ToolbarPopup.Height, ClientWidth-1, ClientHeight-1);
   ToolbarPopupAnimation.StartValue := ToolbarPopup.Height;
   ToolbarPopupAnimation.StopValue := 0;
+
   ToolbarPopup.IsOpen := AShow;
 end;
 

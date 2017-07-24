@@ -4,7 +4,7 @@ object FormChromium: TFormChromium
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'FormChromium'
-  ClientHeight = 397
+  ClientHeight = 436
   ClientWidth = 668
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -13,9 +13,7 @@ object FormChromium: TFormChromium
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  ScreenSnap = True
   OnCreate = FormCreate
-  OnHide = FormHide
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -23,7 +21,7 @@ object FormChromium: TFormChromium
     Left = 0
     Top = 0
     Width = 668
-    Height = 397
+    Height = 436
     Color = clHighlightText
     Align = alClient
     DefaultUrl = 'about:blank'

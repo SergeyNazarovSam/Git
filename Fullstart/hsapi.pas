@@ -1,176 +1,211 @@
+
 unit hsapi;
 
 interface
 
 uses
   SysUtils, Classes, IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient,
-  IdHTTP, Superobject, IdIOHandler, IdIOHandlerSocket, IdIOHandlerStack, IdSSL,
+  IdHTTP,superobject, IdIOHandler, IdIOHandlerSocket, IdIOHandlerStack, IdSSL,
   IdSSLOpenSSL, IPPeerClient, REST.Client, Data.Bind.Components,
   Data.Bind.ObjectScope, REST.Authenticator.OAuth;
 
 type
-  TUserlogin = record
-    Status:string;
-    ErrorMessage:string;
-    Token:string;
-  end;
+  TUserlogin = Record
+    Status : string;
+    ErrorMessage : string;
+    Token : string;
+  End;
 
-  THotelServerApi = class(TDataModule)
-    HTTP: TIdHTTP;
-    RESTClient: TRESTClient;
-    RESTRequest: TRESTRequest;
-    RESTResponse: TRESTResponse;
+  Thotelserverapi = class(TDataModule)
+    curl: TIdHTTP;
+    RESTClient1: TRESTClient;
+    RESTRequest1: TRESTRequest;
+    RESTResponse1: TRESTResponse;
   protected
-    FToken:string;
-    FUserID: Int64;
-    FIsLogin: Boolean;
-    FUsername:string;
-    FPassword:string;
-    FLastError:string;
-    FStatus:string;
-    FURL:string;
+    FToken : string;
+    FUserID : Int64;
+    Fislogin : boolean;
+    FUsername : string;
+    Fpasswort : string;
+    FLastError : string;
+    Fstatus : string;
+    FURL : string;
   private
+    { Private-Deklarationen }
   public
-    function GetMessageCount(PCreatedUser, PToken:string):string;
-    function GetMessages(PToken:string):string;
-    function Login: Boolean;
-    procedure Logout;
-    function SendMessage(PMessage, PToUserId, PToRuleID:string):string;
-    property IsLogin: Boolean read FIsLogin default False;
-    property LastError:string read FLastError write FLastError;
-    property Password:string read FPassword write FPassword;
-    property Status:string read FStatus write FStatus;
-    property Token:string read FToken write FToken;
-    property URL:string read FURL write FURL;
+
+    function Login: boolean;
+    function sendmessage (PMessage, pToUserId, pToRuleID : string): string;
+    function getmessagecount (pCreatedUser,pToken : string) : string;
+    function getmessages (pToken : string) : string;
+    procedure logout;
+
+    property Token: string read FToken write FToken;
+    property Username: string read FUsername write FUsername;
+    property Password: string read Fpasswort write Fpasswort;
+    property Status: string read Fstatus write Fstatus;
+    property URL: string read FURL write FURL;
+    property LASTERROR: string read FLastError write FLastError;
     property UserID: Int64 read FUserid write FUserid default 0;
-    property Username:string read FUsername write FUsername;
+    property isLogin: boolean read Fislogin default false;
+//    function GetJSONData(ptable : TFDMemTable) : TFDJSONDataSets;
+    { Public-Deklarationen }
   end;
 
 var
-  HotelServerApi: THotelServerApi;
+  hotelserverapi: Thotelserverapi;
 
 implementation
 
+
 {$R *.dfm}
 
+{ TDataModule1 }
 
-function THotelServerApi.GetMessageCount(PCreatedUser, PToken:string):string;
-var
-  AResult: ISuperObject;
-  AResponse:string;
+
+
+function Thotelserverapi.getmessagecount(pCreatedUser, pToken: string): string;
+var jResult : ISuperObject;
+    aResponse : string;
 begin
-  Result := '';
-  HTTP.Request.CustomHeaders.Clear;
-  HTTP.Request.CustomHeaders.Add('Authorization: Token token="' + FToken + '"');
-  AResponse := HTTP.Get(FURL + '/api/v1/setting/announcements/get_recent_count/'
-    + PCreatedUser + '/');
-  AResult := SO(AResponse);
-  if AResult <> nil then
-    Result := AResult.O['content'].AsString;
+  result := '';
+  curl.Request.CustomHeaders.Clear;
+  curl.Request.CustomHeaders.Add('Authorization: Token token="'+FToken+'"');
+  aResponse := curl.get(FURL+'/api/v1/setting/announcements/get_recent_count/'+pCreatedUser+'/');
+  //aResponse := curl.get(FURL+'/api/v1/setting/announcements/get_recent_count/1/');
+  //result:= aResponse;
+  jResult := SO(aResponse);
+  if jresult <> nil then
+     result := jresult.O['content'].AsString;
+
 end;
 
-function THotelServerApi.GetMessages(PToken:string):string;
-var
-  AParam: TStringList;
-  AResponse:string;
-  AResponseStream: TFileStream;
+function Thotelserverapi.getmessages(pToken: string): string;
+var aparam : Tstringlist;
+    aresponse : string;
+    response2 : TFileStream;
+
 begin
-  Result := '';
-  HTTP.Request.CustomHeaders.Clear;
-  HTTP.Request.CustomHeaders.Add('Authorization: Token token="' + FToken + '"');
-  AResponseStream := TFileStream.Create('c:\1\response.txt', FmCreate);
-  Aparam := Tstringlist.Create;
-  HTTP.Get(FURL + '/setting/announcements', AResponseStream);
-  AResponseStream.Free;
+  result := '';
+  curl.Request.CustomHeaders.Clear;
+  curl.Request.CustomHeaders.Add('Authorization: Token token="'+FToken+'"');
+  response2 := TFileStream.Create('c:\1\response.txt',fmCreate);
+  aparam := Tstringlist.Create;
+  curl.get(FURL+'/setting/announcements',response2);
+ // aresponse := curl.post('http://cloud2.gms.info:3001/api/v1/setting/announcements',aparam);
+ // result := aresponse;
+ Response2.Free;
+//  curl.get('http://cloud2.gms.info:3001/api/v1/article/articles',response2);
+
 end;
 
-function THotelServerApi.Login: Boolean;
+function Thotelserverapi.Login: boolean;
 var
-  AResult: ISuperObject;
-  AContent: ISuperObject;
-  AParam: TStringList;
-  AResponse:string;
-  AResponseStream: TFileStream;
+    jresult : ISuperObject;
+  //  JsonResultPair : TJSONPair;
+  //  jcontentpair : TJSONPair;
+    jcontent : ISuperObject;
+    aparam : Tstringlist;
+    aresponse : string;
+    response2 : Tfilestream;
+    test,test2 : string;
+    I: Int64;
+  U: Int64;
 begin
-  Result := False;
-  if(FIsLogin = False)and(FToken = '')then
+  Result := FALSE;
+
+  if (Fislogin = false) and (FToken = '') then
   begin
-    HTTP.Request.CustomHeaders.Clear;
-    AParam := TStringList.Create;
-    AParam.Add('user_email=' + FUsername + '');
-    AParam.Add('user_password=' + FPassword + '');
-    AResponse := HTTP.Post(FURL + '/api/v1/user/users/sign_in', AParam);
-    AResult := SO(AResponse);
-    if AResult <> nil then
+    //RestClient1.BaseURL := 'http://cloud2.gms.info:3000';
+    //RESTRequest1.Resource := 'api/v1/user/users/sign_in?user_email=admin@felix.info&user_password=adminfelix';
+    //RESTRequest1.Params.Clear;
+    //RESTRequest1.AddParameter('user_email', FUserName);
+    //RESTRequest1.AddParameter('user_password', FPasswort);
+    //RESTRequest1.Execute;
+    curl.Request.CustomHeaders.Clear;
+   // curl.Request.CustomHeaders.Add('Authorization: Token token="'+FToken+'"');
+
+    aparam := Tstringlist.Create;
+    aparam.Add('user_email='+FUsername+'');
+    aparam.Add('user_password='+FPasswort+'');
+
+    aresponse := curl.post(FURL+'/api/v1/user/users/sign_in',aparam);
+//    aresponse := curl.post(FURL+'/user/users/sign_in',aparam);
+    jresult := SO(aresponse);
+    //jresult := nil;
+    if jresult <> nil then
     begin
-      FStatus := AResult.O['status'].AsString;
-      if FStatus = '0' then
+      Fstatus := jresult.O['status'].AsString;
+      if Fstatus = '0' then
       begin
-        AContent := AResult.O['content'];
-        if AContent <> nil then
+        jcontent := jresult.O['content'];
+        if jcontent <> nil then
         begin
-          FToken := AContent.S['authentication_token'];
-          FIsLogin := True;
-          FUserID := StrToInt(AContent.S['id']);
-          Result := True;
+          FToken := jcontent.S['authentication_token'];
+          Fislogin := true;
+          FUserID := strtoint (jcontent.S['id']);
+          Result := TRUE;
         end;
-      end
-      else
+      end else
       begin
-        AContent := AResult.O['content'];
-        if AContent <> nil then
+        jcontent := jresult.O['content'];
+        if jcontent <> nil then
         begin
-          FLastError := AContent.S['error_msg'];
+          FLastError := jcontent.S['error_msg'];
         end;
       end;
     end;
-  end
-  else
+  end else
   begin
-    Result := True;
+    result := true;
     if FToken <> '' then
-      FIsLogin := True;
+      FisLogin := true;
   end;
 end;
 
-procedure THotelServerApi.Logout;
+procedure Thotelserverapi.logout;
 begin
   FToken := '';
   FUserID := 0;
-  FIsLogin := False;
+  Fislogin := false;
 end;
 
-function THotelServerApi.SendMessage(PMessage, PToUserId,
-  PToRuleID:string):string;
-var
-  AParam: TStringList;
-  AResponse:string;
+function Thotelserverapi.sendmessage(PMessage, pToUserId,
+  pToRuleID : string): string;
+var aparam : Tstringlist;
+    aresponse : string;
+  U: Int64;
+
 begin
-  if FIsLogin = True then
+  if Fislogin = true then
   begin
-    Result := '';
-    HTTP.Request.CustomHeaders.Clear;
-    HTTP.Request.CustomHeaders.Add('Authorization: Token token="' +
-      FToken + '"');
-    AParam := TStringList.Create;
-    AParam.Add('setting_announcement[message]=' + PMessage + '');
-    AParam.Add('setting_announcement[created_user_id]=' +
-      IntToStr(FUserID)+ '');
-    if PToUserId <> '' then
+  result := '';
+  curl.Request.CustomHeaders.Clear;
+  curl.Request.CustomHeaders.Add('Authorization: Token token="'+FToken+'"');
+
+//  for U := 1 to 50 do
+//  begin
+    aparam := Tstringlist.Create;
+    aparam.Add('setting_announcement[message]='+PMessage+'');
+    aparam.Add('setting_announcement[created_user_id]='+inttostr (FUserID)+'');
+    if pToUserId <> '' then
     begin
-      AParam.Add('setting_announcement[user_user_id]=' + PToUserId + '');
+      aparam.Add('setting_announcement[user_user_id]='+pToUserId+'');
     end;
-    if PToRuleID <> '' then
+    if pToRuleID <> '' then
     begin
-      AParam.Add('setting_announcement[user_role_id]=' + PToRuleID + '');
+      aparam.Add('setting_announcement[user_role_id]='+pToRuleID+'');
     end;
-    AResponse := HTTP.Post(FURL + '/setting/announcements', AParam);
-    Result := AResponse;
-  end
-  else
+    aresponse := curl.post(FURL+'/setting/announcements',aparam);
+    result := aresponse;
+  end else
   begin
-    Result := 'no login';
+    result := 'no login';
   end;
+//  end;
+
+//  curl.get('http://cloud2.gms.info:3001/api/v1/article/articles',response2);
+ //   <15:46:04> "florian.w": curl -X POST 'http://localhost:3000/api/v1/setting/announcements' -d 'setting_announcement[message]=Heil am Seil&setting_announcement[created_user_id]=1&setting_announcement[user_user_id]=2' -H 'Authorization: Token token="51a8a936e8b2098c096c082c8098c417"'
 end;
 
 end.

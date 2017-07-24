@@ -1,4 +1,4 @@
-object DataModuleBase: TDataModuleBase
+object DBase: TDBase
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   Height = 356
@@ -10,7 +10,7 @@ object DataModuleBase: TDataModuleBase
     Left = 240
     Top = 64
   end
-  object FDConnectionFelix: TFDConnection
+  object IB_ConnectionFelix: TFDConnection
     Params.Strings = (
       'User_Name=sysdba'
       'Password=x'
@@ -18,25 +18,25 @@ object DataModuleBase: TDataModuleBase
       'CharacterSet=UTF8'
       'DriverID=FB')
     LoginPrompt = False
-    Transaction = FDTransactionFelix
+    Transaction = IB_TransactionFelix
     Left = 80
     Top = 64
   end
-  object FDPhysFBDriverLinkFireBird: TFDPhysFBDriverLink
+  object FIREBIRD: TFDPhysFBDriverLink
     Left = 80
     Top = 8
   end
-  object FDGUIxWaitCursor: TFDGUIxWaitCursor
+  object WAITCOURSOR: TFDGUIxWaitCursor
     Provider = 'Forms'
     Left = 224
     Top = 144
   end
-  object FDQueryGetNextID: TFDQuery
-    Connection = FDConnectionFelix
+  object QueryGetNextID: TFDQuery
+    Connection = IB_ConnectionFelix
     Left = 400
     Top = 184
   end
-  object FDManager: TFDManager
+  object FDManager1: TFDManager
     FormatOptions.AssignedValues = [fvMapRules]
     FormatOptions.OwnMapRules = True
     FormatOptions.MapRules = <>
@@ -44,13 +44,13 @@ object DataModuleBase: TDataModuleBase
     Left = 80
     Top = 200
   end
-  object FDQuery: TFDQuery
-    Connection = FDConnectionFelix
+  object IB_DSQLExecute: TFDQuery
+    Connection = IB_ConnectionFelix
     Left = 384
     Top = 120
   end
-  object FDTransactionFelix: TFDTransaction
-    Connection = FDConnectionFelix
+  object IB_TransactionFelix: TFDTransaction
+    Connection = IB_ConnectionFelix
     Left = 80
     Top = 120
   end

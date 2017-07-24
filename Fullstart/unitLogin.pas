@@ -1,14 +1,9 @@
 unit unitLogin;
 
-// Embarcadero Delphi 10.1 Berlin
-// This is Login unit which contain login diaolog form for authorization
-// it also used for save the userlist
-
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
-  System.Variants,
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Edit, FMX.Objects, FMX.Controls.Presentation, FMX.ComboEdit,
   FMX.TMSCustomEdit, FMX.TMSEdit, FMX.Layouts, FMX.ListBox;
@@ -16,212 +11,205 @@ uses
 type
   TfmLogin = class(TForm)
     Rectangle_login: TRectangle;
-    RectanglePasswort: TRectangle;
-    TextPasswort: TText;
-    EditPasswort: TEdit;
+    Rectangle_passwort: TRectangle;
+    Text_passwort: TText;
+    Edit_passwort: TEdit;
     Rectangle_username: TRectangle;
-    TextUserName: TText;
-    RectangleButton: TRectangle;
-    ButtonLogin: TButton;
-    ButtonCancel: TButton;
-    EditUserName: TTMSFMXEdit;
-    ImageControlLogo: TImageControl;
-    RectangleFormCaptions: TRectangle;
-    TextFormCaption: TText;
-    ButtonLoginClose: TButton;
-    ListBoxLogin: TListBox;
-    StyleBook: TStyleBook;
-    procedure ButtonCancelClick(Sender: TObject);
-    procedure ButtonLoginClick(Sender: TObject);
+    Text_username: TText;
+    Rectangle_button: TRectangle;
+    Button_login: TButton;
+    Button_cancel: TButton;
+    edit_username: TTMSFMXEdit;
+    ImageControl_logo: TImageControl;
+    Rectangle_FormCaptions: TRectangle;
+    Text_FormCaption: TText;
+    Button_Loginclose: TButton;
+    ListBox_Login: TListBox;
+    procedure Button_cancelClick(Sender: TObject);
+    procedure Button_loginClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure EditPasswortKeyDown(Sender: TObject;var Key: Word;
+    procedure Edit_passwortKeyDown(Sender: TObject; var Key: Word;
       var KeyChar: Char; Shift: TShiftState);
-    procedure EditUserNameKeyDown(Sender: TObject;var Key: Word;
+    procedure Edit_usernameKeyDown(Sender: TObject; var Key: Word;
       var KeyChar: Char; Shift: TShiftState);
-    procedure EditUserNameKeyUp(Sender: TObject;var Key: Word;
+    procedure edit_usernameKeyUp(Sender: TObject; var Key: Word;
       var KeyChar: Char; Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure EditPasswortKeyUp(Sender: TObject;var Key: Word;
+    procedure Edit_passwortKeyUp(Sender: TObject; var Key: Word;
       var KeyChar: Char; Shift: TShiftState);
-    procedure ButtonLoginKeyUp(Sender: TObject;var Key: Word;
+    procedure Button_loginKeyUp(Sender: TObject; var Key: Word;
       var KeyChar: Char; Shift: TShiftState);
-    procedure ButtonCancelKeyUp(Sender: TObject;var Key: Word;
+    procedure Button_cancelKeyUp(Sender: TObject; var Key: Word;
       var KeyChar: Char; Shift: TShiftState);
-    procedure EditUserNameTyping(Sender: TObject);
-    procedure ListBoxLoginClick(Sender: TObject);
-    procedure ListBoxLoginKeyUp(Sender: TObject;var Key: Word;
+    procedure edit_usernameTyping(Sender: TObject);
+    procedure ListBox_LoginClick(Sender: TObject);
+    procedure ListBox_LoginKeyUp(Sender: TObject; var Key: Word;
       var KeyChar: Char; Shift: TShiftState);
   private
     { Private-Deklarationen }
-    procedure ShowUserNameList(UsernamePart:string);
+    procedure ShowUserNameList(UsernamePart:String);
   public
-    FAbbrUch: BOOLEAN;
+    FABBRUCH : BOOLEAN;
     { Public-Deklarationen }
   end;
 
 var
-  FmLogin: TfmLogin;
+  fmLogin: TfmLogin;
 
 implementation
-
-uses UnitMain, Hsapi;
+uses unitmain,hsapi;
 
 {$R *.fmx}
 
-
-procedure TfmLogin.ShowUserNameList(UsernamePart:string);
-var
-  AUsernameList, AUsernameLokup: TStringList;
-  I: Integer;
+procedure TfmLogin.ShowUserNameList(UsernamePart:String);
+var aUsernameList, aUsernameLokup : TStringList;
+    i : integer;
 begin
-  AUserNameList := TStringList.Create;
-  AUsernameList.Clear;
-  for I := 0 to EditUserName.Lookup.DisplayList.Count - 1 do
-    if UsernamePart = Copy(EditUserName.Lookup.DisplayList.Strings[I], 1,
-      Length(UsernamePart))then
-      AUsernameList.Add(EditUserName.Lookup.DisplayList.Strings[I]);
-  ListBoxLogin.Items := AUserNameList;
-  if ListBoxLogin.Items.Count > 0 then
+  aUserNameList := TStringList.Create;
+  aUsernameList.Clear;
+  for i := 0 to Edit_username.Lookup.DisplayList.Count-1  do
+    if UsernamePart = copy(Edit_username.Lookup.DisplayList.Strings[i] ,1,length(UsernamePart)) then
+       aUsernameList.Add(Edit_username.Lookup.DisplayList.Strings[i]);
+  ListBox_Login.Items := aUserNameList;
+  if ListBox_Login.Items.Count > 0 then
   begin
-    ListBoxLogin.Height := ListBoxLogin.Items.Count * 20 + 5;
-    ListBoxLogin.ItemIndex := 0;
-    ListBoxLogin.Visible := True;
+    ListBox_Login.Height := ListBox_Login.Items.Count * 20+5;
+    ListBox_Login.ItemIndex := 0;
+    ListBox_Login.Visible := true;
   end
   else
-    ListBoxLogin.Visible := False;
+    ListBox_Login.Visible := false;
 
-  AUsernameList.Free;
+  aUsernameList.Free;
 end;
 
-procedure TfmLogin.ButtonCancelClick(Sender: TObject);
+procedure TfmLogin.Button_cancelClick(Sender: TObject);
 begin
-  FAbbrUch := True;
-  Close;
+  FABBRUCH := true;
+  close;
 end;
 
-procedure TfmLogin.ButtonCancelKeyUp(Sender: TObject;var Key: Word;
+procedure TfmLogin.Button_cancelKeyUp(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
-  if(Key = 9)and(SsShift in Shift)then
-    ButtonLogin.SetFocus
+  if (key = 9) and (ssShift in Shift) then
+    Button_Login.SetFocus
   else
-    if Key = 9 then
-      EditUserName.SetFocus;
+    if key = 9 then
+      Edit_username.SetFocus;
 end;
 
-procedure TfmLogin.ButtonLoginClick(Sender: TObject);
+procedure TfmLogin.Button_loginClick(Sender: TObject);
 begin
-  if HotelServerApi.Token = '' then
+  if hotelserverapi.Token = '' then
   begin
-    HotelServerApi.Username := EditUserName.Text;
-    HotelServerApi.Password := EditPasswort.Text;
+    hotelserverapi.Username := Edit_username.Text;
+    hotelserverapi.Password := Edit_passwort.Text;
   end;
-  MainForm.FNeedSendLogin := True;
-  FAbbrUch := False;
-  Self.CloseModal;
+  MainForm.FNeedSendLogin := true;
+  FABBRUCH := false;
+  self.CloseModal;
 end;
 
-procedure TfmLogin.ButtonLoginKeyUp(Sender: TObject;var Key: Word;
+procedure TfmLogin.Button_loginKeyUp(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
-  if(Key = 9)and(SsShift in Shift)then
-    EditPasswort.SetFocus
+  if (key = 9) and (ssShift in Shift) then
+    Edit_passwort.SetFocus
   else
-    if Key = 9 then
-      ButtonCancel.SetFocus;
+    if key = 9 then
+      Button_cancel.SetFocus;
 end;
 
-procedure TfmLogin.EditPasswortKeyDown(Sender: TObject;var Key: Word;
+procedure TfmLogin.Edit_passwortKeyDown(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
   if Key = 13 then
   begin
-    Self.ModalResult := MrOk;
-    ButtonLoginClick(Sender);
+    self.ModalResult := mrOk;
+    Button_loginclick(Sender);
   end;
 end;
 
-procedure TfmLogin.EditPasswortKeyUp(Sender: TObject;var Key: Word;
+procedure TfmLogin.Edit_passwortKeyUp(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
-  if(Key = 9)and(SsShift in Shift)then
-    EditUserName.SetFocus
+  if (key = 9) and (ssShift in Shift) then
+    Edit_username.SetFocus
   else
-    if Key = 9 then
-      ButtonLogin.SetFocus;
+    if key = 9 then
+      Button_Login.SetFocus;
 end;
 
-procedure TfmLogin.EditUserNameKeyDown(Sender: TObject;var Key: Word;
+procedure TfmLogin.Edit_usernameKeyDown(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
-  if(Key = 13)then
+  if (Key = 13) then
   begin
-    EditPasswort.SetFocus;
+    Edit_passwort.SetFocus;
   end;
 end;
 
-procedure TfmLogin.EditUserNameKeyUp(Sender: TObject;var Key: Word;
+procedure TfmLogin.edit_usernameKeyUp(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
-  if(Key = 9)and(SsShift in Shift)then
-    ButtonCancel.SetFocus
+  if (key = 9) and (ssShift in Shift) then
+    Button_cancel.SetFocus
   else
-    if(Key = 9)then
-      EditPasswort.SetFocus;
+    if (Key = 9) then
+      Edit_passwort.SetFocus;
 
-  if Key = 40 then // Down arrow
+  if key = 40 then  // Down arrow
   begin
-    ListBoxLogin.SetFocus;
+    ListBox_Login.SetFocus;
   end;
 end;
 
-procedure TfmLogin.EditUserNameTyping(Sender: TObject);
+procedure TfmLogin.edit_usernameTyping(Sender: TObject);
 begin
   if MainForm.FUseAutocomplete then
-    ShowUserNameList(EditUserName.Text);
+    ShowUserNameList(Edit_username.Text);
 end;
 
 procedure TfmLogin.FormCreate(Sender: TObject);
 begin
-  if FileExists(Extractfilepath(ParamStr(0))+ 'UserList.txt')then
-    EditUserName.Lookup.DisplayList.LoadFromFile(Extractfilepath(ParamStr(0))+
-      'UserList.txt');
-  ListBoxLogin.Visible := False;
-  EditUserName.AutoComplete := MainForm.FUseAutoComplete;
+  if FileExists(Extractfilepath(ParamStr(0))+'UserList.txt') then
+    edit_Username.Lookup.DisplayList.LoadFromFile(Extractfilepath(ParamStr(0))+'UserList.txt');
+  ListBox_Login.Visible := false;
+  edit_username.AutoComplete := MainForm.FUseAutoComplete;
 end;
 
 procedure TfmLogin.FormDestroy(Sender: TObject);
 begin
-  EditUserName.Lookup.DisplayList.SaveToFile(Extractfilepath(ParamStr(0))+
-    'UserList.txt');
+  edit_Username.Lookup.DisplayList.SaveToFile(Extractfilepath(ParamStr(0))+'UserList.txt');
 end;
 
 procedure TfmLogin.FormShow(Sender: TObject);
 begin
-  EditUserName.Text := '';
-  EditPasswort.Text := '';
-  EditUserName.SetFocus;
+  edit_username.Text := '';
+  Edit_passwort.Text := '';
+  Edit_username.SetFocus;
 end;
 
-procedure TfmLogin.ListBoxLoginClick(Sender: TObject);
+procedure TfmLogin.ListBox_LoginClick(Sender: TObject);
 begin
-  EditUserName.Text := ListBoxLogin.Items[ListBoxLogin.ItemIndex];
-  ListBoxLogin.Visible := False;
-  EditPasswort.SetFocus;
+  edit_username.Text := ListBox_Login.Items[ListBox_Login.ItemIndex];
+  ListBox_Login.Visible := false;
+  Edit_passwort.SetFocus;
 end;
 
-procedure TfmLogin.ListBoxLoginKeyUp(Sender: TObject;var Key: Word;
+procedure TfmLogin.ListBox_LoginKeyUp(Sender: TObject; var Key: Word;
   var KeyChar: Char; Shift: TShiftState);
 begin
-  if(Key = 9)or(Key = 13)then
+  if (Key = 9) or (Key = 13) then
   begin
-    ListBoxLoginClick(Sender);
+    ListBox_LoginClick(sender);
   end;
-  if Key = 27 then
+  if key = 27 then
   begin
-    ListBoxLogin.Visible := False;
-    EditUserName.SetFocus;
+    ListBox_Login.Visible := false;
+    Edit_username.SetFocus;
   end;
 end;
 

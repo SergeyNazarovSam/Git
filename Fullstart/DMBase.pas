@@ -1,7 +1,7 @@
 unit DMBase;
 
 interface
-
+//test
 uses
   SysUtils,
   Classes,
@@ -14,269 +14,296 @@ uses
   Vcl.ExtCtrls, FMX.Forms, FMX.Dialogs, FireDAC.Phys.FBDef;
 
 type
-  TDataModuleBase = class(TDataModule)
+  TDBase = class(TDataModule)
     TimerConnect: TTimer;
-    FDConnectionFelix: TFDConnection;
-    FDPhysFBDriverLinkFireBird: TFDPhysFBDriverLink;
-    FDGUIxWaitCursor: TFDGUIxWaitCursor;
-    FDQueryGetNextID: TFDQuery;
-    FDManager: TFDManager;
-    FDQuery: TFDQuery;
-    FDTransactionFelix: TFDTransaction;
+    IB_ConnectionFelix: TFDConnection;
+    FIREBIRD: TFDPhysFBDriverLink;
+    WAITCOURSOR: TFDGUIxWaitCursor;
+    QueryGetNextID: TFDQuery;
+    FDManager1: TFDManager;
+    IB_DSQLExecute: TFDQuery;
+    IB_TransactionFelix: TFDTransaction;
     procedure TimerConnectTimer(Sender: TObject);
+    procedure IB_ConnectionFelixError(Sender: TObject; const ERRCODE: Integer;
+      ErrorMessage, ErrorCodes: TStringList; const SQLCODE: Integer; SQLMessage,
+      SQL: TStringList; var RaiseException: Boolean);
+    procedure IB_MonitorMonitorOutputItem(Sender: TObject;
+      const NewString: string);
     procedure DataModuleCreate(Sender: TObject);
   private
-    FFirm: Integer;
-    FDebugMode: Integer;
-    FLogPath:string;
-    FLogClientName:string;
-    FLogProgramUser:string;
-    FLogSystemUser:string;
-    procedure SetFirm(const Value: Integer);
-    procedure SetDebugMode(const Value: Integer);
-    procedure SetODBCPath(PServer:string);
-    procedure SetLogPath(const Value:string);
-    procedure SetLogClientName(const Value:string);
-    procedure SetLogProgramUser(const Value:string);
+    FFirma: Integer;
+    FDebugModus: Integer;
+    FLogPath: String;
+    FLogClientName: String;
+    FLogProgramUser: String;
+    FLogSystemUser: String;
+    procedure SetFirma(const Value: Integer);
+    procedure SetDebugModus(const Value: Integer);
+    procedure SetODBCPath(pServer: String);
+    procedure SetLogPath(const Value: String);
+    procedure SetLogClientName(const Value: String);
+    procedure SetLogProgramUser(const Value: String);
     { Private-Deklarationen }
   public
-    function GetMaxID(ATableName, AField:string): Integer;
-    procedure WriteToLog(PLogStr:string; PWrite: Boolean);
-    function GetNextID(ATableName:string; ADataSet: TDataSet): Integer;
-    function SetMaxID(ATableName:string; ADataSet: TDataSet): Integer;
-    function GetNextNumber(ATableName, AField:string): Integer;
-    function SQLExecute(PSQL:string): Boolean;
-    function CheckTablesFields(PTableName, PFieldName,
-      PFieldType:string): Boolean;
-    property Firm: Integer read FFirm write SetFirm;
-    property DebugMode: Integer read FDebugMode write SetDebugMode;
-    property LogPath:string read FLogPath write SetLogPath;
-    property LogClientName:string read FLogClientName write SetLogClientName;
-    property LogProgramUser:string read FLogProgramUser write SetLogProgramUser;
+    procedure SetDefaulftIBConnection(pComponent: TComponent);
+
+    function GetMaxID(ATableName, aFeld: String): Integer;
+    procedure WriteToLog(pLogStr: string; pWrite: Boolean);
+    //Get the next id from the generator
+    function GetNextID(ATableName: String; ADataSet: TDataSet): Integer;
+    function SetMaxID(ATableName: String; ADataSet: TDataSet): Integer;
+    // get the next ID from MaxID by Table
+    function GetNextNumber(aTableName, aFeld: String): Integer;
+
+    Property Firma: Integer read FFirma write SetFirma;
+    property DebugModus: Integer read FDebugModus write SetDebugModus;
+    function SQLExecute(ASQL:String):boolean;
+    // if field in a Table then add a new field
+    function CheckTablesFields(aTableName,aFieldName, aFieldTyp: String): Boolean;
+    property LogPath: String read FLogPath write SetLogPath;
+    property LogClientName: String read FLogClientName write SetLogClientName;
+    property LogProgramUser: String read FLogProgramUser write SetLogProgramUser;
   end;
 
 var
-  DataModuleBase: TDataModuleBase;
+  DBase: TDBase;
 
 implementation
 
-uses IniFiles, Registry, Windows, Variants, Hsapi, UnitMain;
-
 {$R *.dfm}
 
+uses IniFiles, Registry, Windows,Variants, hsapi, UnitMain;
 
 resourcestring
-  RStrDieVerbindung =
-    'Die Verbindung zur Datenbank konnte nicht hergestellt werden, bitte überprüfen Sie den Pfad in der Felixmain.ini';
-  RStrFehler = 'Fehler: ';
-  RStrVerbindungZurDaten =
-    'Verbindung zur Datenbank verloren. Kontrollieren Sie Ihr Netzwerk';
-  RStrVersucheVerbindung = 'Versuche Verbindung neu aufzubauen';
-  RStrKassenjournal = '129: Fehler in WriteToKassenjournal';
+  rscStrDieVerbindung = 'Die Verbindung zur Datenbank konnte nicht hergestellt werden, bitte überprüfen Sie den Pfad in der Felixmain.ini';
+  rscStrFehler = 'Fehler: ';
+  rscStrVerbindungZurDaten = 'Verbindung zur Datenbank verloren. Kontrollieren Sie Ihr Netzwerk';
+  rscStrVersucheVerbindung = 'Versuche Verbindung neu aufzubauen';
+  rscStrKassenjournal = '129: Fehler in WriteToKassenjournal';
 
-procedure TDataModuleBase.SetODBCPath(PServer:string);
-var
-  ARegistry: TRegistry;
+
+procedure TDBase.SetDefaulftIBConnection(pComponent: TComponent);
 begin
-  ARegistry := TRegistry.Create;
-  ARegistry.RootKey := HKey_Current_USer;
-  ARegistry.OpenKey('\Software\ODBC\ODBC.INI\ODBC Data Sources', True);
-  ARegistry.WriteString('FelixODBC', 'Firebird/InterBase(r) driver');
-  ARegistry.OpenKey('\Software\ODBC\ODBC.INI\FelixODBC', True);
-  ARegistry.WriteString('DbName', PServer);
-  ARegistry.WriteString('AutoQuotedIdentifier', 'N');
-  ARegistry.WriteString('CharacterSet', 'NONE');
-  ARegistry.WriteString('Client', '');
-  ARegistry.WriteString('Dialect', '3');
-  ARegistry.WriteString('Driver', 'Odbcfb.dll');
-  ARegistry.WriteString('JdbcDriver', 'IscDbc');
-  ARegistry.WriteString('NoWait', 'Y');
-  ARegistry.WriteString('Password',
-    'ALIKAKIJAJIIAIIHAHIGAGIFAFIEAEIDADICACIBABIAAAIPAPIOAOINANIMAMILALIKAKIJAJIIAIIHIF');
-  ARegistry.WriteString('QuotedIdentifier', 'Y');
-  ARegistry.WriteString('ReadOnly', 'Y');
-  ARegistry.WriteString('Role', '');
-  ARegistry.WriteString('SensitiveIdentifier', 'N');
-  ARegistry.WriteString('User', 'SYSDBA');
-  ARegistry.CloseKey;
-  ARegistry.Free;
+
 end;
 
-function TDataModuleBase.GetNextID(ATableName:string;
-  ADataSet: TDataSet): Integer;
+
+procedure TDBase.SetODBCPath(pServer: String);
 var
-  AID: Integer;
+ xx : TRegistry;
+begin
+  xx := TRegistry.Create;
+  xx.RootKey := HKey_Current_USer;
+  xx.OpenKey('\Software\ODBC\ODBC.INI\ODBC Data Sources', TRUE);
+  xx.WriteString('FelixODBC','Firebird/InterBase(r) driver');
+  xx.OpenKey('\Software\ODBC\ODBC.INI\FelixODBC',TRUE);
+  xx.WriteString('DbName',pServer);
+  xx.WriteString('AutoQuotedIdentifier','N');
+  xx.WriteString('CharacterSet','NONE');
+  xx.WriteString('Client','');
+  xx.WriteString('Dialect','1');
+  xx.WriteString('Driver','Odbcfb.dll');
+  xx.WriteString('JdbcDriver','IscDbc');
+  xx.WriteString('NoWait','Y');
+  xx.WriteString('Password','ALIKAKIJAJIIAIIHAHIGAGIFAFIEAEIDADICACIBABIAAAIPAPIOAOINANIMAMILALIKAKIJAJIIAIIHIF');
+  xx.WriteString('QuotedIdentifier','Y');
+  xx.WriteString('ReadOnly','Y');
+  xx.WriteString('Role','');
+  xx.WriteString('SensitiveIdentifier','N');
+  xx.WriteString('User','SYSDBA');
+  xx.CloseKey;
+  xx.Free;
+end;
+
+
+function TDBase.GetNextID(ATableName: String; ADataSet: TDataSet):
+  Integer;
+var AID : Integer;
 begin
   Result := 0;
-  with FDQueryGetNextID do
+  with QueryGetNextID do
   begin
     Close;
     SQL.Clear;
-    SQL.Add('SELECT GEN_ID(GEN_' + ATableName + '_ID, 1) FROM RDB$DATABASE');
+    SQL.Add('SELECT GEN_ID(GEN_'+aTableName+'_ID, 1) FROM RDB$DATABASE');
     Open;
     AID := FieldByName('Gen_ID').AsInteger;
     Close;
   end;
-  with ADataSet do
-  begin
-    FieldByName('Firma').AsInteger := FFirm;
+  With aDataSet Do
+  Begin
+    FieldByName('Firma').AsInteger := FFirma;
     FieldByName('ID').AsInteger := AID;
     try
       Post;
     except
-      FieldByName('ID').AsInteger := SetMaxID(ATablename, ADataSet);
-      Post;
+     FieldByName('ID').AsInteger := SetMaxID(aTablename, aDataSet);
+     Post;
     end;
     Edit;
   end;
 end;
 
-function TDataModuleBase.SetMaxID(ATableName:string;
-  ADataSet: TDataSet): Integer;
-var
-  AID: Integer;
+
+function TDBase.SetMaxID(ATableName: String; ADataSet: TDataSet): Integer;
+var aID: Integer;
 begin
-  with FDQueryGetNextID do
+  with QueryGetNextID do
   begin
     Close;
     SQL.Clear;
-    SQL.Add('SELECT MAX(ID) AS MAXID FROM ' + ATableName + '');
+    SQL.Add('SELECT MAX(ID) AS MAXID FROM '+aTableName+'');
     Open;
-    AID := FieldByName('MAXID').AsInteger + 1;
+    AID := FieldByName('MAXID').AsInteger+1;
     Close;
     SQL.Clear;
-    SQL.Add('SET GENERATOR GEN_' + ATableName + '_ID TO ' + IntToStr(AID));
+    SQL.Add('SET GENERATOR GEN_'+aTableName+'_ID TO '+IntToStr(AID));
     ExecSQL;
-    Result := AID;
+    Result := aID;
   end;
 end;
 
-function TDataModuleBase.GetNextNumber(ATableName, AField:string): Integer;
-var
-  AID: Integer;
+function TDBase.GetNextNumber(aTableName, aFeld: String): Integer;
+var AID : Integer;
 begin
-  with FDQueryGetNextID do
+  with QueryGetNextID do
   begin
-    Close;
-    SQL.Clear;
-    SQL.Add('Select MAX(' + AField + ') AS ' + AField + ' FROM ' + ATableName);
-    Open;
-    Last;
-    AID := FieldByName(AField).AsInteger + 1;
-    Close;
+     Close;
+     SQL.Clear;
+     SQL.Add('Select MAX('+aFeld+') AS '+aFeld+' FROM '+ATableName);
+     Open;
+     Last;
+     AID := FieldByName(aFeld).AsInteger + 1;
+     Close;
   end;
   Result := AID;
 end;
 
-procedure TDataModuleBase.DataModuleCreate(Sender: TObject);
-var
-  AIni: TIniFile;
+
+procedure TDBase.DataModuleCreate(Sender: TObject);
+var aIni: TIniFile;
 begin
-  FFirm := 1;
+  FFirma := 1;
   FLogClientName := '';
-  FLogPath := Extractfilepath(ParamStr(0))+ '\logs\desktop\';
-  AIni := TIniFile.Create(ExtractFileDir(ParamStr(0))+ '\felixmain.ini');
-  FDebugMode := StrToInt(AIni.ReadString('Common', 'DebugModus', '0'));
-  Hotelserverapi.URL := AIni.ReadString('Common', 'Hotelserver',
-    'http://cloud2.gms.info:3000');
-  MainForm.FLogoImgPath := AIni.ReadString('Common', 'LogoImgPath',
-    ExtractFilePath(ParamStr(0))+ 'img\gms-info.png');
-  MainForm.FClientImgPath := AIni.ReadString('Common', 'ClientImgPath',
-    ExtractFilePath(ParamStr(0))+ 'img\gms-info.png');
-  MainForm.FTileSideSize :=
-    StrToInt(AIni.ReadString('Common', 'TileSideSize', '300'));
-  MainForm.FSoundPath := AIni.ReadString('Common', 'SoundPath',
-    ExtractFilePath(ParamStr(0))+ 'snd\newmessage.wav');
-  MainForm.FUseAutocomplete :=
-    StrToBool(AIni.ReadString('Common', 'UseAutocomplete', 'false'));
+  FLogPath := '';
+  aIni := TIniFile.Create(ExtractFileDir(ParamStr(0))+'\felixmain.ini');
+  FDebugModus := StrToInt(aIni.ReadString('Common', 'DebugModus', '0'));
+  hotelserverapi.URL := aIni.ReadString('Common', 'Hotelserver', 'http://cloud2.gms.info:3000');
+  MainForm.FLogoImgPath := aIni.ReadString('Common', 'LogoImgPath', Extractfilepath(ParamStr(0))+'img\gms-info.png');
+  MainForm.FClientImgPath := aIni.ReadString('Common', 'ClientImgPath', Extractfilepath(ParamStr(0))+'img\gms-info.png');
+  MainForm.FTileSideSize := StrToInt(aIni.ReadString('Common', 'TileSideSize', '300'));
+  MainForm.FSoundPath := aIni.ReadString('Common', 'SoundPath',Extractfilepath(ParamStr(0))+'snd\newmessage.wav');
+  MainForm.FUseAutocomplete := strtobool(aIni.ReadString('Common', 'UseAutocomplete','false'));
   try
-    FDConnectionFelix.Params.Values['Database']:=
-      AIni.ReadString('DataBase', 'Server', '');
-    SetODBCPath(FDConnectionFelix.Params.Values['Database']);
-    TimerConnect.Enabled := True;
+    IB_ConnectionFelix.params.Values['Database'] := aIni.ReadString('DataBase', 'Server', '');
+    SetODBCPath(IB_ConnectionFelix.params.Values['Database']);
+    TimerConnect.Enabled := true;
   except
-    on E: Exception do
+    on e:Exception do
     begin
-      Showmessage(RStrDieVerbindung + #13 + RStrFehler + E.Message);
+      showmessage(rscStrDieVerbindung+#13+
+                                          rscStrFehler+e.Message);
       Application.Terminate;
+
       Halt;
     end;
   end;
-  AIni.Free;
+  aIni.Free;
 end;
 
-procedure TDataModuleBase.TimerConnectTimer(Sender: TObject);
-var
-  AFDQueryTemp: TFDQuery;
+procedure TDBase.IB_MonitorMonitorOutputItem(Sender: TObject;
+  const NewString: string);
+begin
+  WriteToLog(newstring, true);
+end;
+
+procedure TDBase.IB_ConnectionFelixError(Sender: TObject;
+  const ERRCODE: Integer; ErrorMessage, ErrorCodes: TStringList;
+  const SQLCODE: Integer; SQLMessage, SQL: TStringList;
+  var RaiseException: Boolean);
+  var aStr: String;
+      i: integer;
+begin
+  RaiseException := TRUE;
+  if errcode = 335544721 then
+  begin
+    showmessage(rscStrVerbindungZurDaten+#13+
+                                        rscStrVersucheVerbindung);
+    TimerConnect.Enabled := TRUE;
+    RaiseException := FALSE;
+
+  end;
+
+end;
+
+procedure TDBase.TimerConnectTimer(Sender: TObject);
+var aqTemp: TFDQuery;
 begin
   TimerConnect.Enabled := FALSE;
-  FDConnectionFelix.Connected := False;
-  FDConnectionFelix.Connected := True;
-  AFDQueryTemp := TFDQuery.Create(Self);
-  AFDQueryTemp.Connection := FDConnectionFelix;
-  AFDQueryTemp.Close;
-  AFDQueryTemp.SQL.Clear;
-  AFDQueryTemp.SQL.Add('SELECT COUNT(RDB$FIELD_NAME)');
-  AFDQueryTemp.SQL.Add('FROM RDB$RELATION_FIELDS');
-  AFDQueryTemp.SQL.Add('WHERE RDB$RELATION_NAME = ''USER_PROGRAMS''');
-  AFDQueryTemp.SQL.Add('  AND RDB$FIELD_NAME = ''NAME_SHORT''');
-  AFDQueryTemp.Open();
-  if AFDQueryTemp.Fields.Fields[0].AsInteger = 0 then
+  IB_ConnectionFelix.Connected := false;
+  IB_ConnectionFelix.Connected := true;
+  aqTemp := TFDQuery.Create(self);
+  aqTemp.Connection := IB_ConnectionFelix;
+  aqTemp.Close;
+  aqTemp.SQL.Clear;
+  aqTemp.SQL.Add('select Count(RDB$FIELD_NAME) from rdb$relation_fields ');
+  aqTemp.SQL.Add('where RDB$RELATION_NAME = ''USER_PROGRAMS''');
+  aqTemp.SQL.Add('  and RDB$FIELD_NAME = ''NAME_SHORT''');
+  aqTemp.Open();
+  if aqTemp.Fields.Fields[0].AsInteger = 0 then
   begin
-    AFDQueryTemp.Close;
-    AFDQueryTemp.SQL.Text :=
-      'ALTER TABLE USER_PROGRAMS ADD NAME_SHORT VARCHAR(5) COLLATE UNICODE_CI_AI';
-    AFDQueryTemp.ExecSQL;
-    AFDQueryTemp.Close;
-    AFDQueryTemp.SQL.Text :=
-      'ALTER TABLE USER_PROGRAMS ADD LOGIN_TYPE SMALLINT';
-    AFDQueryTemp.ExecSQL;
-    AFDQueryTemp.Close;
-    AFDQueryTemp.SQL.Clear;
-    AFDQueryTemp.SQL.Add('UPDATE RDB$FIELDS SET');
-    AFDQueryTemp.SQL.Add('RDB$FIELD_SUB_TYPE = 0');
-    AFDQueryTemp.SQL.Add('WHERE RDB$FIELD_NAME = (SELECT rf.RDB$FIELD_SOURCE');
-    AFDQueryTemp.SQL.Add('FROM RDB$RELATION_FIELDS rf');
-    AFDQueryTemp.SQL.Add('WHERE (rf.RDB$FIELD_NAME = ''ICON'')');
-    AFDQueryTemp.SQL.Add('  AND (rf.RDB$RELATION_NAME = ''USER_PROGRAMS''))');
-    AFDQueryTemp.ExecSQL;
+    aqTemp.Close;
+    aqTemp.SQL.Text := 'ALTER TABLE USER_PROGRAMS ADD NAME_SHORT VARCHAR(5) COLLATE UNICODE_CI_AI';
+    aqTemp.ExecSQL;
+    aqTemp.Close;
+    aqTemp.SQL.Text := 'ALTER TABLE USER_PROGRAMS ADD LOGIN_TYPE SMALLINT';
+    aqTemp.ExecSQL;
+    aqTemp.Close;
+    aqTemp.SQL.Clear;
+    aqTemp.SQL.Add('UPDATE RDB$FIELDS SET');
+    aqTemp.SQL.Add('RDB$FIELD_SUB_TYPE = 0');
+    aqTemp.SQL.Add('WHERE RDB$FIELD_NAME = (SELECT rf.RDB$FIELD_SOURCE');
+    aqTemp.SQL.Add('FROM RDB$RELATION_FIELDS rf');
+    aqTemp.SQL.Add('WHERE (rf.RDB$FIELD_NAME = ''ICON'')');
+    aqTemp.SQL.Add('AND (rf.RDB$RELATION_NAME = ''USER_PROGRAMS''))');
+    aqTemp.ExecSQL;
   end;
-  AFDQueryTemp.Close;
-  AFDQueryTemp.Free;
+  aqTemp.Close;
+  aqTemp.Free;
 end;
 
-procedure TDataModuleBase.SetFirm(const Value: Integer);
+procedure TDBase.SetFirma(const Value: Integer);
 begin
-  FFirm := Value;
+  FFirma := Value;
 end;
 
-procedure TDataModuleBase.SetDebugMode(const Value: Integer);
+procedure TDBase.SetDebugModus(const Value: Integer);
 begin
-  FDebugMode := Value;
+  FDebugModus := Value;
 end;
 
-function TDataModuleBase.SQLExecute(PSQL:string): Boolean;
-resourcestring
-  RSQLExecute = 'Fehler in SQLExecute:';
+
+// Allgemeines SQLExecute
+function TDBase.SQLExecute(ASQL:String):boolean;
+resourcestring rscSQLExecute1 = 'Fehler in SQLExecute:';
 begin
   Result := True;
-  with FDQuery do
+  with IB_DSQLExecute do
   begin
     SQL.Clear;
-    SQL.Text := PSQL;
+    SQL.Text := ASQL;
     Prepare;
     begin
       try
-        FDTransactionFelix.StartTransaction;
+        IB_TransactionFelix.StartTransaction;
         ExecSQL;
         UnPrepare;
-        FDTransactionFelix.CommitRetaining;
+        IB_TransactionFelix.CommitRetaining;
       except
         on E: Exception do
         begin
-          FDTransactionFelix.Rollback;
-          ShowMessage(IntToStr(E.HelpContext)+ RSQLExecute + ' ' + E.Message +
-            #13 + #13 + PSQL);
+          IB_TransactionFelix.Rollback;
+          ShowMessage(inttoStr(E.HelpContext)+rscSQLExecute1+' '+ E.Message +#13+#13+ASQL);
           Result := False;
         end;
       end;
@@ -284,91 +311,92 @@ begin
   end;
 end;
 
-function TDataModuleBase.CheckTablesFields(PTableName, PFieldName,
-  PFieldType:string): Boolean;
+
+function TDBase.CheckTablesFields(aTableName,aFieldName, aFieldTyp: String): Boolean;
 begin
-  Result := True;
-  with FDQuery do
+  Result := TRUE;
+  with IB_DSQLExecute do
   begin
     try
       SQL.Clear;
-      SQL.Add('ALTER TABLE ' + PTableName + ' ADD ' + PFieldName + ' ' +
-        PFieldType);
+      SQL.Add('ALTER TABLE '+aTableName+' ADD '+aFieldName+' '+aFieldTyp);
       try
         ExecSQL;
       except
         Result := False;
       end;
-    finally
+    Finally
     end;
   end;
 end;
 
-procedure TDataModuleBase.WriteToLog(PLogStr:string; PWrite: Boolean);
+procedure TDBase.WriteToLog (pLogStr: string; pWrite: Boolean);
 var
-  AFileName:string;
-  AHandle: TextFile;
+	fileName: string;
+	fHandle: TextFile;
+
 begin
   try
-    if((FDebugMode > 0)or PWrite)and(FLogPath <> '')then
+    if ((FDebugModus > 0) or pWrite) and (FLogPath <> '') then
     begin
       ForceDirectories(FLogPath);
-      AFileName := FLogPath + FormatDateTime('yymmdd_hh', Now)+ '00.log';
-      AssignFile(AHandle, AFileName);
-      if FileExists(AFileName)then
-        Append(AHandle)
-      else
-        Rewrite(AHandle);
-      PLogStr := '(' + TimeToStr(Sysutils.Time)+ ' Firma:' + IntToStr(Firm)+
-        ' Benutzer:' + LogProgramUser + ') ' + PLogStr;
+      fileName := FLogPath+FormatDateTime('yymmdd_hh',Now) + '00.log';
+      AssignFile(fHandle, fileName);
+
+      if FileExists (fileName) then Append(fHandle)
+      else Rewrite (fHandle);
+      pLogStr := '(' + TimeToStr(Sysutils.Time) +' Firma:'+IntToStr(Firma) +' Benutzer:'+LogProgramUser+ ') '+pLogStr;
+
       if FLogClientName <> '' then
-        PLogStr := PLogStr + ' (' + FLogClientName + ')';
-      WriteLn(AHandle, PLogStr);
-      CloseFile(AHandle);
+        pLogStr := pLogStr + ' (' + FLogClientName + ')';
+
+      WriteLn (fHandle, pLogStr);
+      CloseFile(fHandle);
     end;
   except
   end;
 end;
 
-procedure TDataModuleBase.SetLogPath(const Value:string);
-var
-  AYear, AMonth, ADay: Word;
-  APath, AppPath:string;
+procedure TDBase.SetLogPath(const Value: String);
+var aYear, aMonth, aDay: word;
+    aPath, AppPath: string;
 begin
-  DecodeDate(Date, AYear, AMonth, ADay);
-  if Value <> '' then
+  Decodedate(Date, aYear, aMonth, aDay);
+  if Value <> ''  then
     AppPath := Value
   else
     AppPath := ExtractFilePath(ParamStr(0));
-  APath := AppPath + '\' + IntToStr(AYear)+ '\' + IntToStr(AMonth)+ '\';
-  ForceDirectories(APath);
-  if DirectoryExists(APath)then
-    FLogPath := APath
+  aPath := AppPath+'\'+IntToStr(aYear)+'\'+IntToStr(aMonth)+'\';
+  ForceDirectories(aPath);
+  if DirectoryExists(aPath) then
+    FLogPath := aPath
   else
     FLogPath := Value;
 end;
 
-procedure TDataModuleBase.SetLogProgramUser(const Value:string);
+procedure TDBase.SetLogProgramUser(const Value: String);
 begin
   FLogProgramUser := Value;
 end;
 
-procedure TDataModuleBase.SetLogClientName(const Value:string);
+procedure TDBase.SetLogClientName(const Value: String);
 begin
   FLogClientName := Value;
 end;
 
-function TDataModuleBase.GetMaxID(ATableName, AField:string): Integer;
+function TDBase.GetMaxID(ATableName, aFeld: String): Integer;
 begin
-  with FDQueryGetNextID do
+  with QueryGetNextID do
   begin
     Close;
     SQL.Clear;
-    SQL.Add('SELECT GEN_ID(GEN_' + ATableName + '_ID, 1) FROM RDB$DATABASE');
+    SQL.Add('SELECT GEN_ID(GEN_'+aTableName+'_ID, 1) FROM RDB$DATABASE');
     Open;
     Result := FieldByName('Gen_ID').AsInteger;
     Close;
   end;
 end;
+
+
 
 end.
